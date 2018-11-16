@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>A gentle Introduction of Coding with R</title>
+  <meta name="description" content="Learning to code with R is a new literacy of the fast changing world. The book will takes you through the basic of learning R while unlearning other languages.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="A gentle Introduction of Coding with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Learning to code with R is a new literacy of the fast changing world. The book will takes you through the basic of learning R while unlearning other languages." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A gentle Introduction of Coding with R" />
+  
+  <meta name="twitter:description" content="Learning to code with R is a new literacy of the fast changing world. The book will takes you through the basic of learning R while unlearning other languages." />
+  
+
+<meta name="author" content="Masumbuko Semba">
+
+
+<meta name="date" content="2018-11-16">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="manipulating-data-with-dplyr.html">
+<link rel="next" href="visualisation-with-ggplot2.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Gentle Introduction of Coding with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="prerequisities.html"><a href="prerequisities.html"><i class="fa fa-check"></i>Prerequisities</a></li>
+<li class="chapter" data-level="" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="1" data-path="introduction-to-r-rstudio.html"><a href="introduction-to-r-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introduction to R, Rstudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r-rstudio.html"><a href="introduction-to-r-rstudio.html#what-is-r"><i class="fa fa-check"></i><b>1.1</b> What is R?</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="introduction-to-r-rstudio.html"><a href="introduction-to-r-rstudio.html#installing-r"><i class="fa fa-check"></i><b>1.1.1</b> Installing R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r-rstudio.html"><a href="introduction-to-r-rstudio.html#what-is-rstudio"><i class="fa fa-check"></i><b>1.2</b> What is RStudio?</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction-to-r-rstudio.html"><a href="introduction-to-r-rstudio.html#basic-featurs-of-rstudio"><i class="fa fa-check"></i><b>1.2.1</b> Basic Featurs of RStudio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html"><i class="fa fa-check"></i><b>2</b> R Rrogramming Language with Rstudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#operators"><i class="fa fa-check"></i><b>2.1</b> Operators</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#arithmetric"><i class="fa fa-check"></i><b>2.1.1</b> Arithmetric</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#functions"><i class="fa fa-check"></i><b>2.1.2</b> Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#setting-working-directory"><i class="fa fa-check"></i><b>2.2</b> Setting Working Directory</a></li>
+<li class="chapter" data-level="2.3" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#loading-packages"><i class="fa fa-check"></i><b>2.3</b> Loading packages</a></li>
+<li class="chapter" data-level="2.4" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#understanding-data-in-r"><i class="fa fa-check"></i><b>2.4</b> Understanding Data in R</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#data-types"><i class="fa fa-check"></i><b>2.4.1</b> Data Types</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#exercise"><i class="fa fa-check"></i><b>2.5</b> Exercise</a></li>
+<li class="chapter" data-level="2.6" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#data-frame"><i class="fa fa-check"></i><b>2.6</b> Data Frame</a></li>
+<li class="chapter" data-level="2.7" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#exercise-1"><i class="fa fa-check"></i><b>2.7</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="importing-data.html"><a href="importing-data.html"><i class="fa fa-check"></i><b>3</b> Importing data</a><ul>
+<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#comma-separated-.csv"><i class="fa fa-check"></i><b>3.1</b> <code>Comma-Separated (.csv)</code></a></li>
+<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#microsoft-excel.xlsx"><i class="fa fa-check"></i><b>3.2</b> <code>Microsoft Excel(.xlsx)</code></a></li>
+<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#basic-data-manipulation"><i class="fa fa-check"></i><b>3.3</b> Basic Data Manipulation</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="importing-data.html"><a href="importing-data.html#explore-the-data-frame"><i class="fa fa-check"></i><b>3.3.1</b> Explore the Data Frame</a></li>
+<li class="chapter" data-level="3.3.2" data-path="importing-data.html"><a href="importing-data.html#simmple-summary-statistics"><i class="fa fa-check"></i><b>3.3.2</b> simmple summary statistics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html"><i class="fa fa-check"></i><b>4</b> Manipulating Data with <code>dplyr</code></a><ul>
+<li class="chapter" data-level="4.1" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#why-use-dplyr"><i class="fa fa-check"></i><b>4.1</b> Why use dplyr?</a></li>
+<li class="chapter" data-level="4.2" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#dplyr-functionality"><i class="fa fa-check"></i><b>4.2</b> dplyr functionality</a></li>
+<li class="chapter" data-level="4.3" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#filter-keep-rows-matching-criteria"><i class="fa fa-check"></i><b>4.3</b> filter: Keep rows matching criteria</a></li>
+<li class="chapter" data-level="4.4" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#select-pick-columns-by-name"><i class="fa fa-check"></i><b>4.4</b> select: Pick columns by name</a></li>
+<li class="chapter" data-level="4.5" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#chaining-or-pipelining"><i class="fa fa-check"></i><b>4.5</b> “Chaining” or “Pipelining”</a></li>
+<li class="chapter" data-level="4.6" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#pipping-with"><i class="fa fa-check"></i><b>4.6</b> Pipping with</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#choosing-columns-select-rename"><i class="fa fa-check"></i><b>4.6.1</b> Choosing columns: <code>select()</code>, <code>rename()</code></a></li>
+<li class="chapter" data-level="4.6.2" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#choosing-rows-filter-between-slice-sample_n-top_n-distinct"><i class="fa fa-check"></i><b>4.6.2</b> Choosing rows: filter, between, slice, sample_n, top_n, distinct</a></li>
+<li class="chapter" data-level="4.6.3" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#adding-new-variables-mutate-transmute-add_rownames"><i class="fa fa-check"></i><b>4.6.3</b> Adding new variables: mutate, transmute, add_rownames</a></li>
+<li class="chapter" data-level="4.6.4" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#grouping-and-counting-summarise-tally-count-group_size-n_groups-ungroup"><i class="fa fa-check"></i><b>4.6.4</b> Grouping and counting: summarise, tally, count, group_size, n_groups, ungroup</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="reshaping-data-with-tidyr.html"><a href="reshaping-data-with-tidyr.html"><i class="fa fa-check"></i><b>5</b> Reshaping data with tidyr</a><ul>
+<li class="chapter" data-level="5.1" data-path="reshaping-data-with-tidyr.html"><a href="reshaping-data-with-tidyr.html#gather-function"><i class="fa fa-check"></i><b>5.1</b> <code>gather( )</code> function:</a></li>
+<li class="chapter" data-level="5.2" data-path="reshaping-data-with-tidyr.html"><a href="reshaping-data-with-tidyr.html#separate-function"><i class="fa fa-check"></i><b>5.2</b> <code>separate( )</code> function:</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="visualisation-with-ggplot2.html"><a href="visualisation-with-ggplot2.html"><i class="fa fa-check"></i><b>6</b> Visualisation with <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="6.1" data-path="visualisation-with-ggplot2.html"><a href="visualisation-with-ggplot2.html#univariate-distributions"><i class="fa fa-check"></i><b>6.1</b> Univariate Distributions</a></li>
+<li class="chapter" data-level="6.2" data-path="visualisation-with-ggplot2.html"><a href="visualisation-with-ggplot2.html#continuous-variables"><i class="fa fa-check"></i><b>6.2</b> Continuous Variables</a></li>
+<li class="chapter" data-level="6.3" data-path="visualisation-with-ggplot2.html"><a href="visualisation-with-ggplot2.html#graphics-with-ggplot"><i class="fa fa-check"></i><b>6.3</b> Graphics with ggplot</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="visualisation-with-ggplot2.html"><a href="visualisation-with-ggplot2.html#categorical-data"><i class="fa fa-check"></i><b>6.3.1</b> Categorical Data</a></li>
+<li class="chapter" data-level="6.3.2" data-path="visualisation-with-ggplot2.html"><a href="visualisation-with-ggplot2.html#numerical-data"><i class="fa fa-check"></i><b>6.3.2</b> Numerical Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html"><i class="fa fa-check"></i><b>7</b> Adding Equations to Your Document</a><ul>
+<li class="chapter" data-level="7.1" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#subscripts-and-superscripts"><i class="fa fa-check"></i><b>7.1</b> Subscripts and Superscripts</a></li>
+<li class="chapter" data-level="7.2" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#square-roots"><i class="fa fa-check"></i><b>7.2</b> Square Roots</a></li>
+<li class="chapter" data-level="7.3" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#fractions"><i class="fa fa-check"></i><b>7.3</b> Fractions</a></li>
+<li class="chapter" data-level="7.4" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#summation-expressions"><i class="fa fa-check"></i><b>7.4</b> Summation Expressions</a></li>
+<li class="chapter" data-level="7.5" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#greek-letters"><i class="fa fa-check"></i><b>7.5</b> Greek Letters</a></li>
+<li class="chapter" data-level="7.6" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#special-symbols"><i class="fa fa-check"></i><b>7.6</b> Special Symbols</a></li>
+<li class="chapter" data-level="7.7" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#special-functions"><i class="fa fa-check"></i><b>7.7</b> Special Functions</a></li>
+<li class="chapter" data-level="7.8" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#mathematical-equations."><i class="fa fa-check"></i><b>7.8</b> Mathematical equations.</a></li>
+<li class="chapter" data-level="7.9" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#the-binomial-probability"><i class="fa fa-check"></i><b>7.9</b> The binomial probability:</a></li>
+<li class="chapter" data-level="7.10" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#aligning-equations-with-comments"><i class="fa fa-check"></i><b>7.10</b> Aligning Equations with Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A gentle Introduction of Coding with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="reshaping-data-with-tidyr" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Reshaping data with tidyr</h1>
+<p>Most of the time, our data is in the form of a data frame and we are interested in exploring the relationships. However most procedures in R expect the data to show up in a ‘long’ format where each row is an observation and each column is a variable. In practice, the data is often not stored like that and the data comes to us with repeated observations included on a single row. This is often done as a memory saving technique or because there is some structure in the data that makes the ‘wide’ format attractive. As a result, we need a way to convert data from ‘wide’ to ‘long’ and vice-versa.</p>
+<p><code>tidyr</code> is a one such package which was built for the sole purpose of simplifying the process of creating tidy data <span class="citation">(Wickham and Henry <a href="#ref-tidyr">2018</a>)</span>. This tutorial provides you with the basic understanding of the four fundamental functions of data tidying that tidyr provides:</p>
+<ul>
+<li><code>gather()</code> makes “wide” data longer</li>
+<li><code>spread()</code> makes “long” data wider</li>
+<li><code>separate()</code> splits a single column into multiple columns</li>
+<li><code>unite()</code> combines multiple columns into a single column</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(dplyr)
+<span class="kw">require</span>(readr)
+<span class="kw">require</span>(lubridate)
+<span class="kw">require</span>(readxl)
+<span class="kw">require</span>(haven)
+<span class="kw">require</span>(ggplot2)
+<span class="kw">require</span>(kableExtra)
+<span class="kw">require</span>(tidyr)</code></pre></div>
+<div id="gather-function" class="section level2">
+<h2><span class="header-section-number">5.1</span> <code>gather( )</code> function:</h2>
+<p>There are times when our data is considered unstacked and a common attribute of concern is spread out across columns. To reformat the data such that these common attributes are gathered together as a single variable, the gather() function will take multiple columns and collapse them into key-value pairs, duplicating all other columns as needed. in short <code>gather()</code> function reshape wide format to long format (Figure <a href="reshaping-data-with-tidyr.html#fig:fig11">5.1</a>)</p>
+<div class="figure"><span id="fig:fig11"></span>
+<img src="tidy.png" alt="Reshaped data set from wide to long format" width="100%" />
+<p class="caption">
+Figure 5.1: Reshaped data set from wide to long format
+</p>
+</div>
+<p>The data in table <a href="reshaping-data-with-tidyr.html#tab:tab14">5.1</a> data is considered wide since the time variable (represented as quarters) is structured such that each quarter represents a variable. To re-structure the time component as an individual variable, we can gather each quarter within one column variable and also gather the values associated with each quarter in a second column variable.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wide =<span class="st"> </span><span class="kw">read_table2</span>(<span class="st">&quot;wide_data.txt&quot;</span>)</code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Group = col_integer(),
+##   Year = col_integer(),
+##   Qtr.1 = col_integer(),
+##   Qtr.2 = col_integer(),
+##   Qtr.3 = col_integer(),
+##   Qtr.4 = col_integer()
+## )</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wide <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">kable</span>(<span class="st">&quot;html&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Revenue data in Wide form&quot;</span>)<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">column_spec</span>(<span class="dt">column =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">width =</span> <span class="st">&quot;3cm&quot;</span>, <span class="dt">color =</span> <span class="dv">1</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">add_header_above</span>(<span class="kw">c</span>(<span class="st">&quot;&quot;</span> , <span class="st">&quot;&quot;</span>, <span class="st">&quot;Income per Quarter&quot;</span> =<span class="st"> </span><span class="dv">4</span>), <span class="dt">line =</span> T)</code></pre></div>
+<table>
+<caption>
+<span id="tab:tab14">Table 5.1: </span>Revenue data in Wide form
+</caption>
+<thead>
+<tr>
+<th style="border-bottom:hidden" colspan="1">
+</th>
+<th style="border-bottom:hidden" colspan="1">
+</th>
+<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+Income per Quarter
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+Group
+</th>
+<th style="text-align:right;">
+Year
+</th>
+<th style="text-align:right;">
+Qtr.1
+</th>
+<th style="text-align:right;">
+Qtr.2
+</th>
+<th style="text-align:right;">
+Qtr.3
+</th>
+<th style="text-align:right;">
+Qtr.4
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+2006
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+15
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+16
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+19
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+2007
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+12
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+13
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+27
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+2008
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+22
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+22
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+24
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+2009
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+10
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+14
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+20
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+2006
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+12
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+13
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+25
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+2007
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+16
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+14
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+21
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+2008
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+13
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+11
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+29
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+2009
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+23
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+20
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+26
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+2006
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+11
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+12
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+22
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+2007
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+13
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+11
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+27
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+2008
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+17
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+12
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+23
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+2009
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+14
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+9
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+31
+</td>
+<td style="text-align:right;width: 3cm; color: 1;">
+24
+</td>
+</tr>
+</tbody>
+</table>
+<p>We use the <code>gather()</code> function to convert data in table <a href="reshaping-data-with-tidyr.html#tab:tab14">5.1</a> to long form widely known as indexed data shown in table <a href="reshaping-data-with-tidyr.html#tab:tab15">5.2</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">long =<span class="st"> </span>wide <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;key&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;Revenue&quot;</span>, <span class="dv">3</span><span class="op">:</span><span class="dv">6</span>)</code></pre></div>
+<table>
+<caption>
+<span id="tab:tab15">Table 5.2: </span>Revenue data in long form
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Group
+</th>
+<th style="text-align:center;">
+Year
+</th>
+<th style="text-align:center;">
+key
+</th>
+<th style="text-align:center;">
+Revenue
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2006
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2007
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2008
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2009
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2006
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2007
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2008
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2009
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2006
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2007
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2008
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2009
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2006
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2007
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2008
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2009
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2006
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2007
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2008
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2009
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2006
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2007
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2008
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2009
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2006
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2007
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2008
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2009
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2006
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2007
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2008
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+29
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2009
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2006
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2007
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2008
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2009
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+31
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2006
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.4
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2007
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.4
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2008
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.4
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+1
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2009
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.4
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2006
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.4
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2007
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.4
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2008
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.4
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+2
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2009
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.4
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2006
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.4
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2007
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.4
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2008
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.4
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+3
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+2009
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Qtr.4
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+24
+</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>spread() function is a complement function</code>gather()` as it convert long format dataset into wide form</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wide.wide =<span class="st"> </span>long <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">spread</span>(<span class="dt">key =</span> <span class="st">&quot;key&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;Revenue&quot;</span>)</code></pre></div>
+</div>
+<div id="separate-function" class="section level2">
+<h2><span class="header-section-number">5.2</span> <code>separate( )</code> function:</h2>
+<p>Many times a single column variable will capture multiple variables, or even parts of a variable you just don’t care about. Examples include is data in table <a href="reshaping-data-with-tidyr.html#tab:tab16">5.3</a>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">usa =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;separate.csv&quot;</span>)</code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Grp_Ind = col_character(),
+##   Yr_Mo = col_character(),
+##   City_State = col_character(),
+##   First_Last = col_character(),
+##   Extra_variable = col_character()
+## )</code></pre>
+<table>
+<caption>
+<span id="tab:tab16">Table 5.3: </span>Messy data with variable combined
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Grp_Ind
+</th>
+<th style="text-align:center;">
+Yr_Mo
+</th>
+<th style="text-align:center;">
+City_State
+</th>
+<th style="text-align:center;">
+First_Last
+</th>
+<th style="text-align:center;">
+Extra_variable
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;width: 5cm; color: 1;">
+1.a
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+2006_Jan
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Dayton (OH)
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+George Washington
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+XX01person_1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 5cm; color: 1;">
+1.b
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+2006_Feb
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Grand Forks (ND)
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+John Adams
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+XX02person_2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 5cm; color: 1;">
+1.c
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+2006_Mar
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Fargo (ND)
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Thomas Jefferson
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+XX03person_3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 5cm; color: 1;">
+2.a
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+2007_Jan
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Rochester (MN)
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+James Madison
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+XX04person_4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 5cm; color: 1;">
+2.b
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+2007_Feb
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Dubuque (IA)
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+James Monroe
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+XX05person_5
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 5cm; color: 1;">
+2.c
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+2007_Mar
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Ft. Collins (CO)
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+John Adams
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+XX06person_6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 5cm; color: 1;">
+3.a
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+2008_Jan
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Lake City (MN)
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Andrew Jackson
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+XX07person_7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 5cm; color: 1;">
+3.b
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+2008_Feb
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Rushford (MN)
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Martin Van Buren
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+XX08person_8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 5cm; color: 1;">
+3.c
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+2008_Mar
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Unknown
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+William Harrison
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+XX09person_9
+</td>
+</tr>
+</tbody>
+</table>
+<p>In each of these cases, our objective may be to separate characters within the variable string. This can be accomplished using the <code>separate()</code> function which splits a single variable into multiple variables. Table <a href="reshaping-data-with-tidyr.html#tab:tab17">5.4</a> show the tidy data after the variables were separated. The complement function to <code>separate()</code> is the <code>unite()</code>, which merge two variables into one.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">usa.sep =<span class="st"> </span>usa <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">separate</span>(Grp_Ind, <span class="kw">c</span>(<span class="st">&quot;Group&quot;</span>, <span class="st">&quot;Individual&quot;</span>),  <span class="dt">remove =</span> <span class="ot">TRUE</span>, <span class="dt">convert =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">separate</span>(Yr_Mo, <span class="kw">c</span>(<span class="st">&quot;Year&quot;</span>, <span class="st">&quot;Month&quot;</span>),  <span class="dt">remove =</span> <span class="ot">TRUE</span>, <span class="dt">convert =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">separate</span>(City_State, <span class="kw">c</span>(<span class="st">&quot;City&quot;</span>, <span class="st">&quot;State&quot;</span>),  <span class="dt">remove =</span> <span class="ot">TRUE</span>, <span class="dt">convert =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">separate</span>(First_Last, <span class="kw">c</span>(<span class="st">&quot;First&quot;</span>, <span class="st">&quot;Last&quot;</span>),  <span class="dt">remove =</span> <span class="ot">TRUE</span>, <span class="dt">convert =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">separate</span>(Extra_variable, <span class="kw">c</span>(<span class="st">&quot;Extra&quot;</span>, <span class="st">&quot;Variable&quot;</span>),  <span class="dt">remove =</span> <span class="ot">TRUE</span>, <span class="dt">convert =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## Warning: Expected 2 pieces. Additional pieces discarded in 8 rows [1, 2, 3,
+## 4, 5, 6, 7, 8].</code></pre>
+<pre><code>## Warning: Expected 2 pieces. Missing pieces filled with `NA` in 1 rows [9].</code></pre>
+<pre><code>## Warning: Expected 2 pieces. Additional pieces discarded in 1 rows [8].</code></pre>
+<table>
+<caption>
+<span id="tab:tab17">Table 5.4: </span>Tidy data with variable separated
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Group
+</th>
+<th style="text-align:center;">
+Individual
+</th>
+<th style="text-align:center;">
+Year
+</th>
+<th style="text-align:center;">
+Month
+</th>
+<th style="text-align:center;">
+City
+</th>
+<th style="text-align:center;">
+State
+</th>
+<th style="text-align:center;">
+First
+</th>
+<th style="text-align:center;">
+Last
+</th>
+<th style="text-align:center;">
+Extra
+</th>
+<th style="text-align:center;">
+Variable
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;width: 5cm; color: 1;">
+1
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+a
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+2006
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Jan
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Dayton
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+OH
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+George
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Washington
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+XX01person
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 5cm; color: 1;">
+1
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+b
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+2006
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Feb
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Grand
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Forks
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+John
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Adams
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+XX02person
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 5cm; color: 1;">
+1
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+c
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+2006
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Mar
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Fargo
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+ND
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Thomas
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Jefferson
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+XX03person
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 5cm; color: 1;">
+2
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+a
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+2007
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Jan
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Rochester
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+MN
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+James
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Madison
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+XX04person
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 5cm; color: 1;">
+2
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+b
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+2007
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Feb
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Dubuque
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+IA
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+James
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Monroe
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+XX05person
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 5cm; color: 1;">
+2
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+c
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+2007
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Mar
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Ft
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Collins
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+John
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Adams
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+XX06person
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 5cm; color: 1;">
+3
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+a
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+2008
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Jan
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Lake
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+City
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Andrew
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Jackson
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+XX07person
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 5cm; color: 1;">
+3
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+b
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+2008
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Feb
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Rushford
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+MN
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Martin
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Van
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+XX08person
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 5cm; color: 1;">
+3
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+c
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+2008
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Mar
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Unknown
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+NA
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+William
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+Harrison
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+XX09person
+</td>
+<td style="text-align:center;width: 5cm; color: 1;">
+9
+</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-tidyr">
+<p>Wickham, Hadley, and Lionel Henry. 2018. <em>Tidyr: Easily Tidy Data with ’Spread()’ and ’Gather()’ Functions</em>. <a href="https://CRAN.R-project.org/package=tidyr" class="uri">https://CRAN.R-project.org/package=tidyr</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="manipulating-data-with-dplyr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visualisation-with-ggplot2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["r_basic.pdf", "r_basic.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

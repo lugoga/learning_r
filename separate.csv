@@ -1,0 +1,10 @@
+Grp_Ind,Yr_Mo,City_State,First_Last,Extra_variable
+1.a,2006_Jan,Dayton (OH),George Washington,XX01person_1
+1.b,2006_Feb,Grand Forks (ND),John Adams,XX02person_2
+1.c,2006_Mar,Fargo (ND),Thomas Jefferson,XX03person_3
+2.a,2007_Jan,Rochester (MN),James Madison,XX04person_4
+2.b,2007_Feb,Dubuque (IA),James Monroe,XX05person_5
+2.c,2007_Mar,Ft. Collins (CO),John Adams,XX06person_6
+3.a,2008_Jan,Lake City (MN),Andrew Jackson,XX07person_7
+3.b,2008_Feb,Rushford (MN),Martin Van Buren,XX08person_8
+3.c,2008_Mar,Unknown,William Harrison,XX09person_9

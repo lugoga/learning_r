@@ -1,0 +1,280 @@
+
+# Manipulating Data with `dplyr`
+Although many fundamental data processing functions exist in R, they have been a bit convoluted to date and have lacked consistent coding and the ability to easily flow together. This leads to difficult-to-read nested functions and/or choppy code. R Studio is driving a lot of new packages to collate data management tasks and better integrate them with other analysis activities. As a result, a lot of data processing tasks are becoming packaged in more cohesive and consistent ways, which leads to:
+
++ More efficient code
++ Easier to remember syntax
++ Easier to read syntax
+
+The `dplyr` package provides a set of functions for efficiently manipulating datasets in R writen by @dplyr. The package make it easy to `transform` and `summarise` tabular data with rows and columns. The `dplyr` packages contains set of functions---verbs that perfom most common data manipulation tasks like 
+
+
+When working with data you must:
+
++ Figure out what you want to do.
++ Describe those tasks in the form of a computer program.
++ Execute the program.
+
+The dplyr package makes these steps fast and easy:
+
++ By constraining your options, it helps you think about your data manipulation challenges.
++ It provides simple "verbs", functions that correspond to the most common data manipulation tasks, to help you translate your thoughts into code.
++ It uses efficient backends, so you spend less time waiting for the computer.
+
+##  Why use dplyr?
+
+1. Great for data exploration and manipulation
+2. Intuitive to write and easy to read, especially when using the chaining syntax
+3. Fast on data frame---tabular dataset
+
+## dplyr functionality
+
++ Five basic verbs: 
+  + `select()` to select columns based on their names
+  + `filter()` to rows in data frame
+  + `arrange()` to re-order or arrange the rows in ascending or descending order
+  + `mutate()`  to create new columns---add new variable
+  + `summarise()` to make a summary of variable(s)
+  + `group_by()` to group observation
+  + `sample_n()` and `rename()`to make random sample from the data set
+
+The  `group_by()` function perform other common task which are related to the *split-apply-combine* concept. The `dplyr` package comes with the pipe operateor `%>%` from the `magrittr` package. The pipe operator is very useful for combining several functions in a chain.
+
+
+## filter: Keep rows matching criteria
+
+* Base R approach to filtering forces you to repeat the data frame's name
+* dplyr approach is simpler to write and read
+* Command structure (for all dplyr verbs):
+    * first argument is a data frame
+    * return value is a data frame
+    * nothing is modified in place
+* Note: dplyr generally does not preserve row names
+
+ 
+```{r packages-dplyr, warning=FALSE, message=FALSE, comment=""}
+require(dplyr)
+require(readr)
+require(lubridate)
+require(readxl)
+require(haven)
+require(ggplot2)
+require(kableExtra)
+
+```
+
+
+```{r}
+flights = read_csv("flights.csv") %>%
+  select(-X1)
+```
+
+```{r results='hide'}
+# base R approach to view all flights on January 1
+flights[flights$month==1 & flights$day==1, ]
+```
+
+```{r}
+# dplyr approach
+# note: you can use comma or ampersand to represent AND condition
+filter(flights, month==1, day==1)
+# use pipe for OR condition
+```
+
+
+## select: Pick columns by name
+
+* Base R approach is awkward to type and to read
+* dplyr approach uses similar syntax to `filter`
+* Like a SELECT in SQL
+
+```{r results='hide'}
+# base R approach to select DepTime, and ArrTime
+flights[, c("dep_time", "arr_time")]
+```
+
+```{r}
+# dplyr approach
+select(flights, dep_time, arr_time)
+# use colon to select multiple contiguous columns, and use `contains` to match columns by name
+# note: `starts_with`, `ends_with`, and `matches` (for regular expressions) can also be used to match columns by name
+select(flights, year:day, contains("taxi"), contains("delay"))
+```
+
+
+## "Chaining" or "Pipelining"
+@magrittr developed a `magrittr` package, which has changed the way coding is done in R. It introduce the pipe operator `%>%` widely known as `THEN`. Usual way to perform multiple operations in R was through nesting. However, `magrittr` package introduced a natural order by using the `%>%` chain multiple operations
+
+```{r results='hide'}
+# nesting method to select UniqueCarrier and DepDelay columns and filter for delays over 60 minutes
+filter(select(flights, carrier, dep_delay), dep_delay > 60)
+```
+
+```{r}
+# chaining method
+flights %>%
+    select(carrier, dep_delay) %>%
+    filter(dep_delay > 60)
+```
+
+* Chaining increases readability significantly when there are many commands
+* Operator is automatically imported from the [magrittr](https://github.com/smbache/magrittr) package
+* Can be used to replace nesting in R commands outside of dplyr. 
+
+For example, we can create two vectors and calculate Euclidian distance between them using the mathematical equation \@ref(eq:eq1)
+
+
+$$
+\begin{equation}
+\theta\: = \: \sqrt {\sum (x_1 - x_2)^2} (\#eq:eq1)
+\end{equation}
+$$
+
+
+
+```{r results='hide'}
+x1 <- 1:5; x2 <- 2:6
+sqrt(sum((x1-x2)^2))
+```
+
+```{r}
+# chaining method
+(x1-x2)^2 %>% sum() %>% sqrt()
+```
+
+## Pipping with 
+
+### Choosing columns: `select()`, `rename()`
+Often you work with large datasets with many columns but only a few are actually of interest to you. `select()` allows you to rapidly zoom in on a useful subset using operations that usually only work on numeric variable positions:
+```{r}
+# besides just using select() to pick columns...
+flights %>% 
+  select(carrier, flight)
+
+```
+
+```{r}
+# ...you can use the minus sign to hide columns
+flights %>% 
+  select(-month, -day)
+```
+
+```{r results='hide'}
+# hide a range of columns
+flights %>% 
+  select(-(dep_time:arr_delay))
+
+```
+
+```{r}
+# hide any column with a matching name
+flights %>% 
+  select(-contains("time"))
+```
+
+```{r}
+# pick columns using a character vector of column names
+cols <- c("carrier", "flight", "tailnum")
+flights %>% 
+  select(one_of(cols))
+```
+
+```{r}
+# select() can be used to rename columns, though all columns not mentioned are dropped
+flights %>% 
+  select(tail = tailnum)
+
+```
+
+```{r}
+# rename() does the same thing, except all columns not mentioned are kept
+flights %>% 
+  rename(tail = tailnum)
+```
+
+
+### Choosing rows: filter, between, slice, sample_n, top_n, distinct
+`filter()` allows you to select a subset of rows in a data frame. Like all single verbs, the first argument is the tibble (or data frame). The second and subsequent arguments refer to variables within that data frame, selecting rows where the expression is TRUE. For example, we can select all flights on departed between 6:00 and 6:05 in the morning  with:
+```{r}
+flights %>% 
+  filter(dep_time >= 600, dep_time <= 605)
+```
+
+```{r results='hide'}
+# between() is a concise alternative for determing if numeric values fall in a range
+flights %>% 
+  filter(between(dep_time, 600, 605))
+```
+
+```{r}
+# side note: is.na() can also be useful when filtering
+flights %>% 
+  filter(!is.na(dep_time))
+```
+
+
+### Adding new variables: mutate, transmute, add_rownames
+Besides selecting sets of existing columns, it's often useful to add new columns that are functions of existing columns. This is the job of `mutate()`:
+```{r}
+# mutate() creates a new variable (and keeps all existing variables)
+flights %>% mutate(speed = distance/air_time*60)
+```
+
+```{r}
+# transmute() only keeps the new variables
+flights %>% transmute(speed = distance/air_time*60)
+```
+
+
+```{r}
+# example data frame with row names
+mtcars %>% head()
+# add_rownames() turns row names into an explicit variable
+mtcars %>% add_rownames("model") %>% head()
+# side note: dplyr no longer prints row names (ever) for local data frames
+mtcars %>% tbl_df()
+```
+
+
+### Grouping and counting: summarise, tally, count, group_size, n_groups, ungroup
+ The verb `summarise()` collapses a data frame to a single row.It's not that useful until chained with the `group_by()` verb below.
+```{r}
+# summarise() can be used to count the number of rows in each group
+flights %>% group_by(month) %>% summarise(cnt = n())
+```
+
+```{r results='hide'}
+# tally() and count() can do this more concisely
+flights %>% group_by(month) %>% tally()
+```
+
+```{r}
+# you can sort by the count
+flights %>% group_by(month) %>% summarise(cnt = n()) %>% arrange(desc(cnt))
+```
+
+
+```{r}
+# you can sum over a specific variable instead of simply counting rows
+flights %>% group_by(month) %>% summarise(dist = sum(distance))
+```
+
+```{r results='hide'}
+# tally() and count() have a wt parameter for this purpose
+flights %>% group_by(month) %>% tally(wt = distance)
+flights %>% count(month, wt = distance)
+```
+
+```{r}
+# group_size() returns the counts as a vector
+flights %>% group_by(month) %>% group_size()
+# n_groups() simply reports the number of groups
+flights %>% group_by(month) %>% n_groups()
+```
+
+```{r, comment= ""}
+# group by two variables, summarise, arrange (output is possibly confusing)
+flights %>% group_by(month, day) %>% summarise(cnt = n()) %>% arrange(desc(cnt)) %>% print(n = 40)
+# ungroup() before arranging to arrange across all groups
+flights %>% group_by(month, day) %>% summarise(cnt = n()) %>% ungroup() %>% arrange(desc(cnt))
+```

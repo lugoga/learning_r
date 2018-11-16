@@ -1,0 +1,754 @@
+##mypackages = installed.packages()
+##mypackages = mypackages %>% as.tibble() %>% select(Package, Version, Depends)
+
+Package,Version,Depends
+abind,1.4-5,R (>= 1.5.0)
+acepack,1.4.1,NA
+actuar,2.3-1,R (>= 3.3.0)
+adehabitatMA,0.3.12,"R (>= 2.10.0), sp, methods"
+akima,0.6-2,R (>= 2.0.0)
+animation,2.5,R (>= 2.14.0)
+anomaly,1.1.0,R (>= 2.10)
+anytime,0.3.1,R (>= 3.2.0)
+aRxiv,0.5.16,R (>= 3.0.0)
+ascii,2.1,"R (>= 2.13), utils, methods"
+assertthat,0.2.0,NA
+backports,1.1.2,R (>= 3.0.0)
+bartMachine,1.2.4.2,"R (>= 2.14.0), rJava (>= 0.9-8), bartMachineJARs (>= 1.0),
+car, randomForest, missForest"
+bartMachineJARs,1.1,"R (>= 2.14.0), rJava (>= 0.9-8)"
+base64enc,0.1-3,R (>= 2.9.0)
+BatchJobs,1.7,"R (>= 3.0.0), BBmisc (>= 1.9), methods"
+bayesm,3.1-0.1,R (>= 3.2.0)
+bayesplot,1.6.0,R (>= 3.1.0)
+BayesXsrc,3.0-1,R (>= 2.8.0)
+BB,2014.10-1,R (>= 2.6.1)
+BBmisc,1.11,NA
+bdsmatrix,1.3-3,"methods, R (>= 2.0.0)"
+beginr,0.1.3,R (>= 3.1.0)
+betareg,3.1-1,R (>= 3.0.0)
+BH,1.66.0-1,NA
+BiasedUrn,1.07,NA
+bibtex,0.4.2,R (>= 3.0.2)
+binda,1.0.3,"R (>= 3.0.2), entropy (>= 1.2.1)"
+bindr,0.1.1,NA
+bindrcpp,0.2.2,NA
+binr,1.1,"R (>= 2.15),"
+bit,1.1-14,R (>= 2.9.2)
+bit64,0.9-7,"R (>= 3.0.1), bit (>= 1.1-12), utils, methods, stats"
+bitops,1.0-6,NA
+blob,1.1.1,NA
+blogdown,0.8.1,NA
+BMA,3.18.9,"survival, leaps, robustbase, inline, rrcov"
+bmp,0.3,NA
+bookdown,0.7,NA
+brew,1.0-6,NA
+brnn,0.7,"R (>= 3.1.2), Formula"
+broom,0.5.0,R (>= 3.1)
+bst,0.3-15,gbm
+btergm,1.9.3,"R (>= 2.14.0), xergm.common (>= 1.7.7), ggplot2 (>= 2.0.0)"
+ca,0.70,R (>= 3.0.0)
+Cairo,1.5-9,R (>= 2.4.0)
+callr,3.0.0,NA
+candisc,0.8-0,"car, heplots (>= 0.8-6), graphics, stats"
+captioner,2.2.3,NA
+car,3.0-2,"R (>= 3.2.0), carData (>= 3.0-0)"
+carData,3.0-1,R (>= 3.0)
+care,1.1.10,"R (>= 3.0.2), corpcor (>= 1.6.8)"
+caret,6.0-80,"R (>= 2.10), lattice (>= 0.20), ggplot2"
+caTools,1.17.1.1,R (>= 2.2.0)
+cellranger,1.1.0,R (>= 3.0.0)
+changepoint,2.2.2,"R(>= 3.1), methods, stats, zoo(>= 0.9-1)"
+checkmate,1.8.5,R (>= 3.0.0)
+citr,0.2.0,R (>= 3.0.0)
+classInt,0.2-3,"R (>= 2.2), spData (>= 0.2.6.2)"
+cli,1.0.1,R (>= 2.10)
+clipr,0.4.1,NA
+clubSandwich,0.3.2,R (>= 3.0.0)
+clue,0.3-56,R (>= 3.2.0)
+clusterSEs,2.5,"R (>= 3.3.0), AER, Formula, plm, stats"
+clValid,0.6-6,"R (>= 2.0), cluster"
+cmaes,1.0-11,R (>= 2.9.0)
+cmaesr,1.0.3,"ParamHelpers (>= 1.8), BBmisc (>= 1.6), checkmate (>= 1.1),
+smoof (>= 1.4)"
+coda,0.19-1,R (>= 2.14.0)
+colorRamps,2.3,NA
+colorspace,1.3-2,"R (>= 2.13.0), methods"
+commonmark,1.5,NA
+compositions,1.40-2,"R (>= 2.2.0), tensorA, robustbase, energy, bayesm"
+CompQuadForm,1.4.3,NA
+conf.design,2.0.0,NA
+corpcor,1.6.9,R (>= 3.0.2)
+corrgram,1.13,NA
+covr,3.2.0,"R (>= 3.1.0), methods"
+cowplot,0.9.3,"R (>= 3.3.0), ggplot2 (>= 2.1.0),"
+cranlogs,2.1.0,NA
+crayon,1.3.4,NA
+crminer,0.1.4,NA
+crosstalk,1.0.0,NA
+crossval,1.0.3,R (>= 3.0.2)
+crs,0.15-31,NA
+crul,0.6.0,NA
+curl,3.2,R (>= 3.0.0)
+CVST,0.2-2,"kernlab,Matrix"
+d3heatmap,0.6.1.2,NA
+data.table,1.11.6,R (>= 3.1.0)
+data.tree,0.7.8,R (>= 3.0)
+date,1.2-38,NA
+DBI,1.0.0,"R (>= 3.0.0), methods"
+dbplyr,1.2.2,R (>= 3.2)
+ddalpha,1.3.4,"R (>= 2.10), stats, utils, graphics, grDevices, MASS, class,
+robustbase, sfsmisc, geometry"
+debugme,1.1.0,NA
+deepnet,0.2,NA
+deldir,0.1-15,R (>= 0.99)
+dendextend,1.8.0,R (>= 3.0.0)
+DEoptimR,1.0-8,NA
+desc,1.2.0,R (>= 3.1.0)
+DescTools,0.99.25,"base, stats, R (>= 3.3.0)"
+deSolve,1.21,R (>= 2.15.0)
+devtools,1.13.6,R (>= 3.0.2)
+dfoptim,2018.2-1,R (>= 2.10.1)
+dggridR,2.0.3,"R (>= 3.4.0), rgdal (>= 1.1), ggplot2 (>= 2.1), dplyr (>=
+0.4), sp (>= 1.2)"
+DiagrammeR,1.0.0,R (>= 3.2.0)
+DiceKriging,1.5.6,methods
+DiceOptim,2.0,"DiceKriging (>= 1.2), methods"
+dichromat,2.0-0,"R (>= 2.10), stats"
+digest,0.6.17,R (>= 3.1.0)
+digitize,0.0.4,R (>= 2.2.0)
+dimRed,0.1.0,"R (>= 3.0.0), methods, DRR"
+diptest,0.75-7,NA
+directlabels,2018.05.22,NA
+DiscriMiner,0.1-29,R (>= 2.15.0)
+dismo,1.1-4,"R (>= 3.2.0), methods, raster (>= 2.5-2), sp (>= 1.2-0)"
+DistributionUtils,0.5-1,"R (>= 2.3.0), RUnit"
+DoE.base,1.1-1,"R (>= 2.10), grid, conf.design"
+doMPI,0.2.2,"R (>= 2.14.0), foreach(>= 1.3.0), iterators(>= 1.0.0), Rmpi(>=
+0.5-7)"
+dotCall64,1.0-0,R (>= 3.1)
+downloader,0.4,NA
+dplyr,0.7.6,R (>= 3.1.2)
+DRR,0.0.3,"kernlab, CVST, Matrix"
+DT,0.4,NA
+dunn.test,1.3.5,NA
+dygraphs,1.1.1.6,R (>= 3.0)
+e1071,1.7-0,NA
+eaf,1.8,R (>= 2.10.0)
+Ecdat,0.3-1,"R (>= 2.10), Ecfun"
+Ecfun,0.1-7,R (>= 3.0.1)
+eha,2.6.0,"R (>= 3.0.0), survival (>= 2.42-5)"
+elasticnet,1.1.1,"R (>= 2.10), lars"
+ellipse,0.4.1,"R (>= 2.0.0),graphics,stats"
+emdbook,1.3.10,NA
+emmeans,1.2.4,R (>= 3.2)
+emoa,0.5-0,NA
+energy,1.7-5,NA
+entropy,1.2.1,R (>= 2.15.1)
+EnvStats,2.3.1,R (>= 3.1)
+epitools,0.5-10,R (>= 2.1.0)
+ergm,3.9.4,network (>= 1.13)
+ergm.userterms,3.9.0,"network (>= 1.7-1), ergm (>= 3.9)"
+esquisse,0.1.5,NA
+evaluate,0.11,R (>= 3.0.2)
+evtree,1.0-7,"R (>= 3.1.0), partykit"
+expm,0.999-3,Matrix
+expsmooth,2.3,"R (>= 2.0.0), forecast"
+extraTrees,1.0.5,"R (>= 2.7.0), rJava (>= 0.5-0)"
+fable,0.0.0.9000,"R (>= 3.1.3),
+tsibblestats"
+factoextra,1.0.5,"R (>= 3.1.2), ggplot2 (>= 2.2.0)"
+FactoMineR,1.41,R (>= 3.0.0)
+fansi,0.3.0,R (>= 3.1.0)
+farver,1.0,NA
+fcm,0.1.3,NA
+FCMapper,1.1,NA
+fda,2.4.8,"R (>= 2.10.0), splines, Matrix, graphics"
+fda.usc,1.4.0,"R (>= 2.10), fda, splines, MASS, mgcv, rpart"
+FDboost,0.3-2,"R (>= 3.2.0), methods, mboost (>= 2.8-0)"
+fdrtool,1.2.15,R (>= 3.0.2)
+fields,9.6,"R (>= 3.0), methods, spam, maps"
+filehash,2.4-1,"R (>= 3.0.0), methods"
+flare,1.6.0,"R (>= 2.15.0), lattice, MASS, Matrix, igraph"
+flashClust,1.01-2,R (>= 2.3.0)
+flexdashboard,0.5.1.1,R (>= 3.0.2)
+flexmix,2.3-14,"R (>= 2.15.0), lattice"
+fma,2.3,"R (>= 2.0.0), forecast"
+FMStable,0.1-2,NA
+FNN,1.1.2.1,R (>= 3.0.0)
+forcats,0.3.0,R (>= 3.1)
+foreach,1.4.4,R (>= 2.5.0)
+forecast,8.4,"R (>= 3.0.2),"
+foreign,0.8-71,R (>= 3.0.0)
+formattable,0.2.0.1,R (> 3.0.2)
+Formula,1.2-3,"R (>= 2.0.0), stats"
+fpc,2.1-11.1,R (>= 2.0)
+fpp,0.5,"R (>= 2.0.0), graphics, stats, forecast, fma, expsmooth,
+lmtest, tseries"
+fracdiff,1.4-2,NA
+frbs,3.1-0,NA
+FrF2,1.7-2,"R(>= 2.13.0), DoE.base(>= 0.25)"
+FrF2.catlg128,1.2-1,"R(>= 2.13.0), FrF2(>= 1.4)"
+fs,1.2.6,R (>= 3.1)
+FSA,0.8.20,R (>= 3.2.0)
+FSelector,0.31,NA
+fulltext,1.0.1,NA
+future.apply,1.0.1,"R (>= 3.2.0), future (>= 1.9.0)"
+future.batchtools,0.7.1,"R (>= 3.2.0), future (>= 1.8.1)"
+gamm4,0.2-5,"R (>= 2.9.0), methods, Matrix, lme4 (>= 0.999375-31), mgcv (>=
+1.7-23)"
+gapminder,0.3.0,R (>= 3.1.0)
+gbRd,0.4-11,tools
+gcookbook,1.0,R (>= 2.10)
+gdalUtils,2.0.1.14,R (>= 2.14.0)
+gdata,2.18.0,R (>= 2.3.0)
+gdistance,1.2-2,"R (>= 3.2.0), raster (>= 1.9-19), methods, igraph (>= 0.7.0),
+Matrix"
+gdtools,0.1.7,NA
+GeneralizedHyperbolic,0.8-4,R (>= 3.0.1)
+GenSA,1.1.7,R (>= 2.12.0)
+geojson,0.2.0,NA
+geojsonio,0.6.0,R (>= 2.10)
+geojsonlint,0.2.0,R (>= 2.10)
+GEOmap,2.4-4,R (>= 3.0)
+geometry,0.3-6,"R (>= 2.5.0), magic"
+geonames,0.998,R (>= 2.2.0)
+geosphere,1.5-7,R (>= 3.0.0)
+getPass,0.2-2,R (>= 3.0.0)
+getSpatialData,0.0.4,R (>= 2.10)
+GGally,1.4.0,"R (>= 3.1), ggplot2 (> 2.2.0)"
+gganimate,0.9.9.9999,ggplot2 (>= 3.0.0)
+ggdendro,0.1-20,NA
+ggformula,0.9.0,"R (>= 3.1), ggplot2 (>= 3.0), ggstance (>= 0.3.1)"
+ggfortify,0.4.5,"methods, ggplot2 (>= 2.0.0)"
+ggm,2.3,igraph
+ggmap,2.6.1,"R (>= 2.14.0), ggplot2 (>= 2.0.0)"
+ggmcmc,1.1,"dplyr (>= 0.5.0), tidyr (>= 0.5.1), ggplot2"
+ggplot2,3.0.0.9000,R (>= 3.1)
+ggpmisc,0.3.0,"R (>= 3.3.0), ggplot2 (>= 3.0.0)"
+ggpubr,0.1.8,"R (>= 3.1.0), ggplot2, magrittr"
+ggquiver,0.1.0,"R (>= 3.2.0), ggplot2"
+ggrepel,0.8.0,"R (>= 3.0.0), ggplot2 (>= 2.2.0)"
+ggridges,0.5.0,R (>= 3.2)
+ggsci,2.9,R (>= 3.0.2)
+ggsignif,0.4.0,NA
+ggsn,0.4.0,"R (>= 3.3.1), ggplot2"
+ggspatial,1.0.1,"R (>= 2.10),
+ggplot2 (>= 2.2.1.9000)"
+ggstance,0.3.1,R (>= 3.1.0)
+ggthemes,4.0.1,R (>= 3.0.0)
+gifski,0.8.3,NA
+gistr,0.4.2,NA
+git2r,0.23.0,R (>= 3.1)
+glasso,1.10,NA
+glmertree,0.1-1,"R (>= 3.1.0), lme4, partykit (>= 1.0-4)"
+glmnetUtils,1.1,NA
+glue,1.3.0,R (>= 3.1)
+gmodels,2.18.1,R (>= 1.9.0)
+gmp,0.5-13.2,R (>= 3.0.0)
+gnm,1.1-0,R (>= 3.0.0)
+goftest,1.1-1,R (>= 3.3)
+googleVis,0.6.2,R (>= 3.0.2)
+gower,0.1.2,NA
+GPareto,1.1.1,"DiceKriging, emoa"
+GPfit,1.0-0,NA
+gplots,3.0.1,R (>= 3.0)
+gridBase,0.4-7,R (>= 2.3.0)
+gridExtra,2.3,NA
+gsl,1.9-10.3,R (>= 2.10.0)
+gstat,1.1-6,R (>= 2.10)
+gsw,1.0-5,"R (>= 2.15), testthat"
+gtable,0.2.0,R (>= 2.14)
+gtools,3.8.1,"methods, stats, utils"
+haven,1.1.2,R (>= 3.1)
+hdf5r,1.0.0,"R (>= 3.2.2), methods"
+heplots,1.3-5,"R (>= 2.10), car"
+here,0.1,NA
+hexbin,1.27.2,"R (>= 2.0.1), methods"
+highr,0.7,R (>= 3.0.2)
+Hmisc,4.1-1,"lattice, survival (>= 2.40-1), Formula, ggplot2 (>= 2.2)"
+hms,0.4.2,NA
+hoardr,0.2.0,NA
+hrbrthemes,0.5.0.1,R (>= 3.2.0)
+htmlTable,1.12,NA
+htmltools,0.3.6,R (>= 2.14.1)
+htmlwidgets,1.2,NA
+httpcode,0.2.0,NA
+httpuv,1.4.5,"R (>= 2.15.1), methods"
+httr,1.3.1,R (>= 3.0.0)
+hunspell,2.9,R (>= 3.0.2)
+igraph,1.2.2,methods
+influenceR,0.1.0,R (>= 3.2.0)
+insol,1.1.1,methods
+installr,0.20.0,"R (>= 2.14.0), stringr, utils"
+intervals,0.15.1,R (>= 2.9.0)
+ipred,0.9-7,R (>= 2.10)
+irlba,2.3.2,Matrix
+iterators,1.0.10,"R (>= 2.5.0), utils"
+janeaustenr,0.1.5,R (>= 3.1.2)
+janitor,1.1.1.9000,R (>= 3.1.2)
+jpeg,0.1-8,R (>= 2.9.0)
+jqr,1.0.0,R (>= 3.1.2)
+jsonlite,1.5,methods
+jsonvalidate,1.0.0,NA
+kableExtra,0.9.0,R (>= 3.1.0)
+kernlab,0.9-27,R (>= 2.10)
+kinship2,1.6.4,"R (>= 3.1.0), Matrix, quadprog"
+kknn,1.3.1,R (>= 2.10)
+klaR,0.6-14,"R (>= 2.10.0), MASS"
+knitcitations,1.0.8,R (>= 3.0)
+knitr,1.20,R (>= 3.1.0)
+kohonen,3.0.6,R (>= 2.10)
+KrigInv,1.4.1,DiceKriging
+labeling,0.3,NA
+Lahman,6.0-0,R (>= 2.10)
+latentnet,2.9.0,"R (>= 2.8.0), statnet.common (>= 3.1.0), network, ergm (>=
+3.9.0)"
+later,0.7.5,NA
+latticeExtra,0.6-28,"R (>= 2.10.0), lattice, RColorBrewer"
+lava,1.6.3,R (>= 3.0)
+lava.tobit,0.5,"lava (>= 1.5), mets (>= 1.2.2), mvtnorm, survival"
+lazyeval,0.2.1,R (>= 3.1.0)
+lbfgs,1.2.1,NA
+lbfgsb3,2015-2.13,"R (>= 2.15.0), numDeriv"
+leaflet,2.0.2,R (>= 3.1.0)
+leaflet.extras,1.0.0,"R (>= 3.1.0), leaflet (>= 2.0.0)"
+leaps,3.0,
+LearnBayes,2.15.1,NA
+learnr,0.9.2.1,NA
+lhs,0.16,R (>= 3.3.0)
+LiblineaR,2.10-8,NA
+listenv,0.7.0,R (>= 3.1.2)
+lme4,1.1-18-1,"R (>= 3.2.0), Matrix (>= 1.2-1), methods, stats"
+lmerTest,3.0-1,"R (>= 3.2.5), lme4 (>= 1.1-10), stats, methods"
+lmtest,0.9-36,"R (>= 2.10.0), stats, zoo"
+logcondens,2.1.5,R (>= 2.10)
+logspline,2.1.11,NA
+loo,2.0.0,R (>= 3.1.2)
+lpSolve,5.6.13,NA
+lsei,1.2-0,NA
+lubridate,1.7.4,"methods, R (>= 3.0.0)"
+lwgeom,0.1-4,R (>= 3.3.0)
+magic,1.5-9,"R (>= 2.10), abind"
+magick,1.9,NA
+magrittr,1.5,NA
+manipulate,1.0.1,R (>= 2.11.1)
+manipulateWidget,0.10.0,NA
+mapdata,2.3.0,"R (>= 2.14.0), maps (>= 2.0-7)"
+mapedit,0.4.3,R (>= 3.1.0)
+mapproj,1.2.6,"R (>= 3.0.0), maps (>= 2.3-0)"
+maps,3.3.0,R (>= 3.0.0)
+maptools,0.9-4,"R (>= 2.10), sp (>= 1.0-11)"
+mapview,2.6.0,"methods, R (>= 2.10)"
+markdown,0.8,R (>= 2.11.1)
+marmap,1.0.1,R (>= 2.10)
+MASS,7.3-50,"R (>= 3.1.0), grDevices, graphics, stats, utils"
+matrixcalc,1.0-3,R (>= 2.0.1)
+MatrixModels,0.4-1,R (>= 3.0.1)
+matrixStats,0.54.0,R (>= 2.12.0)
+maxLik,1.3-4,"R (>= 2.4.0), miscTools (>= 0.6-8), methods"
+MBA,0.0-9,R (> 2.10.0)
+mc2d,0.1-18,"R (>= 2.10.0), mvtnorm"
+mclust,5.4.1,R (>= 3.0)
+mcmc,0.9-5,R (>= 3.0.2)
+MCMCpack,1.4-4,"R (>= 2.10.0), coda (>= 0.11-3), MASS, stats"
+mco,1.0-15.1,R (>= 3.0.0)
+mediation,4.4.6,"R (>= 2.15.1), MASS, Matrix, mvtnorm, sandwich"
+memoise,1.1.0,NA
+mgcv,1.8-24,"R (>= 2.14.0), nlme (>= 3.1-64)"
+microdemic,0.3.0,NA
+mime,0.5,NA
+mindr,1.1.0,R (>= 3.0.0)
+miniUI,0.1.1.1,NA
+minqa,1.2.4,NA
+misc3d,0.8-4,NA
+miscTools,0.6-22,R (>= 2.14.0)
+MixSIAR,3.1.10,R (>= 3.4.0)
+mldr,0.4.0,R (>= 3.0.0)
+mldr.datasets,0.4.0,R (>= 3.0.0)
+mlr,2.13,"R (>= 3.0.2), ParamHelpers (>= 1.10)"
+mlrMBO,1.1.2,"mlr (>= 2.10), ParamHelpers (>= 1.10), smoof (>= 1.5.1)"
+mmpf,0.0.4,NA
+mnormt,1.5-5,R (>= 2.2.0)
+ModelMetrics,1.2.0,R (>= 3.2.2)
+modelr,0.1.2,R (>= 3.1)
+modeltools,0.2-22,"stats, stats4"
+MODIS,1.1.3,"mapdata, R (>= 2.10), raster"
+mosaic,1.4.0,"R (>= 3.0.0), dplyr, lattice (>= 0.20-21), ggformula,
+mosaicData, Matrix"
+mosaicCore,0.6.0,"R (>= 3.0.0),"
+mosaicData,0.17.0,R (>= 3.0.0)
+MRCV,0.3-3,R (>= 3.1.1)
+mRMRe,2.0.7,"survival, igraph, methods"
+msltrend,1.0,R (>= 3.2.2)
+multcomp,1.4-8,"stats, graphics, mvtnorm (>= 1.0-3), survival (>= 2.39-4),
+TH.data (>= 1.0-2)"
+multcompView,0.1-7,NA
+MuMIn,1.42.1,R (>= 3.0.0)
+munsell,0.5.0,NA
+mvinfluence,0.8-3,"car, heplots"
+mvoutlier,2.0.9,"sgeostat, R (>= 2.14)"
+mvtnorm,1.0-8,R(>= 1.9.0)
+naniar,0.4.0.0,R (>= 3.1.2)
+nasaweather,0.1,R (>= 3.1.0)
+ncdf4,1.16,NA
+ncdump,0.0.3,NA
+network,1.13.0.1,"R (>= 2.10), utils"
+neuralnet,1.33,R (>= 2.9.0)
+nlme,3.1-137,R (>= 3.4.0)
+nloptr,1.0.4,NA
+nodeHarvest,0.7-3,NA
+nortest,1.0-4,NA
+npsurv,0.4-0,lsei
+numDeriv,2016.8-1,R (>= 2.11.1)
+nws,1.7.0.1,"R (>= 2.1), methods"
+nycflights13,1.0.0,R (>= 2.10)
+oce,0.9-23,"R (>= 2.15), utils, methods, gsw, testthat"
+OceanView,1.0.4,"plot3D, plot3Drgl, R (>= 3.2)"
+ocedata,0.1.3,"R (>= 2.15), methods"
+openssl,1.0.2,NA
+openxlsx,4.1.0,R (>= 3.3.0)
+optimx,2018-7.10,NA
+osmar,1.1-7,"R (>= 2.10), methods, XML, RCurl, geosphere"
+osmdata,0.0.7,R (>= 3.2.4)
+osmplotr,0.3.1,R (>= 3.2.3)
+packrat,0.4.9-3,R (>= 3.0.0)
+pals,1.5,"R (>= 2.10), maps,"
+pamr,1.55,"R (>= 2.10), cluster, survival"
+parallelMap,1.3,R (>= 3.0.0)
+ParamHelpers,1.11,NA
+parsedate,1.1.3,methods
+patchwork,0.0.1,NA
+pbkrtest,0.4-7,"R (>= 3.2.3), lme4 (>= 1.1.10)"
+pcaPP,1.9-73,NA
+pcse,1.9.1.1,NA
+pder,1.0-0,R (>= 2.10)
+pdftools,1.8,NA
+pgirmess,1.6.9,NA
+pglm,0.2-1,"R (>= 2.10), maxLik, plm"
+pillar,1.3.0,NA
+pkgbuild,1.0.1,R (>= 3.1)
+pkgconfig,2.0.2,NA
+pkgload,1.0.0,NA
+PKI,0.1-5.1,"R (>= 2.9.0), base64enc"
+plogr,0.2.0,NA
+plot3D,1.1.1,R (>= 2.15)
+plot3Drgl,1.0.1,"rgl, plot3D, R (>= 3.2.3)"
+plotdap,0.0.1,rerddap
+plotly,4.8.0,"R (>= 3.2.0), ggplot2 (>= 3.0.0)"
+plotrix,3.7-3,NA
+pls,2.7-0,R (>= 2.10)
+plyr,1.8.4,R (>= 3.1.0)
+PMCMR,4.3,"R (>= 3.0.0), stats, base"
+png,0.1-7,R (>= 2.9.0)
+polspline,1.1.13,NA
+polyclip,1.9-1,R (>= 3.0.0)
+polycor,0.7-9,R (>= 3.3.0)
+polynom,1.3-9,NA
+popEpi,0.4.5,R (>= 3.2.0)
+prabclus,2.2-6,"R (>= 2.10), MASS, mclust"
+pracma,2.1.5,R (>= 3.1.0)
+praise,1.0.0,NA
+pre,0.6.0,R (>= 3.1.0)
+prettymapr,0.2.2,NA
+prettyunits,1.0.2,NA
+printr,0.1,NA
+processx,3.2.0,NA
+prodlim,2018.04.18,R (>= 2.9.0)
+progress,1.2.0,NA
+proj4,1.0-8,R (>= 2.0.0)
+projmanr,0.2.1,R (>= 3.3.0)
+promises,1.0.1,NA
+proto,1.0.0,NA
+protolite,1.8,NA
+pryr,0.1.4,R (>= 3.1.0)
+ps,1.1.0,R (>= 3.1)
+psych,1.8.4,R (>= 2.10)
+ptw,1.9-13,NA
+purrr,0.2.5,R (>= 3.1)
+quadmesh,0.1.0,NA
+quadprog,1.5-5,R (>= 2.15.0)
+quantmod,0.4-13,"R (>= 3.2.0), xts(>= 0.9-0), zoo, TTR(>= 0.2), methods"
+quantreg,5.36,"R (>= 2.6), stats, SparseM"
+qvcalc,0.9-1,NA
+R.devices,2.16.0,R (>= 2.14.0)
+R.matlab,3.6.1,R (>= 2.14.0)
+R.methodsS3,1.7.1,R (>= 2.13.0)
+R.oo,1.22.0,"R (>= 2.13.0), R.methodsS3 (>= 1.7.1)"
+R.rsp,0.43.0,R (>= 2.14.0)
+R.utils,2.7.0,"R (>= 2.14.0), R.oo (>= 1.21.0)"
+R2BayesX,1.1-1,"R (>= 2.13.0), BayesXsrc, colorspace, mgcv"
+R2HTML,2.3.2,R (>= 2.0)
+R2jags,0.5-7,"R (>= 2.14.0), rjags (>= 3-3)"
+R2wd,1.5,R (>= 2.10.0)
+R2WinBUGS,2.1-21,"R (>= 2.13.0), coda (>= 0.11-0), boot"
+R6,2.2.2,R (>= 3.0)
+ramify,0.3.3,NA
+randomForest,4.6-14,"R (>= 3.2.2), stats"
+RankAggreg,0.6.5,R (>= 2.12.0)
+RANN,2.6,NA
+RApiDatetime,0.0.3,NA
+rappdirs,0.3.1,"R (>= 2.14), methods"
+raster,2.6-7,"methods, sp (>= 1.2-0), R (>= 3.0.0)"
+rasterVis,0.45,"R (>= 2.14.0), methods, raster (>= 2.0-12), lattice,
+latticeExtra"
+rattle,5.2.0,R (>= 2.13.0)
+rbokeh,0.5.0,NA
+RColorBrewer,1.1-2,R (>= 2.0.0)
+Rcpp,0.12.18,R (>= 3.0.0)
+RcppArmadillo,0.9.100.5.0,R (>= 3.3.0)
+RcppEigen,0.3.3.4.0,R (>= 2.15.1)
+RcppRoll,0.3.0,R (>= 2.15.1)
+rcrossref,0.8.4,NA
+RCurl,1.95-4.11,"R (>= 3.0.0), methods, bitops"
+RDCOMClient,0.93-0.2,methods
+Rdpack,0.9-0,"R (>= 2.15.0), methods"
+readbitmap,0.1.5,NA
+readr,1.1.1,R (>= 3.0.2)
+readxl,1.1.0,NA
+recipes,0.1.3,"R (>= 3.1), dplyr, broom"
+RefManageR,1.2.0,R (>= 3.0)
+refund,0.1-17,R (>= 2.14.0)
+relations,0.6-8,R (>= 3.2.0)
+relimp,1.0-5,R (>= 2.0.0)
+rematch,1.0.1,NA
+rentrez,1.2.1,R (>= 2.6.0)
+reprex,0.2.1,R (>= 3.1)
+rerddap,0.4.2,R (>= 2.10)
+rerddapXtracto,0.3.4,NA
+reshape,0.8.7,R (>= 2.6.1)
+reshape2,1.4.3,R (>= 3.1)
+reticulate,1.10,R (>= 3.0)
+rex,1.1.2,NA
+rFerns,3.0.0,NA
+rfisheries,0.2.99,R (>= 2.15)
+rgdal,1.3-4,"R (>= 3.3.0), methods, sp (>= 1.1-0)"
+rgenoud,5.8-2.0,"R (>= 2.15), utils"
+rgeos,0.3-28,R (>= 3.3.0)
+rgexf,0.15.3,"XML, Rook, igraph"
+rgl,0.99.16,R (>= 3.2.0)
+RgoogleMaps,1.4.2,R (>= 2.10)
+rio,0.5.10,R (>= 2.15.0)
+rjags,4-6,"R (>= 2.14.0), coda (>= 0.13)"
+rjson,0.2.20,R (>= 3.1.0)
+RJSONIO,1.3-0,NA
+rknn,1.2-1,"R (>= 2.14), gmp (>= 0.5-5)"
+rLakeAnalyzer,1.11.4,R (>= 2.10)
+rlang,0.2.2,R (>= 3.1.0)
+rlecuyer,0.3-4,NA
+rmapshaper,0.4.0,NA
+rmarkdown,1.10,R (>= 3.0)
+Rmpfr,0.7-1,"gmp (>= 0.5-8), R (>= 3.3.0)"
+Rmpi,0.6-7,R (>= 2.15.1)
+rms,5.1-2,"Hmisc (>= 4.1-0), survival (>= 2.40-1), lattice, ggplot2 (>=
+2.2), SparseM"
+RNetCDF,1.9-1,R (>= 2.5.0)
+rnoaa,0.7.0,NA
+rNOMADS,2.3.10,"R (>= 3.4.0), rvest (>= 0.3.2)"
+robumeta,2.0,NA
+robustbase,0.93-3,R (>= 3.1.0)
+Rook,1.1-1,R (>= 2.13.0)
+rosm,0.2.2,NA
+rotationForest,0.1.3,NA
+roxygen2,6.1.0,R (>= 3.1)
+rpart,4.1-13,"R (>= 2.15.0), graphics, stats, grDevices"
+rpart.plot,3.0.4,"R (>= 3.2.0), rpart (>= 4.1-10)"
+rplos,0.8.4,NA
+RPMG,2.2-2,NA
+RPostgreSQL,0.6-2,"R (>= 2.9.0), methods, DBI (>= 0.3)"
+rprojroot,1.3-2,R (>= 3.0.0)
+rrcov,1.4-4,"R (>= 2.10), robustbase (>= 0.92-1), methods"
+RRF,1.9,"R (>= 2.5.0), stats"
+rrlda,1.1,"pcaPP, mvoutlier, glasso, matrixcalc"
+rsconnect,0.8.8,R (>= 3.0.0)
+rsm,2.10,NA
+rsMove,0.2.4,NA
+RSNNS,0.4-11,"R (>= 2.10.0), methods, Rcpp (>= 0.8.5)"
+RSQLite,2.1.1,R (>= 3.1.0)
+Rssa,1.0,"R (>= 3.1), svd (>= 0.4), forecast"
+rstan,2.18.1,"R (>= 3.4.0), ggplot2 (>= 2.0.0), StanHeaders (>= 2.18.0)"
+rstantools,1.5.1,NA
+rstudioapi,0.7,NA
+Rsymphony,0.1-28,R (>= 2.6.0)
+rticles,0.5.3,NA
+rvest,0.3.2,"R (>= 3.0.1), xml2"
+rWind,1.0.2,R (>= 3.4)
+sandwich,2.5-0,R (>= 2.10.0)
+satellite,1.0.1,"R (>= 2.10), raster, methods, utils, stats, grDevices,
+graphics"
+scales,1.0.0,R (>= 3.1)
+scalreg,1.0,"R (>= 2.10), lars, MASS"
+scatterplot3d,0.3-41,R (>= 2.7.0)
+sciplot,1.1-1,stats
+scrapeR,0.1.6,"XML,RCurl"
+sda,1.3.7,"R (>= 3.0.2), entropy (>= 1.2.1), corpcor (>= 1.6.8), fdrtool
+(>= 1.2.15)"
+SDMTools,1.1-221,NA
+selectr,0.4-1,R (>= 3.0)
+sem,3.1-9,"R (>= 2.14.0), stats"
+sentinel2,0.1.1,R (>= 3.2.2)
+servr,0.10,R (>= 3.0.0)
+setRNG,2013.9-1,R (>= 2.5.0)
+sf,0.6-3,"R (>= 3.3.0), methods"
+sfsmisc,1.1-2,R (>= 3.2.0)
+sgeostat,1.0-27,"stats, grDevices, graphics, R (>= 2.0.0)"
+shape,1.4.4,R (>= 2.01)
+shapefiles,0.7,"R (>= 1.6.0), foreign"
+shiny,1.1.0,"R (>= 3.0.2), methods"
+shinystan,2.5.0,"R (>= 3.1.0), shiny (>= 1.0.3)"
+shinyWidgets,0.4.3,R (>= 3.1.0)
+simmr,0.3,"R (>= 3.2.2), rjags, ggplot2"
+SkewHyperbolic,0.3-2,"R (>= 2.3.0), DistributionUtils, GeneralizedHyperbolic, RUnit"
+smoof,1.5.1,"ParamHelpers (>= 1.8), BBmisc (>= 1.6), checkmate (>= 1.1)"
+sna,2.4,"R (>= 2.0.0), utils, statnet.common, network"
+snakecase,0.9.2,R (>= 3.1)
+snow,0.4-3,"R (>= 2.13.1), utils"
+snowFT,1.6-0,"R (>= 3.0-0), rlecuyer"
+solrium,1.0.0,NA
+som,0.3-5.1,R (>= 2.10)
+sourcetools,0.1.7,R (>= 3.0.2)
+sp,1.3-1,"R (>= 3.0.0), methods"
+spacetime,1.2-2,R (>= 3.0.0)
+spam,2.2-0,"R (>= 3.1), dotCall64, grid, methods"
+sparseLDA,0.1-9,R (>= 2.10)
+SparseM,1.77,"R (>= 2.15), methods"
+spatialEco,1.1-0,R (>= 3.3.0)
+SpatialPack,0.3,NA
+spatstat,1.56-1,"R (>= 3.3.0), spatstat.data (>= 1.3-0), stats, graphics,
+grDevices, utils, methods, nlme, rpart"
+spatstat.data,1.3-1,R (>= 3.3.0)
+spatstat.utils,1.9-0,"R (>= 3.3.0), stats, graphics, grDevices, utils, methods"
+spData,0.2.9.4,R (>= 3.3.0)
+spDataLarge,0.2.7.1,R (>= 3.3.0)
+spdep,0.7-8,"R (>= 3.3.0), methods, sp (>= 1.0), Matrix (>= 1.0.12), spData
+(>= 0.2.6.0)"
+spelling,1.2,NA
+spex,0.5.0,R (>= 3.3.0)
+splancs,2.01-40,"R (>= 2.10.0), sp (>= 0.9)"
+splm,1.4-11,"R (>= 2.12.0), spdep"
+splus2R,1.2-2,R (>= 2.7.2)
+SQUAREM,2017.10-1,R (>= 3.0)
+stabledist,0.7-1,R (>= 3.1.0)
+StanHeaders,2.18.0,R (>= 3.4.0)
+stargazer,5.2.2,NA
+stars,0.1-1,"R (>= 3.3.0), abind, sf (>= 0.6-3)"
+statmod,1.4.30,R (>= 1.6.1)
+statnet.common,4.1.4,NA
+stepPlr,0.93,R (>= 2.0)
+storr,1.2.0,R (>= 3.1.0)
+stringi,1.1.7,R (>= 2.14)
+stringr,1.3.1,R (>= 3.1)
+strucchange,1.5-1,"R (>= 2.10.0), zoo, sandwich"
+styler,1.0.2,NA
+subplex,1.5-4,R(>= 2.5.1)
+SuppDists,1.1-9.4,R (>= 3.3.0)
+survAUC,1.0-5,"R (>= 2.6.0), survival"
+survey,3.33-2,"R (>= 2.16.0), grid, methods, Matrix, survival"
+survival,2.42-6,R (>= 2.13.0)
+svd,0.4.1,NA
+svglite,1.2.1,R (>= 3.0.0)
+svUnit,0.7-12,R (>= 1.9.0)
+SwarmSVM,0.1-4,R (>= 3.2.0)
+swirl,2.4.3,R (>= 3.1.0)
+tables,0.8.4,"R (>= 2.12.0), Hmisc"
+tcltk2,1.2-11,"R (>= 2.8.0), tcltk"
+tensor,1.5,NA
+tensorA,0.36.1,"R (>= 2.2.0),stats"
+testthat,2.0.0,R (>= 3.1)
+texreg,1.36.23,R (>= 2.15.0)
+tgp,2.4-14,R (>= 2.14.0)
+TH.data,1.0-9,"R (>= 2.10.0), survival, MASS"
+tibble,1.4.2,R (>= 3.1.0)
+tidyr,0.8.1,R (>= 3.1)
+tidyselect,0.2.4,R (>= 3.1)
+tidyverse,1.2.1,NA
+tiff,0.1-5,R (>= 2.9.0)
+timeDate,3043.102,"R (>= 2.15.1), graphics, utils, stats, methods"
+timereg,1.9.2,"R (>= 2.15), survival"
+tinytex,0.8,NA
+tkrplot,0.0-24,"R (>= 2.13), grDevices, tcltk"
+tmap,2.1-1,"R (>= 3.0), methods"
+tmaptools,2.0-1,"R (>= 3.0), methods"
+trajectories,0.2-0,R (>= 3.0.0)
+transformr,0.1.0,NA
+treemap,2.4-2,R (>= 2.10)
+triebeard,0.3.0,NA
+trimcluster,0.1-2.1,R (>= 1.9.0)
+TSA,1.2,R (>= 2.5.1)
+tseries,0.10-45,R (>= 2.10.0)
+tsibble,0.5.2,R (>= 3.1.3)
+tsibbledata,0.0.0.9000,"R (>= 3.1.3),
+tsibble (>= 0.1.5.9000)"
+tsibblestats,0.0.0.9000,R (>= 3.1.3)
+TTR,0.23-4,NA
+tweedie,2.3.2,R (>= 2.8.0)
+tweenr,0.1.5.9999,R (>= 3.2.0)
+ucminf,1.1-4,NA
+udunits2,0.13,R (>= 2.10.0)
+units,0.6-1,R (>= 3.0.2)
+UpSetR,1.3.3,R (>= 3.0)
+urca,1.3-0,"R (>= 2.0.0), methods"
+urltools,1.7.1,R (>= 2.10)
+uroot,2.0-9,"R (>= 3.0.0), stats"
+usethis,1.4.0,R (>= 3.1)
+utf8,1.1.4,R (>= 2.10)
+uuid,0.1-2,R (>= 2.9.0)
+V8,1.5,NA
+VarianceGamma,0.3-1,"R (>= 2.3.0), DistributionUtils, GeneralizedHyperbolic, RUnit"
+vcd,1.4-4,"R (>= 2.4.0), grid"
+vcdExtra,0.7-1,"R (>= 2.10), vcd, gnm (>= 1.0.3), grid"
+Vdgraph,2.2-2,NA
+vdiffr,0.2.3,R (>= 3.1.0)
+velox,0.2.0,R (>= 3.0.2)
+VGAMdata,1.0-3,R (>= 3.1.0)
+viridis,0.5.1,"R (>= 2.10), viridisLite (>= 0.3.0)"
+viridisLite,0.3.0,R (>= 2.10)
+visdat,0.5.1,R (>= 3.2.2)
+visNetwork,2.0.4,R (>= 3.0)
+wavelets,0.3-0,"R (>= 2.0.0), methods"
+webshot,0.5.0,R (>= 3.0)
+whisker,0.3-2,NA
+withr,2.1.2,R (>= 3.0.2)
+xergm.common,1.7.7,"R (>= 2.14.0), ergm (>= 3.5.1), network (>= 1.13.0)"
+xfun,0.3,NA
+XML,3.98-1.16,"R (>= 2.13.0), methods, utils"
+xml2,1.2.0,R (>= 3.1.0)
+xplain,0.2.1,NA
+xtable,1.8-3,R (>= 2.10.0)
+xtractomatic,3.4.2,R (>= 3.3.0)
+xts,0.11-1,zoo (>= 1.7-12)
+yaImpute,1.0-30,R (>= 3.0.0)
+yaml,2.2.0,NA
+zip,1.0.0,NA
+zipcode,1.0,R (>= 2.10)
+zoo,1.8-4,"R (>= 3.1.0), stats"
+base,3.4.4,NA
+boot,1.3-20,"R (>= 3.0.0), graphics, stats"
+class,7.3-14,"R (>= 3.0.0), stats, utils"
+cluster,2.0.7-1,R (>= 3.2.0)
+codetools,0.2-15,R (>= 2.1)
+compiler,3.4.4,NA
+datasets,3.4.4,NA
+foreign,0.8-69,R (>= 3.0.0)
+graphics,3.4.4,NA
+grDevices,3.4.4,NA
+grid,3.4.4,NA
+KernSmooth,2.23-15,"R (>= 2.5.0), stats"
+lattice,0.20-35,R (>= 3.0.0)
+MASS,7.3-49,"R (>= 3.1.0), grDevices, graphics, stats, utils"
+Matrix,1.2-14,R (>= 3.2.0)
+methods,3.4.4,NA
+mgcv,1.8-23,"R (>= 2.14.0), nlme (>= 3.1-64)"
+nlme,3.1-131.1,R (>= 3.3.0)
+nnet,7.3-12,"R (>= 2.14.0), stats, utils"
+parallel,3.4.4,NA
+rpart,4.1-13,"R (>= 2.15.0), graphics, stats, grDevices"
+spatial,7.3-11,"R (>= 3.0.0), graphics, stats, utils"
+splines,3.4.4,NA
+stats,3.4.4,NA
+stats4,3.4.4,NA
+survival,2.41-3,R (>= 2.13.0)
+tcltk,3.4.4,NA
+tools,3.4.4,NA
+translations,3.4.4,NA
+utils,3.4.4,NA

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>A gentle Introduction of Coding with R</title>
+  <meta name="description" content="Learning to code with R is a new literacy of the fast changing world. The book will takes you through the basic of learning R while unlearning other languages.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="A gentle Introduction of Coding with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Learning to code with R is a new literacy of the fast changing world. The book will takes you through the basic of learning R while unlearning other languages." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A gentle Introduction of Coding with R" />
+  
+  <meta name="twitter:description" content="Learning to code with R is a new literacy of the fast changing world. The book will takes you through the basic of learning R while unlearning other languages." />
+  
+
+<meta name="author" content="Masumbuko Semba">
+
+
+<meta name="date" content="2018-11-16">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="reshaping-data-with-tidyr.html">
+<link rel="next" href="adding-equations-to-your-document.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Gentle Introduction of Coding with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="prerequisities.html"><a href="prerequisities.html"><i class="fa fa-check"></i>Prerequisities</a></li>
+<li class="chapter" data-level="" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="1" data-path="introduction-to-r-rstudio.html"><a href="introduction-to-r-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introduction to R, Rstudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r-rstudio.html"><a href="introduction-to-r-rstudio.html#what-is-r"><i class="fa fa-check"></i><b>1.1</b> What is R?</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="introduction-to-r-rstudio.html"><a href="introduction-to-r-rstudio.html#installing-r"><i class="fa fa-check"></i><b>1.1.1</b> Installing R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r-rstudio.html"><a href="introduction-to-r-rstudio.html#what-is-rstudio"><i class="fa fa-check"></i><b>1.2</b> What is RStudio?</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction-to-r-rstudio.html"><a href="introduction-to-r-rstudio.html#basic-featurs-of-rstudio"><i class="fa fa-check"></i><b>1.2.1</b> Basic Featurs of RStudio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html"><i class="fa fa-check"></i><b>2</b> R Rrogramming Language with Rstudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#operators"><i class="fa fa-check"></i><b>2.1</b> Operators</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#arithmetric"><i class="fa fa-check"></i><b>2.1.1</b> Arithmetric</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#functions"><i class="fa fa-check"></i><b>2.1.2</b> Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#setting-working-directory"><i class="fa fa-check"></i><b>2.2</b> Setting Working Directory</a></li>
+<li class="chapter" data-level="2.3" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#loading-packages"><i class="fa fa-check"></i><b>2.3</b> Loading packages</a></li>
+<li class="chapter" data-level="2.4" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#understanding-data-in-r"><i class="fa fa-check"></i><b>2.4</b> Understanding Data in R</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#data-types"><i class="fa fa-check"></i><b>2.4.1</b> Data Types</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#exercise"><i class="fa fa-check"></i><b>2.5</b> Exercise</a></li>
+<li class="chapter" data-level="2.6" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#data-frame"><i class="fa fa-check"></i><b>2.6</b> Data Frame</a></li>
+<li class="chapter" data-level="2.7" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#exercise-1"><i class="fa fa-check"></i><b>2.7</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="importing-data.html"><a href="importing-data.html"><i class="fa fa-check"></i><b>3</b> Importing data</a><ul>
+<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#comma-separated-.csv"><i class="fa fa-check"></i><b>3.1</b> <code>Comma-Separated (.csv)</code></a></li>
+<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#microsoft-excel.xlsx"><i class="fa fa-check"></i><b>3.2</b> <code>Microsoft Excel(.xlsx)</code></a></li>
+<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#basic-data-manipulation"><i class="fa fa-check"></i><b>3.3</b> Basic Data Manipulation</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="importing-data.html"><a href="importing-data.html#explore-the-data-frame"><i class="fa fa-check"></i><b>3.3.1</b> Explore the Data Frame</a></li>
+<li class="chapter" data-level="3.3.2" data-path="importing-data.html"><a href="importing-data.html#simmple-summary-statistics"><i class="fa fa-check"></i><b>3.3.2</b> simmple summary statistics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html"><i class="fa fa-check"></i><b>4</b> Manipulating Data with <code>dplyr</code></a><ul>
+<li class="chapter" data-level="4.1" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#why-use-dplyr"><i class="fa fa-check"></i><b>4.1</b> Why use dplyr?</a></li>
+<li class="chapter" data-level="4.2" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#dplyr-functionality"><i class="fa fa-check"></i><b>4.2</b> dplyr functionality</a></li>
+<li class="chapter" data-level="4.3" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#filter-keep-rows-matching-criteria"><i class="fa fa-check"></i><b>4.3</b> filter: Keep rows matching criteria</a></li>
+<li class="chapter" data-level="4.4" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#select-pick-columns-by-name"><i class="fa fa-check"></i><b>4.4</b> select: Pick columns by name</a></li>
+<li class="chapter" data-level="4.5" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#chaining-or-pipelining"><i class="fa fa-check"></i><b>4.5</b> “Chaining” or “Pipelining”</a></li>
+<li class="chapter" data-level="4.6" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#pipping-with"><i class="fa fa-check"></i><b>4.6</b> Pipping with</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#choosing-columns-select-rename"><i class="fa fa-check"></i><b>4.6.1</b> Choosing columns: <code>select()</code>, <code>rename()</code></a></li>
+<li class="chapter" data-level="4.6.2" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#choosing-rows-filter-between-slice-sample_n-top_n-distinct"><i class="fa fa-check"></i><b>4.6.2</b> Choosing rows: filter, between, slice, sample_n, top_n, distinct</a></li>
+<li class="chapter" data-level="4.6.3" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#adding-new-variables-mutate-transmute-add_rownames"><i class="fa fa-check"></i><b>4.6.3</b> Adding new variables: mutate, transmute, add_rownames</a></li>
+<li class="chapter" data-level="4.6.4" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#grouping-and-counting-summarise-tally-count-group_size-n_groups-ungroup"><i class="fa fa-check"></i><b>4.6.4</b> Grouping and counting: summarise, tally, count, group_size, n_groups, ungroup</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="reshaping-data-with-tidyr.html"><a href="reshaping-data-with-tidyr.html"><i class="fa fa-check"></i><b>5</b> Reshaping data with tidyr</a><ul>
+<li class="chapter" data-level="5.1" data-path="reshaping-data-with-tidyr.html"><a href="reshaping-data-with-tidyr.html#gather-function"><i class="fa fa-check"></i><b>5.1</b> <code>gather( )</code> function:</a></li>
+<li class="chapter" data-level="5.2" data-path="reshaping-data-with-tidyr.html"><a href="reshaping-data-with-tidyr.html#separate-function"><i class="fa fa-check"></i><b>5.2</b> <code>separate( )</code> function:</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="visualisation-with-ggplot2.html"><a href="visualisation-with-ggplot2.html"><i class="fa fa-check"></i><b>6</b> Visualisation with <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="6.1" data-path="visualisation-with-ggplot2.html"><a href="visualisation-with-ggplot2.html#univariate-distributions"><i class="fa fa-check"></i><b>6.1</b> Univariate Distributions</a></li>
+<li class="chapter" data-level="6.2" data-path="visualisation-with-ggplot2.html"><a href="visualisation-with-ggplot2.html#continuous-variables"><i class="fa fa-check"></i><b>6.2</b> Continuous Variables</a></li>
+<li class="chapter" data-level="6.3" data-path="visualisation-with-ggplot2.html"><a href="visualisation-with-ggplot2.html#graphics-with-ggplot"><i class="fa fa-check"></i><b>6.3</b> Graphics with ggplot</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="visualisation-with-ggplot2.html"><a href="visualisation-with-ggplot2.html#categorical-data"><i class="fa fa-check"></i><b>6.3.1</b> Categorical Data</a></li>
+<li class="chapter" data-level="6.3.2" data-path="visualisation-with-ggplot2.html"><a href="visualisation-with-ggplot2.html#numerical-data"><i class="fa fa-check"></i><b>6.3.2</b> Numerical Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html"><i class="fa fa-check"></i><b>7</b> Adding Equations to Your Document</a><ul>
+<li class="chapter" data-level="7.1" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#subscripts-and-superscripts"><i class="fa fa-check"></i><b>7.1</b> Subscripts and Superscripts</a></li>
+<li class="chapter" data-level="7.2" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#square-roots"><i class="fa fa-check"></i><b>7.2</b> Square Roots</a></li>
+<li class="chapter" data-level="7.3" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#fractions"><i class="fa fa-check"></i><b>7.3</b> Fractions</a></li>
+<li class="chapter" data-level="7.4" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#summation-expressions"><i class="fa fa-check"></i><b>7.4</b> Summation Expressions</a></li>
+<li class="chapter" data-level="7.5" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#greek-letters"><i class="fa fa-check"></i><b>7.5</b> Greek Letters</a></li>
+<li class="chapter" data-level="7.6" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#special-symbols"><i class="fa fa-check"></i><b>7.6</b> Special Symbols</a></li>
+<li class="chapter" data-level="7.7" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#special-functions"><i class="fa fa-check"></i><b>7.7</b> Special Functions</a></li>
+<li class="chapter" data-level="7.8" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#mathematical-equations."><i class="fa fa-check"></i><b>7.8</b> Mathematical equations.</a></li>
+<li class="chapter" data-level="7.9" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#the-binomial-probability"><i class="fa fa-check"></i><b>7.9</b> The binomial probability:</a></li>
+<li class="chapter" data-level="7.10" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#aligning-equations-with-comments"><i class="fa fa-check"></i><b>7.10</b> Aligning Equations with Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A gentle Introduction of Coding with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visualisation-with-ggplot2" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Visualisation with <code>ggplot2</code></h1>
+<p>There are three major “systems” of making graphs in R. The <code>basic</code> plotting commands in R are quite effective but the commands do not have a way of being combined in easy ways. <code>Lattice</code> graphics (which the mosaic package uses) makes it possible to create some quite complicated graphs but it is very difficult to do make non-standard graphs. The last package, <code>ggplot2</code> tries to not anticipate what the user wants to do, but rather provide the mechanisms for pulling together different graphical concepts and the user gets to decide which elements to combine.</p>
+<p>The <code>ggplot2</code> package, created by Hadley Wickham <span class="citation">(<a href="#ref-ggplot">2016</a>)</span>, offers a powerful graphics language for creating elegant and complex plots. Its popularity in the R community has exploded in recent years. Originally based on Leland Wilkinson’s The Grammar of Graphics <span class="citation">(<a href="#ref-wilkinson">2006</a>)</span>, <code>ggplot2</code> allows you to create graphs that represent both <strong>univariate</strong> and <strong>multivariate</strong> numerical and <strong>categorical</strong> data in a straightforward manner.</p>
+<div id="univariate-distributions" class="section level2">
+<h2><span class="header-section-number">6.1</span> Univariate Distributions</h2>
+<p>Before moving on to more sophisticated visualizations that enable multidimensional investigation, it is important to be able to understand how an individual variable is distributed. Visually understanding the distribution allows us to describe many features of a variable.</p>
+</div>
+<div id="continuous-variables" class="section level2">
+<h2><span class="header-section-number">6.2</span> Continuous Variables</h2>
+<p>A variable is continuous if it can take any of an infinite set of ordered values. There are several different plots that can effectively communicate the different features of continuous variables. Features we are generally interested in include:</p>
+<ul>
+<li>Measures of location</li>
+<li>Measures of spread</li>
+<li>Asymmetry</li>
+<li>Outliers</li>
+<li>Gaps</li>
+</ul>
+<p>Hadley Wickham in his book <strong>Elegant Graphics for Data Analysis with ggplot</strong> clearly said <code>ggplot2</code> is designed to act on data frames <span class="citation">(Wickham <a href="#ref-ggplot">2016</a>)</span>. It is actually hard to just draw three data points and for simple graphs it might be easier to use the base graphing system in R. Fortunate <code>ggplot2</code> makes plotting easy because of its large number of basic building blocks that, when stacked upon each other, can produce extremely complicated graphs. A full list is available at <a href="http://docs.ggplot2.org/current/" class="uri">http://docs.ggplot2.org/current/</a>. In summary, we can break the art of making graph with <code>ggplot2</code> three main steps.</p>
+<ol style="list-style-type: decimal">
+<li>Understand the type of data you are going to use</li>
+<li>Ask yourself what is the major relationship we wish to examine?</li>
+<li>Choose the appropriate graph that suits your data.</li>
+</ol>
+<p>We will use the audit dataset in table <a href="visualisation-with-ggplot2.html#tab:tab61">6.1</a> to illustrate how to use <code>ggplot2</code> package to make elegant graphics in R. We chopped this dataset from the <code>rattle</code> package. The audit dataset is an artificially constructed dataset that has some of the characteristics of a true financial audit datase <span class="citation">(Maindonald <a href="#ref-rattle">2012</a>)</span></p>
+<table>
+<caption>
+<span id="tab:tab61">Table 6.1: </span>Individual Auditing Infomration
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+ID
+</th>
+<th style="text-align:center;">
+Age
+</th>
+<th style="text-align:center;">
+Employment
+</th>
+<th style="text-align:center;">
+Education
+</th>
+<th style="text-align:center;">
+Marital
+</th>
+<th style="text-align:center;">
+Occupation
+</th>
+<th style="text-align:center;">
+Income
+</th>
+<th style="text-align:center;">
+Gender
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+5510960
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+49
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+SelfEmp
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Vocational
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Divorced
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Executive
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+100800.81
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Male
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+9127765
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+61
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Private
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Yr7t8
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Widowed
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Service
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+78161.84
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Female
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+8116036
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+18
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+NA
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+HSgrad
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Absent
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+NA
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+200908.22
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Female
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+4930197
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+48
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Consultant
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+College
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Married
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Transport
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+16557.72
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Male
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+4094530
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+44
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Consultant
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Master
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Absent
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Farming
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+189456.13
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Male
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+4096413
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+18
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Private
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Yr7t8
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Absent
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Sales
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+127464.30
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Male
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+5808981
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+53
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Private
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+College
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Married
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Clerical
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+31969.17
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Male
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+5875221
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+20
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Private
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+College
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Absent
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Clerical
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+176057.51
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Female
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+3834978
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+32
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Private
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+College
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Married
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Transport
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+16792.08
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Male
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; color: 1;">
+7082414
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+34
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Private
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Bachelor
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Married
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Professional
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+46006.17
+</td>
+<td style="text-align:center;width: 3cm; color: 1;">
+Male
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="graphics-with-ggplot" class="section level2">
+<h2><span class="header-section-number">6.3</span> Graphics with ggplot</h2>
+<div id="categorical-data" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Categorical Data</h3>
+<div id="barplot" class="section level4">
+<h4><span class="header-section-number">6.3.1.1</span> Barplot</h4>
+<p>The <code>ggplot()</code> function only needs to specify the <code>data</code> and <code>aes</code>. Note the unusual use of the plus sign “+” to add the effect of of <code>geom_bar()</code> to <code>ggplot()</code>. Only one variable plays an <code>aesthetic</code> role: workshop. The <code>aes()</code> function sets that role. To produce figure <a href="visualisation-with-ggplot2.html#fig:fig61">6.1</a> you can write the code below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> audit, 
+       <span class="kw">aes</span>(<span class="dt">x =</span> Education))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>()</code></pre></div>
+<div class="figure"><span id="fig:fig61"></span>
+<img src="r_basic_files/figure-html/fig61-1.png" alt="Barplot of frequency of people with various education level" width="672" />
+<p class="caption">
+Figure 6.1: Barplot of frequency of people with various education level
+</p>
+</div>
+<p>Figure <a href="visualisation-with-ggplot2.html#fig:fig61">6.1</a> plot some of the education that are of no interest to us, we can limit the education level by adding a <code>limits</code> function in the <code>scale_x_discrete()</code> function to produce figure <a href="visualisation-with-ggplot2.html#fig:fig62">6.2</a>. The code for figure <a href="visualisation-with-ggplot2.html#fig:fig62">6.2</a> is:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> audit, 
+       <span class="kw">aes</span>(<span class="dt">x =</span> Education))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Preschool&quot;</span>, <span class="st">&quot;Vocational&quot;</span>, <span class="st">&quot;College&quot;</span>,<span class="st">&quot;Bachelor&quot;</span>, <span class="st">&quot;Master&quot;</span>, <span class="st">&quot;Doctorate&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:fig62"></span>
+<img src="r_basic_files/figure-html/fig62-1.png" alt="Barplot of frequency of people in six education level" width="672" />
+<p class="caption">
+Figure 6.2: Barplot of frequency of people in six education level
+</p>
+</div>
+<p>If you want to fill the bars with color (Figure <a href="visualisation-with-ggplot2.html#fig:fig63">6.3</a>), you can parsethe <code>fill</code> argument in <code>geom_bar()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> audit, 
+       <span class="kw">aes</span>(<span class="dt">x =</span> Education))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">fill =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;purple&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;maroon&quot;</span>, <span class="st">&quot;pink&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Preschool&quot;</span>, <span class="st">&quot;Vocational&quot;</span>, <span class="st">&quot;College&quot;</span>,<span class="st">&quot;Bachelor&quot;</span>, <span class="st">&quot;Master&quot;</span>, <span class="st">&quot;Doctorate&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:fig63"></span>
+<img src="r_basic_files/figure-html/fig63-1.png" alt="Barplot of frequency of people in six education level" width="672" />
+<p class="caption">
+Figure 6.3: Barplot of frequency of people in six education level
+</p>
+</div>
+<p>The use of color in figure <a href="visualisation-with-ggplot2.html#fig:fig63">6.3</a> was, well, colorful, but it did not add any useful information. However, when displaying bar plots of six education level, the fill argument with Gender very useful. Figure <a href="visualisation-with-ggplot2.html#fig:fig64">6.4</a> I use fill to color the bars by gender and set the “position” to stack.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> audit, 
+       <span class="kw">aes</span>(<span class="dt">x =</span> Education))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Gender), <span class="dt">position =</span> <span class="st">&quot;stack&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Preschool&quot;</span>, <span class="st">&quot;Vocational&quot;</span>, 
+                              <span class="st">&quot;College&quot;</span>,<span class="st">&quot;Bachelor&quot;</span>, <span class="st">&quot;Master&quot;</span>, <span class="st">&quot;Doctorate&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:fig64"></span>
+<img src="r_basic_files/figure-html/fig64-1.png" alt="Barplot of frequency of people in six education level" width="672" />
+<p class="caption">
+Figure 6.4: Barplot of frequency of people in six education level
+</p>
+</div>
+<p>Figure <a href="visualisation-with-ggplot2.html#fig:fig65">6.5</a> is similar to figure <a href="visualisation-with-ggplot2.html#fig:fig64">6.4</a>, changing only the bar position to be <code>dodge</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> audit, 
+       <span class="kw">aes</span>(<span class="dt">x =</span> Education))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Gender), <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Preschool&quot;</span>, <span class="st">&quot;Vocational&quot;</span>, 
+                              <span class="st">&quot;College&quot;</span>,<span class="st">&quot;Bachelor&quot;</span>, <span class="st">&quot;Master&quot;</span>, <span class="st">&quot;Doctorate&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:fig65"></span>
+<img src="r_basic_files/figure-html/fig65-1.png" alt="Barplot of frequency of people in six education level" width="672" />
+<p class="caption">
+Figure 6.5: Barplot of frequency of people in six education level
+</p>
+</div>
+</div>
+<div id="pre-summarized-data" class="section level4">
+<h4><span class="header-section-number">6.3.1.2</span> Pre-summarized Data</h4>
+<p>The <code>geom_bar()</code> function summarizes data for you. If it is already summarized, you use <code>geom_col()</code> instead. The chunk below summarize the eduction level and then plot the summarized result in figure <a href="visualisation-with-ggplot2.html#fig:fig66">6.6</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">education =<span class="st"> </span>audit <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(Education <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Preschool&quot;</span>, <span class="st">&quot;Vocational&quot;</span>, 
+                              <span class="st">&quot;College&quot;</span>,<span class="st">&quot;Bachelor&quot;</span>, <span class="st">&quot;Master&quot;</span>, <span class="st">&quot;Doctorate&quot;</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Education) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Count =</span> <span class="kw">n</span>())
+
+<span class="kw">ggplot</span>(<span class="dt">data =</span> education, <span class="kw">aes</span>(<span class="dt">x =</span> Education, <span class="dt">y =</span> Count))<span class="op">+</span><span class="kw">geom_col</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Preschool&quot;</span>, <span class="st">&quot;Vocational&quot;</span>, 
+                              <span class="st">&quot;College&quot;</span>,<span class="st">&quot;Bachelor&quot;</span>, <span class="st">&quot;Master&quot;</span>, <span class="st">&quot;Doctorate&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:fig66"></span>
+<img src="r_basic_files/figure-html/fig66-1.png" alt="Barplot of frequency of people in six education level" width="672" />
+<p class="caption">
+Figure 6.6: Barplot of frequency of people in six education level
+</p>
+</div>
+</div>
+</div>
+<div id="numerical-data" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Numerical Data</h3>
+<div id="histograms" class="section level4">
+<h4><span class="header-section-number">6.3.2.1</span> Histograms</h4>
+<p><strong>Histograms</strong> are often overlooked, yet they are a very efficient means for communicating distribution of continuous variables. <code>geom_histogram()</code> is used to make histogram in <code>ggplot2</code> package. Figure <a href="visualisation-with-ggplot2.html#fig:fig67">6.7</a> was created using the code in the chunk below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> audit, <span class="kw">aes</span>(<span class="dt">x =</span> Age)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>()</code></pre></div>
+<div class="figure"><span id="fig:fig67"></span>
+<img src="r_basic_files/figure-html/fig67-1.png" alt="Age distribution" width="672" />
+<p class="caption">
+Figure 6.7: Age distribution
+</p>
+</div>
+<p><code>labs()</code> function is used in <code>ggplot2</code> to add annotations in plot as in figure <a href="visualisation-with-ggplot2.html#fig:fig68">6.8</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> audit<span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(Education <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Preschool&quot;</span>, <span class="st">&quot;Vocational&quot;</span>, 
+                              <span class="st">&quot;College&quot;</span>,<span class="st">&quot;Bachelor&quot;</span>, <span class="st">&quot;Master&quot;</span>, <span class="st">&quot;Doctorate&quot;</span>)), 
+  <span class="kw">aes</span>(<span class="dt">x =</span> Age)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Age of Individuals&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of Individuals&quot;</span>, 
+       <span class="dt">title =</span> <span class="st">&quot;The Age of Individuals audited in US&quot;</span>, 
+       <span class="dt">subtitle =</span> <span class="st">&quot;The audit was done to 2000 individuals aiming to illustrate the auditing&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:fig68"></span>
+<img src="r_basic_files/figure-html/fig68-1.png" alt="Age distribution" width="672" />
+<p class="caption">
+Figure 6.8: Age distribution
+</p>
+</div>
+<p><code>facet_wrap()</code> function is used in <code>ggplot2</code> to make multiple plots in a single layout as illustrated n figure <a href="visualisation-with-ggplot2.html#fig:fig69">6.9</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> audit<span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(Education <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Preschool&quot;</span>, <span class="st">&quot;Vocational&quot;</span>, 
+                              <span class="st">&quot;College&quot;</span>,<span class="st">&quot;Bachelor&quot;</span>, <span class="st">&quot;Master&quot;</span>, <span class="st">&quot;Doctorate&quot;</span>)), 
+  <span class="kw">aes</span>(<span class="dt">x =</span> Age)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Age of Individuals&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of Individuals&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Education, <span class="dt">scales =</span> <span class="st">&quot;free_y&quot;</span>)</code></pre></div>
+<div class="figure" style="text-align: c"><span id="fig:fig69"></span>
+<img src="r_basic_files/figure-html/fig69-1.png" alt="Age distribution grouped by education level" width="672" />
+<p class="caption">
+Figure 6.9: Age distribution grouped by education level
+</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-ggplot">
+<p>Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="http://ggplot2.org" class="uri">http://ggplot2.org</a>.</p>
+</div>
+<div id="ref-wilkinson">
+<p>Wilkinson, Leland. 2006. <em>The Grammar of Graphics</em>. Springer Science &amp; Business Media.</p>
+</div>
+<div id="ref-rattle">
+<p>Maindonald, John H. 2012. “Data Mining with Rattle and R: The Art of Excavating Data for Knowledge Discovery by Graham Williams.” <em>International Statistical Review</em> 80 (1). Wiley Online Library: 199–200.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="reshaping-data-with-tidyr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="adding-equations-to-your-document.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["r_basic.pdf", "r_basic.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

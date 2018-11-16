@@ -1,0 +1,39 @@
+# Introduction to R, Rstudio
+
+## What is R?
+R is a language for data manipulation and graphics [@r]. @xia pointed out that R is a vehicle for newly developing methods of interactive data analysis. `R` have rapidly developed and extended its capability to a large collection of packages provided by researchers and volunteers. R can be downloaded from https://www.r-project.org and available for all thre major operating systems---Windows, Mac and Unix/Linux. Like other statistical software, R provides a statistical framework and terminal-based interface for users to parse commands for data ingestion, manipulation and graphics. 
+
+The R programming usage has become one-stop solution to data analysis. R was created in 1993 and has evolved into a stable programming language. It has become a *de facto* standard for data analysis both in academic and industry sectors. R has its roots in the statistics community, being created by statistians for statistics. Many of its core tools are directed toward statistics. Being an open-source language, R has many advantage oover other commercial statistical platform like MATLAB, SAS and SPSS. The big rip for using R is its ecosystem of packages.
+
+### Installing R
+**R** is available on most computing platform like Windows. Linux and Mac. There are two ways of installing **R** in the computer. The first is downloading latest version of R Binary and compiling **R** from the https://cran.r-project.org/ depending on your operating system. The compiled binary executes and install R in your machine. R can also be installed using packages managers. For example, Ubuntu users can install R using the `apt-get` package manager by running:
+ > sudo apt-get install r-base r-base-dev
+ 
+Similarly, Mac users can install R using ports
+> sudo port install R
+
+There is an active community of R developers which regularly releases a new version R. Each version has a name assigned to it. Except for major resease, the version of R are usually backward compatible in terms of their funcitonality. The version and common packages used in  this book can be accessed by simply passing a commands `devtools::session_info()` in the console
+
+```{r , comment=""}
+devtools::session_info(pkgs = NULL)
+```
+
+
+
+## What is RStudio?
+RStudio is a free and open-source integrated development environment (IDE) for R [@rstudio]. Rstudio is free available from https://www.rstudio.com/products/rstudio/downloads3/ and work in the four operating systems---Windows, Mac, Ubuntu and Fedora. To obtain the reference infomation for citing RStudio in publication by simply typing `RStudio.version()` command  in the console. 
+
+### Basic Featurs of RStudio
+RStudio allows the user to run R in a more user-friendly environment [@xia]. The Graphic User Interface (GUI) of `RStudio` usually consist of four main panels (Figure \@ref(fig:pic1));
+
++ `source editor and data viewer`: Is an editor for editing files and writing scripts and markdown documents. It also used to view data frame similar to Excel spreadsheet. Source editor is recommended in most programming work because of its efficient way to manage scripts and Rmarkdown document for reproducible work.
++ `environment (workspace browser) and history`:the **environment** and **history** tabs includes all the active objects and history of all commands executed in the session.
++ `R consoles`: is similar to console in base R and environment where we can execute commands and see the outputs. Programmers discourage the use of console because of inefficient and inability for reproducible works. 
++ `files, plots, packages, help, and viewer`: This panel contains tabs essentially for viewing outputs (plots and viewer) and search for help and packages
+
+
+```{r pic1, fig.cap="The RStudio basic features", fig.align='left', out.width = "100%", echo=FALSE}
+
+knitr::include_graphics(path = "rstudio.png")
+```
+

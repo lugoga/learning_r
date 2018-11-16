@@ -1,0 +1,151 @@
+
+# Adding Equations to Your Document
+
+## Subscripts and Superscripts
+To indicate a subscript, use the underscore _ character. To indicate a superscript, use a single caret character ^. Note: this can be confusing, because the R Markdown language delimits superscripts with two carets. In LaTeX equations, a single caret indicates the superscript.
+
+If the subscript or superscript has just one character, there is no need to delimit with braces. However, if there is more than one character, braces must be used. The following examples illustrate:
+
+`$X_i$` display as $X_i$ and this LaTeX form`$X_{i}$` display as $X_{i}$
+
+Notice that in the above case, braces were not actually needed. In this next example, however, failure to use braces creates an error, as LaTeX sets only the first character as a subscript
+
+`$X_{i,j}$` display as $X_{i,j}$ and `$X_i,j$` diaplay as $X_i,j$
+
+This expression `$X^2_{i,j}$` which display as $X^2_{i,j}$ that uses both subscripts and superscripts
+
+
+## Square Roots
+This expression `$\sqrt{b^2 - 4ac}$` display $\sqrt{b^2 - 4ac}$ . We indicate a square root using the `\sqrt` operator.
+
+## Fractions
+Displayed fractions are typeset using the `\frac` operator. for instance, this expression `$\frac{4z^3}{16}$` display as $\frac{4z^3}{16}$
+
+## Summation Expressions
+These are indicated with the $\sum$ operator, followed by a subscript for the material appearing below the summation sign, and a superscript for any material appearing above the summation sign. Example, this expression `$\sum_{i=1}^{n} X^3_i$` display as $\sum_{i=1}^{n} X^3_i$
+
+
+## Greek Letters
+Many statistical expressions use Greek letters. Much of the Greek alphabet is implemented in LaTeX, as indicated in the LaTeX cheat sheet available at the course website. There are both upper and lower case versions available for some letters. for instance, `$\alpha, \beta,  \gamma, \Gamma$` displays as $\alpha, \beta,  \gamma, \Gamma$ 
+
+
+## Special Symbols
+All common mathematical symbols are implemented, and you can find a listing on the LaTeX cheat sheet.Some examples. (Notice that, in the third example, I use the tilde character for a forced space. Generally LaTeX does spacing for you automatically, and unless you use the tilde character, R will ignore your attempts to add spaces.). This expression `$a \pm b$` display as $a \pm b$, `$x \ge 15$` displays as $x \ge 15$; `$a_i \ge 0~~~\forall i$`show as $a_i \ge 0~~~\forall i$; and `$x \le 15$` show as $x \le 15$. 
+
+
+## Special Functions
+LaTeX typesets special functions in a different font from mathematical variables. These functions, such as sin, cos , etc. are indicated in LaTeX with a backslash. This expression `$\int_0^{2\pi} \sin x~dx$` which appear as $\int_0^{2\pi} \sin x~dx$ illustrates how to typeset an integral.
+
+## Mathematical equations.  
+compute the variance , average and standard deviation of a set of vector. The average of a vector is $\bar{x} = \sum \frac{x_i}{n}$, where $\sum x_i = x_1 + _\cdots + x_n$ is the sum of the input values. The standard deviation expressed below appear as mathematical equation \@ref(eq:eqn2)
+`$$
+\begin{equation}
+s = \sqrt{\frac{\sum(x_i - \bar{x})^2}{n-1}}  (\#eq:eqn2)
+\end{equation}
+$$`
+
+Appear as
+
+$$
+\begin{equation}
+s = \sqrt{\frac{\sum(x_i - \bar{x})^2}{n-1}}(\#eq:eqn2)
+\end{equation}
+$$
+
+However, equation \@ref(eq:eqn2) is not suitable for the task. Because by the time $\bar{x}$ is computed, the individual $x_i$ are gone. Alternatively is to use the equation \@ref(eq:eqn3), which compute the quantity by keeping track of the count, sum, and sum of the squares as the input values are processed. 
+`$$
+\begin{equation}
+s = \sqrt\frac{\sum x_{i}^2 - \frac{1}{n}(\sum x_i)^2}{n - 1}(\#eq:eqn3)
+\end{equation}
+$$`
+
+$$
+\begin{equation}
+s = \sqrt\frac{\sum x_{i}^2 - \frac{1}{n}(\sum x_i)^2}{n - 1}(\#eq:eqn3)
+\end{equation}
+$$
+
+
+## The binomial probability: 
+The binomial probability in equation \@ref(eq:eqn4) is mathematically expressed as`$$
+\begin{equation}
+f(y|N,p) = \frac{N!}{y!(N-y)!}\cdot p^y \cdot (1-p)^{N-y} = {{N}\choose{y}} \cdot p^y \cdot (1-p)^{N-y} (\#eq:eqn4)
+\end{equation}
+$$`
+
+$$
+\begin{equation}
+f(y|N,p) = \frac{N!}{y!(N-y)!}\cdot p^y \cdot (1-p)^{N-y} = {{N}\choose{y}} \cdot p^y \cdot (1-p)^{N-y} (\#eq:eqn4)
+\end{equation}
+$$
+
+The expression `$$\bar{x} = \frac{1}{n} \sum_{i=1}^{n}x_{i}$$` calculate the **mean** of \textit{n} observations of variable \textit{x}, as shown in equation \@ref(eq:eqn5):
+
+$$
+\begin{equation}
+\bar{x} = \frac{1}{n} \sum_{i=1}^{n}x_{i} (\#eq:eqn5)
+\end{equation}
+$$ 
+
+The equation for computing variance (equation \@ref(eq:eqn6)) is expressed mathematically as `$\sigma^{2} = \frac{\sum\limits_{i=1}^{n} \left(x_{i} - \bar{x}\right)^{2}} {n-1}$`
+
+$$
+\begin{equation}
+\sigma^{2} = \frac{\sum_{i=1}^{n} \left(x_{i} - \bar{x}\right)^{2}} {n-1} (\#eq:eqn6)
+\end{equation}
+$$
+Next, the equation for computing **covariance** (equation \@ref(eq:eqn7)) is expressed mathematically as `$\begin{equation}cov_{x,y} = \frac{\sum\limits_{i=1}^{n}{(x_i-\overline{x}) \cdot (y_i-\overline{y})} }{n-1} (\#eq:egn7)\end{equation}$`
+
+
+$$
+\begin{equation}
+cov_{x,y} = \frac{\sum\limits_{i=1}^{n}{(x_i-\overline{x}) \cdot (y_i-\overline{y})} }{n-1} (\#eq:eqn7)
+\end{equation}
+$$
+  
+And, then, the equation for computing **standard deviation** (equation \@ref(eq:eqn8)) is expressed mathematically as `$\sigma = \sqrt{\frac{\sum\limits_{i=1}^{n} \left(x_{i} - \bar{x}\right)^{2}} {n-1}} (\#eq:eqn8)$`
+
+
+$$
+\begin{equation}
+\sigma = \sqrt{\frac{\sum\limits_{i=1}^{n} \left(x_{i} - \bar{x}\right)^{2}} {n-1}} (\#eq:eqn8)
+\end{equation}
+$$
+
+There are helpful online editors to help you learn code for various equations you might want to include. I have found the one at: http://visualmatheditor.equatheque.net/VisualMathEditor.html to be very useful. You can work out the code there and then copy it over to your RMarkdown document in between dollar signs (1 or 2 on either end depending on whether you want the equation in line or in display mode).
+
+
+| Right | Left | Default | Center |
+|------:|:-----|---------|:------:|
+|   12  |  12  |    12   |    12  |
+|  123  |  123 |   123   |   123  |
+|    1  |    1 |     1   |     1  |
+|
+
+
+  
+## Aligning Equations with Comments
+In proving a result, it is often useful to include comments. Here is an expression showing how you can do that.
+
+`$$
+\begin{align}
+    3+x &=4 && \text{(Solve for} x \text{.)}\\
+    x &=4-3 && \text{(Subtract 3 from both sides.)}\\
+    x &=1   && \text{(Yielding the solution.)}
+\end{align}
+$$`
+`
+Result into
+
+$$
+\begin{align}
+    3+x &=4 && \text{(Solve for} x \text{.)}\\
+    x &=4-3 && \text{(Subtract 3 from both sides.)}\\
+    x &=1   && \text{(Yielding the solution.)}
+\end{align}
+$$
+
+
+In *Acts 20:35* Paul quoted Jesus when he said:
+
+> it is better to give than to receive!

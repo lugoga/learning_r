@@ -1,0 +1,215 @@
+
+# R Rrogramming Language with Rstudio
+In this section, I switfly introduce the syntax of R language. R is an interpreted language---the expression specified in this languages executes line by line similar to other languages like python or ruby rather than compiling the source code an executable chunk as in C++. One of the power of R language is its dynamic---infers the data types of the variables based on the context. We do not need to declare variables separately. R is considered as *esoteric* because its syntax are easily understood by people from different fields. 
+
+## Operators
+R provides arithmetric operators for `addition (+)` , `substraction (-)`, `multiplication (*)`, `division (/)`, and `exponential (^)`.
+
+### Arithmetric
+Because of the convinient, we will use **Rstudio**. In console just write an expression `2 + 3` and click enter. Unlike other programming languages, coding in R does not need to terminate the expression or lines with a semicolon. As we expected, R returns the answer as 5
+```{r}
+2+3
+```
+
+We often use an assignment operator to assing the value of an expression to a variable. R has two assignment operators---the conventional assignment operator `=`, which is present in most programming languages, and the arrows `<-` and `->` which are specific to R. The expression `x = 5` assign the value 5 to x, likewise the expression `x <- 5` and `5 -> x` have the same effect. Throughout this book, we stick on the conventional assignment operator `(=)`
+
+We can create expression using variables. for instance, we assign the value 5 to the variable x and evaluate the square of x using the exponential `^` operator. 
+```{r}
+x = 5
+x^2
+```
+R has peculiar syntax when it comes to variable names. The dot character `.`
+has a completely different meaning as compared to other programming languages.
+In R, we can use `.` in the variable names, so x.1 and x_1 are perfectly valid. In
+practice, the dot operator is used as a visual separator in variable names, similar to underscore in most other programming languages.
+
+### Functions
+Functions in R are `first class objects`, which means that they can be treated much like any other R object.  Importantly,
+
++ Functions can be passed as arguments to other functions
++ Functions can be nested, so that you can define a function inside of another function
+
+The return value of a function is the last expression in the function
+body to be evaluated.
+
+R functions arguments can be matched positionally or by name.  So the following calls to `sd` are all equivalent
+```{r}
+data = rnorm(25)
+sum(data)
+sd(data)
+mean(data)
+median(data)
+```
+
+
+## Setting Working Directory
+
+@xia defined a working directory as a folder in your computer or server where you stores the raw data, codes and output for that specific project. This  folder is important in programming because it allows to read the data and write outputs to this working directory. In R you can set working directory with `setwd()` function and check whether you are in the right working directory with the `getwd()` function. 
+
+```{r}
+# getwd()
+setwd("E:/Data Manipulation/R_dege/")
+```
+
+## Loading packages
+R is made up of many user-written package. The base version of R allows user to get started in R, but the capabilities of base R are limited and additional packages are required for smooth performance of working with data. Packages are collections of R functions, data, and compiled code in a well-defined format. The directory where packages are stored is called the library. R comes with a standard set of packages. Others are available for download and installation. Once installed, they have to be loaded into the session to be used. 
+```{r packages-data, warning=FALSE, message=FALSE, comment=""}
+require(dplyr)
+require(readr)
+require(lubridate)
+require(readxl)
+require(haven)
+require(ggplot2)
+require(kableExtra)
+
+```
+
+## Understanding Data in R
+### Data Types
+There are some basic data types that are commonly used
+
+1. `Integers`: These are integer numbers
+```{r}
+int.1 = 1:9
+int.2 = seq(23, 1500, 68)
+```
+ You can check if the data is integer with `is.integer()` and can convert numeric value to an integer with `as.integer()` function.
+ 
+ 2. `Numeric`: These could be any number (whole or decimal number). You can check if the data is integer with `is.integer()`
+```{r}
+num = seq(2.5, 45, 3.8)
+```
+ 
+3. `Strings`: These collection of characters. This often are `text` data like names. You can check if the data is integer with `is.character()`
+```{r}
+kata = c("Dege", "Mchikichini", "Mwembe Mdogo", "Cheka")
+class(kata)
+```
+
+4. `Factor`: These are strings from finite set of values. For example, we might wish to store a variable that records gender of people. You can check if the data is factor with `is.factor()` and use `as.factor()` to convert `string` to `factor`
+```{r}
+sex = c("Male", "Female", "Male", "Male", "Female")
+sex = as.factor(sex)
+class(sex)
+
+levels(sex)
+
+```
+Often times we need to know the possible groups that are in the factor data. This can be achieved with the `levels()` function
+```{r}
+
+levels(sex)
+
+levels(kata)
+```
+
+Often we wish to take a continuous numerical vector and transform it into a factor. The function `cut()` takes a vector of numerical data and creates a factor based on your give cut-points. Let us make a fictional income of 508 people with `rnorm()` function. 
+
+```{r hist, fig.cap="Income distribution"}
+
+income = rnorm(n = 508, mean = 500, sd = 80)
+hist(income, col = "green", main = "", las = 1, xlab = "Individual Income")
+#mosaic::plotDist(dist = "norm", mean = 500, sd = 80)
+
+```
+
+We can now breaks the distribution into groups and make a simple plot as shown in figure \@ref(fig:bar), where those with income less than 400 were about 50, followed with a group with income range between 400 and 500 of about 200 and 250 people receive income above 500
+```{r}
+group = cut(income, breaks = c(300,400,500,800),
+            labels = c("Below 400", "400-500", "Above 500"))
+is.factor(group)
+levels(group)
+```
+
+
+```{r bar, fig.cap= "Barplot of grouped income"}
+
+barplot(table(group), las = 1, horiz = FALSE, col = c("blue", "red", "blue"), ylab = "Frequency", xlab = "Group of Income")
+```
+```{r}
+data = data.frame(group, income)
+```
+
+
+5. `Logicals`: This is a special case of a factor that can only take on the values `TRUE` and `FALSE`. R is case-sensitive, therefore you must always capitalize `TRUE` and `FALSE` in function in R.
+
+## Exercise
+1. Create a vector of character strings with six elements
+```{r}
+test <- c('red','red','blue','yellow','blue','green')
+```
+
+and then
+
+  + Transform the test vector just you created into a factor.
+  + Use the `levels()` command to determine the levels (and order) of the factor you just created.
+  + Transform the factor you just created into integers. Comment on the relationship between the integers and the order of the levels you found in part (b).
+  + Use some sort of comparison to create a vector that identifies which factor elements are the red group.
+  
+2. Suppose we vectors that give a students name, their GPA, and their major. We want to come up with a list of forestry students with a GPA of greater than 3.0.
+```{r}
+Name <- c('Adam','Benjamin','Caleb','Daniel','Ephriam', 'Frank','Gideon')
+GPA <- c(3.2, 3.8, 2.6, 2.3, 3.4, 3.7, 4.0)
+Major <- c('Math','Forestry','Biology','Forestry','Forestry','Math','Forestry')
+
+```
+
+  + Create a vector of TRUE/FALSE values that indicate whether the students GPA is greater than 3.0.
+  + Create a vector of TRUE/FALSE values that indicate whether the students' major is forestry.
+  + Create a vector of TRUE/FALSE values that indicates if a student has a GPA greater than 3.0 and is a forestry major.
+  + Convert the vector of TRUE/FALSE values in part (c) to integer values using the as.numeric() function. Which numeric value corresponds to TRUE?
+  + Sum (using the sum() function) the vector you created to count the number of students with GPA > 3.0 and are a forestry major.
+  
+## Data Frame
+`data.frame` is very much like a simple Excel spreadsheet where each column represents a variable type and each row represent observations. Perhaps the easiest way to create a data frame is to parse vectors in `data.frame()` function.
+```{r}
+# create vectors
+Name  = c('Bob','Jeff','Mary')
+Score = c(90, 75, 92)
+
+dt = data.frame(Name, Score)
+```
+
+Table \@ref(tab:tab11) show the the data frame created by fusing the two vector together
+```{r}
+dt %>% 
+  kable("html",caption = "Variables in the data frame", align = "c") %>%
+  column_spec(column = 1:2, width = "4cm")
+```
+
+
+Because the columns have meaning and we have given them column names, it is desirable to want to access an element by the name of the column as opposed to the column number.In large Excel spreadsheets I often get annoyed trying to remember which column something was. The `$`sign and `[]`are used in R to select variable from the data frame. 
+
+```{r}
+dt$Name
+dt[,1]
+```
+
+```{r}
+dt$Score
+dt[,2]
+```
+
+R has build in dataset that we can use for illustration. For example, @longley created a `longley` dataset, which is data frame with 7 economic variables observed every year from 1947 ti 1962 (Table \@ref(tab:tab12)). We can add the data in the workspace with `data()` function
+```{r tab12 }
+data(longley)
+
+longley %>% 
+  kable(caption = "Longleys' Economic dataset", align = "c", row.names = F) %>%
+  column_spec(1:7, width = "3cm")
+  
+```
+
+
+## Exercise
+1. Create a data.frame named my.trees that has the following columns:
+```{r}
+Girth = c(8.3, 8.6, 8.8, 10.5, 10.7, 10.8, 11.0)
+Height= c(70, 65, 63, 72, 81, 83, 66)
+Volume= c(10.3, 10.3, 10.2, 16.4, 18.8, 19.7, 15.6)
+```
+  a. Extract the third observation (i.e. the third row)
+  b. Extract the Girth column referring to it by name (don't use whatever order you placed the columns in).
+  c. Print out a data frame of all the observations except for the fourth observation. (i.e. Remove the fourth observation/row.)
+  
+  

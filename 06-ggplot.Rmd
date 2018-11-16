@@ -1,0 +1,160 @@
+# Visualisation with `ggplot2`
+There are three major “systems” of making graphs in R. The `basic` plotting commands in R are quite effective but the commands do not have a way of being combined in easy ways. `Lattice` graphics (which the mosaic package uses) makes it possible to create some quite complicated graphs but it is very difficult to do make non-standard graphs. The last package, `ggplot2` tries to not anticipate what the user wants to do, but rather provide the mechanisms for pulling together different graphical concepts and the user gets to decide which elements to combine.
+
+The `ggplot2` package, created by Hadley Wickham [-@ggplot], offers a powerful graphics language for creating elegant and complex plots. Its popularity in the R community has exploded in recent years. Originally based on Leland Wilkinson's The Grammar of Graphics [-@wilkinson], `ggplot2` allows you to create graphs that represent both **univariate** and **multivariate** numerical and **categorical** data in a straightforward manner. 
+
+## Univariate Distributions
+Before moving on to more sophisticated visualizations that enable multidimensional investigation, it is important to be able to understand how an individual variable is distributed. Visually understanding the distribution allows us to describe many features of a variable.
+
+## Continuous Variables
+A variable is continuous if it can take any of an infinite set of ordered values. There are several different plots that can effectively communicate the different features of continuous variables. Features we are generally interested in include:
+
++ Measures of location
++ Measures of spread
++ Asymmetry
++ Outliers
++ Gaps
+
+Hadley Wickham in his book **Elegant Graphics for Data Analysis with ggplot** clearly said `ggplot2` is designed to act on data frames [@ggplot]. It is actually hard to just draw three data points and for simple graphs it might be easier to use the base graphing system in R. Fortunate `ggplot2` makes plotting easy because of its large number of basic building blocks that, when stacked upon each other, can produce extremely complicated graphs. A full list is available at http://docs.ggplot2.org/current/. In summary, we can break the art of making graph with `ggplot2` three main steps.
+
+1. Understand the type of data you are going to use
+2. Ask yourself what is the major relationship we wish to examine?
+3. Choose the appropriate graph that suits your data. 
+
+We will use the audit dataset in table \@ref(tab:tab61) to illustrate how to use `ggplot2` package to make elegant graphics in R. We chopped this dataset from the `rattle` package.  The audit dataset is an artificially constructed dataset that has some of the characteristics of a true financial audit datase [@rattle]
+
+```{r packages-ggplot, warning=FALSE, message=FALSE, comment="", echo=FALSE}
+#add packages
+require(dplyr)
+require(readr)
+require(lubridate)
+require(readxl)
+require(haven)
+require(ggplot2)
+require(kableExtra)
+require(tidyr)
+
+# read the audit file
+audit = readxl::read_excel("audit.xlsx")
+
+```
+
+```{r tab61, echo=FALSE}
+audit%>%select(-c(9:13)) %>% sample_n(10) %>%
+  kable("html", caption = "Individual Auditing Infomration", align = "c") %>%
+  column_spec(column = 1:8, width = "3cm", color = 1)
+
+```
+
+## Graphics with ggplot
+### Categorical Data
+#### Barplot
+
+The `ggplot()` function only needs to specify the `data` and `aes`. Note the unusual use of the plus sign “+” to add the effect of of `geom_bar()` to `ggplot()`. Only one variable plays an `aesthetic` role: workshop. The `aes()` function sets that role.  To produce figure \@ref(fig:fig61) you can write the code below:
+
+```{r fig61, fig.cap="Barplot of frequency of people with various education level", warning=FALSE}
+ggplot(data = audit, 
+       aes(x = Education))+
+  geom_bar()
+
+```
+
+Figure \@ref(fig:fig61) plot some of the education that are of no interest to us, we can limit the education level by adding a `limits` function in the `scale_x_discrete()` function to produce figure \@ref(fig:fig62). The code for figure \@ref(fig:fig62) is:
+
+```{r fig62, fig.cap="Barplot of frequency of people in six education level", warning=FALSE}
+
+ggplot(data = audit, 
+       aes(x = Education))+
+  geom_bar() +
+  scale_x_discrete(limits = c("Preschool", "Vocational", "College","Bachelor", "Master", "Doctorate"))
+
+```
+
+If you want to fill the bars with color (Figure \@ref(fig:fig63)), you can parsethe `fill` argument in `geom_bar()`.
+
+```{r fig63, fig.cap="Barplot of frequency of people in six education level", warning=FALSE}
+
+ggplot(data = audit, 
+       aes(x = Education))+
+  geom_bar(fill = c("red", "purple", "blue", "green", "maroon", "pink")) +
+  scale_x_discrete(limits = c("Preschool", "Vocational", "College","Bachelor", "Master", "Doctorate"))
+
+```
+
+The use of color in figure \@ref(fig:fig63) was, well, colorful, but it did not add any useful information. However, when displaying bar plots of six education level, the fill argument with Gender very useful. Figure \@ref(fig:fig64) I use fill to color the bars by gender and set the “position” to stack.
+
+
+```{r fig64, fig.cap="Barplot of frequency of people in six education level", warning=FALSE}
+
+ggplot(data = audit, 
+       aes(x = Education))+
+  geom_bar(aes(fill = Gender), position = "stack") +
+  scale_x_discrete(limits = c("Preschool", "Vocational", 
+                              "College","Bachelor", "Master", "Doctorate"))
+
+```
+
+Figure \@ref(fig:fig65)  is similar to figure \@ref(fig:fig64), changing only the bar position to be `dodge`.
+
+```{r fig65, fig.cap="Barplot of frequency of people in six education level", warning=FALSE}
+
+ggplot(data = audit, 
+       aes(x = Education))+
+  geom_bar(aes(fill = Gender), position = "dodge") +
+  scale_x_discrete(limits = c("Preschool", "Vocational", 
+                              "College","Bachelor", "Master", "Doctorate"))
+
+```
+
+
+#### Pre-summarized Data
+The `geom_bar()` function summarizes data for you. If it is already summarized, you use `geom_col()` instead. The chunk below summarize the eduction level and then plot the summarized result in figure \@ref(fig:fig66).
+```{r fig66, fig.cap="Barplot of frequency of people in six education level"}
+education = audit %>% 
+  filter(Education %in% c("Preschool", "Vocational", 
+                              "College","Bachelor", "Master", "Doctorate")) %>%
+  group_by(Education) %>%
+  summarise(Count = n())
+
+ggplot(data = education, aes(x = Education, y = Count))+geom_col()+
+  scale_x_discrete(limits = c("Preschool", "Vocational", 
+                              "College","Bachelor", "Master", "Doctorate"))
+```
+
+
+### Numerical Data
+#### Histograms
+**Histograms** are often overlooked, yet they are a very efficient means for communicating distribution of continuous variables. `geom_histogram()` is used to make histogram in `ggplot2` package. Figure \@ref(fig:fig67) was created using the code in the chunk below:
+
+```{r fig67, fig.cap="Age distribution", warning=FALSE, message=FALSE, comment=""}
+ggplot(data = audit, aes(x = Age)) +
+  geom_histogram()
+```
+
+`labs()` function is used in `ggplot2` to add annotations in plot as in figure \@ref(fig:fig68). 
+
+```{r fig68, fig.cap="Age distribution", warning=FALSE, message=FALSE, comment=""}
+
+ggplot(data = audit%>% 
+  filter(Education %in% c("Preschool", "Vocational", 
+                              "College","Bachelor", "Master", "Doctorate")), 
+  aes(x = Age)) +
+  geom_histogram()+
+  labs(x = "Age of Individuals", y = "Number of Individuals", 
+       title = "The Age of Individuals audited in US", 
+       subtitle = "The audit was done to 2000 individuals aiming to illustrate the auditing")
+```
+
+
+`facet_wrap()` function is used in `ggplot2` to make multiple plots in a single layout as illustrated n figure \@ref(fig:fig69). 
+
+```{r fig69, fig.cap="Age distribution grouped by education level", warning=FALSE, message=FALSE, comment="", fig.align="c"}
+
+ggplot(data = audit%>% 
+  filter(Education %in% c("Preschool", "Vocational", 
+                              "College","Bachelor", "Master", "Doctorate")), 
+  aes(x = Age)) +
+  geom_histogram()+
+  labs(x = "Age of Individuals", y = "Number of Individuals") +
+  facet_wrap(~Education, scales = "free_y")
+```

@@ -1,0 +1,116 @@
+
+# Importing data
+
+## `Comma-Separated (.csv)`
+One of critical steps for data processing is to import data with special format into R workspace.Data import refers to read data from the working directory into the workspace. The most commonly format that R like is the `comma-separated` files. Base R has functions like `read.table()`, `read.csv()`, `read.table()` and `read.csv2()` to import data from the local directories into R workspace. We'll only scratch the surface of data import by read plain-text rectangular files into R. we will use an `read_csv()` function from `readr` to import the `flight` dataset from the `working directory` into R. The `flights` dataset contains information of all flights departed from New York City in 2013 [@nyc].  The package is under active development under Hadley, Jim and Romain [-@readr] 
+ 
+```{r packages-import, warning=FALSE, message=FALSE, comment=""}
+require(dplyr)
+require(readr)
+require(lubridate)
+require(readxl)
+require(haven)
+require(ggplot2)
+require(kableExtra)
+
+```
+
+
+```{r}
+flights = read_csv("flights.csv") %>%
+  select(-X1)
+```
+When `read_csv()` is complete to import the data into R workspace, it prints out a column specification that gives details like the name and type of each column. That's an important part of readr. 
+
+## `Microsoft Excel(.xlsx)`
+Commonly our data is stored as a MS Excel file. we can import the file with  `read_xlsx()` function of `readxl` package. The `readxl` package provides a function read_exel() that allows us to specify which sheet within the Excel file to read and what character specifies missing data (it assumes a blank cell is missing data if you don't specifying anything). The  function automatically convert the worksheet into a `.csv` file and read it.
+
+
+```{r}
+audit = readxl::read_xlsx("audit.xlsx")
+```
+
+The `audit` file is from the `rattle` package developed by @rattle. The dataset which is artificially constructed that has some of the charactersitcis of a true financial audit. I just saved it into the working directory as Excel spreadsheet. I will use this file to illustrate how to import the excel file into R workspace with `readxl` package [@readxl]. We look on the internal structure of the `audit` file with the `glimpse()` function. You can interact with the table that show all variables and observations (Table \@ref(tab:tab13))
+```{r}
+audit%>%glimpse()
+```
+
+
+```{r tab13 }
+DT::datatable(audit, rownames = FALSE, caption = "An Interactive table showing the audit data")
+```
+
+
+Look the frequency
+```{r}
+audit$Employment%>%table()
+```
+
+```{r}
+audit$Gender%>%table()%>%barplot(horiz = TRUE)
+
+```
+
+```{r}
+audit$Marital%>%table()%>%barplot(horiz = TRUE)
+
+```
+
+## Basic Data Manipulation
+In this section, we brifely introduce some basic data handling and manipulation techniques, which are mostly associated with data frame. A data frame is a a tabular shaped contains columns and rows of equal length. In general a data frame structure with rows representing observations or measurements and with columns containing variables. 
+
+### Explore the Data Frame
+We can visualize the table by simply run the name of the data `flights`
+```{r}
+flights
+```
+
+we can use `class()` to check if the data is data frame
+```{r}
+flights %>% class()
+```
+
+We can use `names()` to extract the variable names
+```{r}
+flights %>% names()
+```
+
+We can explore the internal structure of `flights` object with a `dplyr()`'s function `glimpse()`
+```{r}
+flights %>% glimpse()
+```
+
+We can check how rows (observations/measurements) and columns (variables/fields) are in the data
+```{r}
+flights %>% dim()
+```
+
+The number of rows (observation) can be obtained using `nrow()` function
+```{r}
+flights %>% nrow()
+```
+
+The number of columns (variables) can be obtained using `ncol()` function
+```{r}
+flights %>% ncol()
+```
+
+The length of the data frame is given by
+```{r}
+
+flights %>% length()
+
+```
+
+### simmple summary statistics
+The most helpful function for for summarizing rows and columns is `summary()`, which gives a collection of basim cummary statistics. The first method is to calculate some basic summary statistics (minimum, 25th, 50th, 75th percentiles, maximum and mean) of each column. If a column is categorical, the summary function will return the number of observations in each category.
+
+
+```{r}
+flights %>% summary()
+```
+
+You noticed that the `summary()` function provide the common metric for `central tendency` and ` measure of dispersion`. We will look at them later.  Now we turn to our favourite package `dplyr`
+
+```{r}
+```
