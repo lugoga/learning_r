@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>A gentle Introduction of Coding with R</title>
+  <meta name="description" content="Learning to code with R is a new literacy of the fast changing world. The book will takes you through the basic of learning R while unlearning other languages.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="A gentle Introduction of Coding with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Learning to code with R is a new literacy of the fast changing world. The book will takes you through the basic of learning R while unlearning other languages." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A gentle Introduction of Coding with R" />
+  
+  <meta name="twitter:description" content="Learning to code with R is a new literacy of the fast changing world. The book will takes you through the basic of learning R while unlearning other languages." />
+  
+
+<meta name="author" content="Masumbuko Semba">
+
+
+<meta name="date" content="2018-11-16">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="visualisation-with-ggplot2.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Gentle Introduction of Coding with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="prerequisities.html"><a href="prerequisities.html"><i class="fa fa-check"></i>Prerequisities</a></li>
+<li class="chapter" data-level="" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="1" data-path="introduction-to-r-rstudio.html"><a href="introduction-to-r-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introduction to R, Rstudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r-rstudio.html"><a href="introduction-to-r-rstudio.html#what-is-r"><i class="fa fa-check"></i><b>1.1</b> What is R?</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="introduction-to-r-rstudio.html"><a href="introduction-to-r-rstudio.html#installing-r"><i class="fa fa-check"></i><b>1.1.1</b> Installing R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r-rstudio.html"><a href="introduction-to-r-rstudio.html#what-is-rstudio"><i class="fa fa-check"></i><b>1.2</b> What is RStudio?</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction-to-r-rstudio.html"><a href="introduction-to-r-rstudio.html#basic-featurs-of-rstudio"><i class="fa fa-check"></i><b>1.2.1</b> Basic Featurs of RStudio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html"><i class="fa fa-check"></i><b>2</b> R Rrogramming Language with Rstudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#operators"><i class="fa fa-check"></i><b>2.1</b> Operators</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#arithmetric"><i class="fa fa-check"></i><b>2.1.1</b> Arithmetric</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#functions"><i class="fa fa-check"></i><b>2.1.2</b> Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#setting-working-directory"><i class="fa fa-check"></i><b>2.2</b> Setting Working Directory</a></li>
+<li class="chapter" data-level="2.3" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#loading-packages"><i class="fa fa-check"></i><b>2.3</b> Loading packages</a></li>
+<li class="chapter" data-level="2.4" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#understanding-data-in-r"><i class="fa fa-check"></i><b>2.4</b> Understanding Data in R</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#data-types"><i class="fa fa-check"></i><b>2.4.1</b> Data Types</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#exercise"><i class="fa fa-check"></i><b>2.5</b> Exercise</a></li>
+<li class="chapter" data-level="2.6" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#data-frame"><i class="fa fa-check"></i><b>2.6</b> Data Frame</a></li>
+<li class="chapter" data-level="2.7" data-path="r-rrogramming-language-with-rstudio.html"><a href="r-rrogramming-language-with-rstudio.html#exercise-1"><i class="fa fa-check"></i><b>2.7</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="importing-data.html"><a href="importing-data.html"><i class="fa fa-check"></i><b>3</b> Importing data</a><ul>
+<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#comma-separated-.csv"><i class="fa fa-check"></i><b>3.1</b> <code>Comma-Separated (.csv)</code></a></li>
+<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#microsoft-excel.xlsx"><i class="fa fa-check"></i><b>3.2</b> <code>Microsoft Excel(.xlsx)</code></a></li>
+<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#basic-data-manipulation"><i class="fa fa-check"></i><b>3.3</b> Basic Data Manipulation</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="importing-data.html"><a href="importing-data.html#explore-the-data-frame"><i class="fa fa-check"></i><b>3.3.1</b> Explore the Data Frame</a></li>
+<li class="chapter" data-level="3.3.2" data-path="importing-data.html"><a href="importing-data.html#simmple-summary-statistics"><i class="fa fa-check"></i><b>3.3.2</b> simmple summary statistics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html"><i class="fa fa-check"></i><b>4</b> Manipulating Data with <code>dplyr</code></a><ul>
+<li class="chapter" data-level="4.1" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#why-use-dplyr"><i class="fa fa-check"></i><b>4.1</b> Why use dplyr?</a></li>
+<li class="chapter" data-level="4.2" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#dplyr-functionality"><i class="fa fa-check"></i><b>4.2</b> dplyr functionality</a></li>
+<li class="chapter" data-level="4.3" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#filter-keep-rows-matching-criteria"><i class="fa fa-check"></i><b>4.3</b> filter: Keep rows matching criteria</a></li>
+<li class="chapter" data-level="4.4" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#select-pick-columns-by-name"><i class="fa fa-check"></i><b>4.4</b> select: Pick columns by name</a></li>
+<li class="chapter" data-level="4.5" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#chaining-or-pipelining"><i class="fa fa-check"></i><b>4.5</b> “Chaining” or “Pipelining”</a></li>
+<li class="chapter" data-level="4.6" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#pipping-with"><i class="fa fa-check"></i><b>4.6</b> Pipping with</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#choosing-columns-select-rename"><i class="fa fa-check"></i><b>4.6.1</b> Choosing columns: <code>select()</code>, <code>rename()</code></a></li>
+<li class="chapter" data-level="4.6.2" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#choosing-rows-filter-between-slice-sample_n-top_n-distinct"><i class="fa fa-check"></i><b>4.6.2</b> Choosing rows: filter, between, slice, sample_n, top_n, distinct</a></li>
+<li class="chapter" data-level="4.6.3" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#adding-new-variables-mutate-transmute-add_rownames"><i class="fa fa-check"></i><b>4.6.3</b> Adding new variables: mutate, transmute, add_rownames</a></li>
+<li class="chapter" data-level="4.6.4" data-path="manipulating-data-with-dplyr.html"><a href="manipulating-data-with-dplyr.html#grouping-and-counting-summarise-tally-count-group_size-n_groups-ungroup"><i class="fa fa-check"></i><b>4.6.4</b> Grouping and counting: summarise, tally, count, group_size, n_groups, ungroup</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="reshaping-data-with-tidyr.html"><a href="reshaping-data-with-tidyr.html"><i class="fa fa-check"></i><b>5</b> Reshaping data with tidyr</a><ul>
+<li class="chapter" data-level="5.1" data-path="reshaping-data-with-tidyr.html"><a href="reshaping-data-with-tidyr.html#gather-function"><i class="fa fa-check"></i><b>5.1</b> <code>gather( )</code> function:</a></li>
+<li class="chapter" data-level="5.2" data-path="reshaping-data-with-tidyr.html"><a href="reshaping-data-with-tidyr.html#separate-function"><i class="fa fa-check"></i><b>5.2</b> <code>separate( )</code> function:</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="visualisation-with-ggplot2.html"><a href="visualisation-with-ggplot2.html"><i class="fa fa-check"></i><b>6</b> Visualisation with <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="6.1" data-path="visualisation-with-ggplot2.html"><a href="visualisation-with-ggplot2.html#univariate-distributions"><i class="fa fa-check"></i><b>6.1</b> Univariate Distributions</a></li>
+<li class="chapter" data-level="6.2" data-path="visualisation-with-ggplot2.html"><a href="visualisation-with-ggplot2.html#continuous-variables"><i class="fa fa-check"></i><b>6.2</b> Continuous Variables</a></li>
+<li class="chapter" data-level="6.3" data-path="visualisation-with-ggplot2.html"><a href="visualisation-with-ggplot2.html#graphics-with-ggplot"><i class="fa fa-check"></i><b>6.3</b> Graphics with ggplot</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="visualisation-with-ggplot2.html"><a href="visualisation-with-ggplot2.html#categorical-data"><i class="fa fa-check"></i><b>6.3.1</b> Categorical Data</a></li>
+<li class="chapter" data-level="6.3.2" data-path="visualisation-with-ggplot2.html"><a href="visualisation-with-ggplot2.html#numerical-data"><i class="fa fa-check"></i><b>6.3.2</b> Numerical Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html"><i class="fa fa-check"></i><b>7</b> Adding Equations to Your Document</a><ul>
+<li class="chapter" data-level="7.1" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#subscripts-and-superscripts"><i class="fa fa-check"></i><b>7.1</b> Subscripts and Superscripts</a></li>
+<li class="chapter" data-level="7.2" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#square-roots"><i class="fa fa-check"></i><b>7.2</b> Square Roots</a></li>
+<li class="chapter" data-level="7.3" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#fractions"><i class="fa fa-check"></i><b>7.3</b> Fractions</a></li>
+<li class="chapter" data-level="7.4" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#summation-expressions"><i class="fa fa-check"></i><b>7.4</b> Summation Expressions</a></li>
+<li class="chapter" data-level="7.5" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#greek-letters"><i class="fa fa-check"></i><b>7.5</b> Greek Letters</a></li>
+<li class="chapter" data-level="7.6" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#special-symbols"><i class="fa fa-check"></i><b>7.6</b> Special Symbols</a></li>
+<li class="chapter" data-level="7.7" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#special-functions"><i class="fa fa-check"></i><b>7.7</b> Special Functions</a></li>
+<li class="chapter" data-level="7.8" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#mathematical-equations."><i class="fa fa-check"></i><b>7.8</b> Mathematical equations.</a></li>
+<li class="chapter" data-level="7.9" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#the-binomial-probability"><i class="fa fa-check"></i><b>7.9</b> The binomial probability:</a></li>
+<li class="chapter" data-level="7.10" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#aligning-equations-with-comments"><i class="fa fa-check"></i><b>7.10</b> Aligning Equations with Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A gentle Introduction of Coding with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="adding-equations-to-your-document" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Adding Equations to Your Document</h1>
+<div id="subscripts-and-superscripts" class="section level2">
+<h2><span class="header-section-number">7.1</span> Subscripts and Superscripts</h2>
+<p>To indicate a subscript, use the underscore _ character. To indicate a superscript, use a single caret character ^. Note: this can be confusing, because the R Markdown language delimits superscripts with two carets. In LaTeX equations, a single caret indicates the superscript.</p>
+<p>If the subscript or superscript has just one character, there is no need to delimit with braces. However, if there is more than one character, braces must be used. The following examples illustrate:</p>
+<p><code>$X_i$</code> display as <span class="math inline">\(X_i\)</span> and this LaTeX form<code>$X_{i}$</code> display as <span class="math inline">\(X_{i}\)</span></p>
+<p>Notice that in the above case, braces were not actually needed. In this next example, however, failure to use braces creates an error, as LaTeX sets only the first character as a subscript</p>
+<p><code>$X_{i,j}$</code> display as <span class="math inline">\(X_{i,j}\)</span> and <code>$X_i,j$</code> diaplay as <span class="math inline">\(X_i,j\)</span></p>
+<p>This expression <code>$X^2_{i,j}$</code> which display as <span class="math inline">\(X^2_{i,j}\)</span> that uses both subscripts and superscripts</p>
+</div>
+<div id="square-roots" class="section level2">
+<h2><span class="header-section-number">7.2</span> Square Roots</h2>
+<p>This expression <code>$\sqrt{b^2 - 4ac}$</code> display <span class="math inline">\(\sqrt{b^2 - 4ac}\)</span> . We indicate a square root using the <code>\sqrt</code> operator.</p>
+</div>
+<div id="fractions" class="section level2">
+<h2><span class="header-section-number">7.3</span> Fractions</h2>
+<p>Displayed fractions are typeset using the <code>\frac</code> operator. for instance, this expression <code>$\frac{4z^3}{16}$</code> display as <span class="math inline">\(\frac{4z^3}{16}\)</span></p>
+</div>
+<div id="summation-expressions" class="section level2">
+<h2><span class="header-section-number">7.4</span> Summation Expressions</h2>
+<p>These are indicated with the <span class="math inline">\(\sum\)</span> operator, followed by a subscript for the material appearing below the summation sign, and a superscript for any material appearing above the summation sign. Example, this expression <code>$\sum_{i=1}^{n} X^3_i$</code> display as <span class="math inline">\(\sum_{i=1}^{n} X^3_i\)</span></p>
+</div>
+<div id="greek-letters" class="section level2">
+<h2><span class="header-section-number">7.5</span> Greek Letters</h2>
+<p>Many statistical expressions use Greek letters. Much of the Greek alphabet is implemented in LaTeX, as indicated in the LaTeX cheat sheet available at the course website. There are both upper and lower case versions available for some letters. for instance, <code>$\alpha, \beta,  \gamma, \Gamma$</code> displays as <span class="math inline">\(\alpha, \beta, \gamma, \Gamma\)</span></p>
+</div>
+<div id="special-symbols" class="section level2">
+<h2><span class="header-section-number">7.6</span> Special Symbols</h2>
+<p>All common mathematical symbols are implemented, and you can find a listing on the LaTeX cheat sheet.Some examples. (Notice that, in the third example, I use the tilde character for a forced space. Generally LaTeX does spacing for you automatically, and unless you use the tilde character, R will ignore your attempts to add spaces.). This expression <code>$a \pm b$</code> display as <span class="math inline">\(a \pm b\)</span>, <code>$x \ge 15$</code> displays as <span class="math inline">\(x \ge 15\)</span>; <code>$a_i \ge 0~~~\forall i$</code>show as <span class="math inline">\(a_i \ge 0~~~\forall i\)</span>; and <code>$x \le 15$</code> show as <span class="math inline">\(x \le 15\)</span>.</p>
+</div>
+<div id="special-functions" class="section level2">
+<h2><span class="header-section-number">7.7</span> Special Functions</h2>
+<p>LaTeX typesets special functions in a different font from mathematical variables. These functions, such as sin, cos , etc. are indicated in LaTeX with a backslash. This expression <code>$\int_0^{2\pi} \sin x~dx$</code> which appear as <span class="math inline">\(\int_0^{2\pi} \sin x~dx\)</span> illustrates how to typeset an integral.</p>
+</div>
+<div id="mathematical-equations." class="section level2">
+<h2><span class="header-section-number">7.8</span> Mathematical equations.</h2>
+<p>compute the variance , average and standard deviation of a set of vector. The average of a vector is <span class="math inline">\(\bar{x} = \sum \frac{x_i}{n}\)</span>, where <span class="math inline">\(\sum x_i = x_1 + _\cdots + x_n\)</span> is the sum of the input values. The standard deviation expressed below appear as mathematical equation <a href="adding-equations-to-your-document.html#eq:eqn2">(7.1)</a> <code>$$ \begin{equation} s = \sqrt{\frac{\sum(x_i - \bar{x})^2}{n-1}}  (\#eq:eqn2) \end{equation} $$</code></p>
+<p>Appear as</p>
+<p><span class="math display" id="eq:eqn2">\[
+\begin{equation}
+s = \sqrt{\frac{\sum(x_i - \bar{x})^2}{n-1}}\tag{7.1}
+\end{equation}
+\]</span></p>
+<p>However, equation <a href="adding-equations-to-your-document.html#eq:eqn2">(7.1)</a> is not suitable for the task. Because by the time <span class="math inline">\(\bar{x}\)</span> is computed, the individual <span class="math inline">\(x_i\)</span> are gone. Alternatively is to use the equation <a href="adding-equations-to-your-document.html#eq:eqn3">(7.2)</a>, which compute the quantity by keeping track of the count, sum, and sum of the squares as the input values are processed. <code>$$ \begin{equation} s = \sqrt\frac{\sum x_{i}^2 - \frac{1}{n}(\sum x_i)^2}{n - 1}(\#eq:eqn3) \end{equation} $$</code></p>
+<p><span class="math display" id="eq:eqn3">\[
+\begin{equation}
+s = \sqrt\frac{\sum x_{i}^2 - \frac{1}{n}(\sum x_i)^2}{n - 1}\tag{7.2}
+\end{equation}
+\]</span></p>
+</div>
+<div id="the-binomial-probability" class="section level2">
+<h2><span class="header-section-number">7.9</span> The binomial probability:</h2>
+<p>The binomial probability in equation <a href="adding-equations-to-your-document.html#eq:eqn4">(7.3)</a> is mathematically expressed as<code>$$ \begin{equation} f(y|N,p) = \frac{N!}{y!(N-y)!}\cdot p^y \cdot (1-p)^{N-y} = {{N}\choose{y}} \cdot p^y \cdot (1-p)^{N-y} (\#eq:eqn4) \end{equation} $$</code></p>
+<p><span class="math display" id="eq:eqn4">\[
+\begin{equation}
+f(y|N,p) = \frac{N!}{y!(N-y)!}\cdot p^y \cdot (1-p)^{N-y} = {{N}\choose{y}} \cdot p^y \cdot (1-p)^{N-y} \tag{7.3}
+\end{equation}
+\]</span></p>
+<p>The expression <code>$$\bar{x} = \frac{1}{n} \sum_{i=1}^{n}x_{i}$$</code> calculate the <strong>mean</strong> of  observations of variable , as shown in equation <a href="adding-equations-to-your-document.html#eq:eqn5">(7.4)</a>:</p>
+<p><span class="math display" id="eq:eqn5">\[
+\begin{equation}
+\bar{x} = \frac{1}{n} \sum_{i=1}^{n}x_{i} \tag{7.4}
+\end{equation}
+\]</span></p>
+<p>The equation for computing variance (equation <a href="adding-equations-to-your-document.html#eq:eqn6">(7.5)</a>) is expressed mathematically as <code>$\sigma^{2} = \frac{\sum\limits_{i=1}^{n} \left(x_{i} - \bar{x}\right)^{2}} {n-1}$</code></p>
+<p><span class="math display" id="eq:egn7" id="eq:eqn6">\[
+\begin{equation}
+\sigma^{2} = \frac{\sum_{i=1}^{n} \left(x_{i} - \bar{x}\right)^{2}} {n-1} \tag{7.5}
+\end{equation}
+\]</span> Next, the equation for computing <strong>covariance</strong> (equation <a href="adding-equations-to-your-document.html#eq:eqn7">(7.7)</a>) is expressed mathematically as <code>$\begin{equation}cov_{x,y} = \frac{\sum\limits_{i=1}^{n}{(x_i-\overline{x}) \cdot (y_i-\overline{y})} }{n-1} \tag{7.6}\end{equation}$</code></p>
+<p><span class="math display" id="eq:eqn7">\[
+\begin{equation}
+cov_{x,y} = \frac{\sum\limits_{i=1}^{n}{(x_i-\overline{x}) \cdot (y_i-\overline{y})} }{n-1} \tag{7.7}
+\end{equation}
+\]</span></p>
+<p>And, then, the equation for computing <strong>standard deviation</strong> (equation <a href="adding-equations-to-your-document.html#eq:eqn8">(7.8)</a>) is expressed mathematically as <code>$\sigma = \sqrt{\frac{\sum\limits_{i=1}^{n} \left(x_{i} - \bar{x}\right)^{2}} {n-1}} (\#eq:eqn8)$</code></p>
+<p><span class="math display" id="eq:eqn8">\[
+\begin{equation}
+\sigma = \sqrt{\frac{\sum\limits_{i=1}^{n} \left(x_{i} - \bar{x}\right)^{2}} {n-1}} \tag{7.8}
+\end{equation}
+\]</span></p>
+<p>There are helpful online editors to help you learn code for various equations you might want to include. I have found the one at: <a href="http://visualmatheditor.equatheque.net/VisualMathEditor.html" class="uri">http://visualmatheditor.equatheque.net/VisualMathEditor.html</a> to be very useful. You can work out the code there and then copy it over to your RMarkdown document in between dollar signs (1 or 2 on either end depending on whether you want the equation in line or in display mode).</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Right</th>
+<th align="left">Left</th>
+<th>Default</th>
+<th align="center">Center</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">12</td>
+<td align="left">12</td>
+<td>12</td>
+<td align="center">12</td>
+</tr>
+<tr class="even">
+<td align="right">123</td>
+<td align="left">123</td>
+<td>123</td>
+<td align="center">123</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">1</td>
+<td>1</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="right"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="aligning-equations-with-comments" class="section level2">
+<h2><span class="header-section-number">7.10</span> Aligning Equations with Comments</h2>
+<p>In proving a result, it is often useful to include comments. Here is an expression showing how you can do that.</p>
+<p><code>$$ \begin{align}     3+x &amp;=4 &amp;&amp; \text{(Solve for} x \text{.)}\\     x &amp;=4-3 &amp;&amp; \text{(Subtract 3 from both sides.)}\\     x &amp;=1   &amp;&amp; \text{(Yielding the solution.)} \end{align} $$</code> ` Result into</p>
+<p><span class="math display">\[
+\begin{align}
+    3+x &amp;=4 &amp;&amp; \text{(Solve for} x \text{.)}\\
+    x &amp;=4-3 &amp;&amp; \text{(Subtract 3 from both sides.)}\\
+    x &amp;=1   &amp;&amp; \text{(Yielding the solution.)}
+\end{align}
+\]</span></p>
+<p>In <em>Acts 20:35</em> Paul quoted Jesus when he said:</p>
+<blockquote>
+<p>it is better to give than to receive!</p>
+</blockquote>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="visualisation-with-ggplot2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["r_basic.pdf", "r_basic.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
