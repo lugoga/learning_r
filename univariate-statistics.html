@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>A gentle Introduction of Coding with R</title>
+  <meta name="description" content="Learning to code with R is a new literacy of the fast changing world. The book will takes you through the basic of learning R while unlearning other languages.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="A gentle Introduction of Coding with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Learning to code with R is a new literacy of the fast changing world. The book will takes you through the basic of learning R while unlearning other languages." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A gentle Introduction of Coding with R" />
+  
+  <meta name="twitter:description" content="Learning to code with R is a new literacy of the fast changing world. The book will takes you through the basic of learning R while unlearning other languages." />
+  
+
+<meta name="author" content="Masumbuko Semba">
+
+
+<meta name="date" content="2018-11-19">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="adding-equations-to-your-document.html">
+<link rel="next" href="bivariate.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Gentle Introduction of Coding with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="prerequisities.html"><a href="prerequisities.html"><i class="fa fa-check"></i>Prerequisities</a></li>
+<li class="chapter" data-level="" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="1" data-path="why-programming.html"><a href="why-programming.html"><i class="fa fa-check"></i><b>1</b> Why Programming?</a><ul>
+<li class="chapter" data-level="1.1" data-path="why-programming.html"><a href="why-programming.html#learning-to-program"><i class="fa fa-check"></i><b>1.1</b> Learning to program</a></li>
+<li class="chapter" data-level="1.2" data-path="why-programming.html"><a href="why-programming.html#programming-in-r"><i class="fa fa-check"></i><b>1.2</b> Programming in R</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="why-programming.html"><a href="why-programming.html#what-is-r"><i class="fa fa-check"></i><b>1.2.1</b> What is R?</a></li>
+<li class="chapter" data-level="1.2.2" data-path="why-programming.html"><a href="why-programming.html#installing-r"><i class="fa fa-check"></i><b>1.2.2</b> Installing R</a></li>
+<li class="chapter" data-level="1.2.3" data-path="why-programming.html"><a href="why-programming.html#what-is-rstudio"><i class="fa fa-check"></i><b>1.2.3</b> What is RStudio?</a></li>
+<li class="chapter" data-level="1.2.4" data-path="why-programming.html"><a href="why-programming.html#basic-featurs-of-rstudio"><i class="fa fa-check"></i><b>1.2.4</b> Basic Featurs of RStudio</a></li>
+<li class="chapter" data-level="1.2.5" data-path="why-programming.html"><a href="why-programming.html#rstudio-editor"><i class="fa fa-check"></i><b>1.2.5</b> Rstudio editor</a></li>
+<li class="chapter" data-level="1.2.6" data-path="why-programming.html"><a href="why-programming.html#rmarkdown"><i class="fa fa-check"></i><b>1.2.6</b> Rmarkdown</a></li>
+<li class="chapter" data-level="1.2.7" data-path="why-programming.html"><a href="why-programming.html#use-descriptive-names"><i class="fa fa-check"></i><b>1.2.7</b> Use descriptive names</a></li>
+<li class="chapter" data-level="1.2.8" data-path="why-programming.html"><a href="why-programming.html#use-comments"><i class="fa fa-check"></i><b>1.2.8</b> Use comments</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>2</b> Getting started</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-started.html"><a href="getting-started.html#maths-in-r"><i class="fa fa-check"></i><b>2.1</b> Maths in R</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="getting-started.html"><a href="getting-started.html#arithmetric"><i class="fa fa-check"></i><b>2.1.1</b> Arithmetric</a></li>
+<li class="chapter" data-level="2.1.2" data-path="getting-started.html"><a href="getting-started.html#precedence"><i class="fa fa-check"></i><b>2.1.2</b> Precedence</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="getting-started.html"><a href="getting-started.html#assignment-operator"><i class="fa fa-check"></i><b>2.2</b> Assignment operator</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started.html"><a href="getting-started.html#variables"><i class="fa fa-check"></i><b>2.2.1</b> Variables</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-started.html"><a href="getting-started.html#functions"><i class="fa fa-check"></i><b>2.2.2</b> Functions</a></li>
+<li class="chapter" data-level="2.2.3" data-path="getting-started.html"><a href="getting-started.html#essential-functions"><i class="fa fa-check"></i><b>2.2.3</b> Essential functions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-started.html"><a href="getting-started.html#wdirectory"><i class="fa fa-check"></i><b>2.3</b> Setting Working Directory</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started.html"><a href="getting-started.html#packages-or-libraries"><i class="fa fa-check"></i><b>2.4</b> Packages or Libraries</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started.html"><a href="getting-started.html#installing-packages"><i class="fa fa-check"></i><b>2.4.1</b> Installing packages</a></li>
+<li class="chapter" data-level="2.4.2" data-path="getting-started.html"><a href="getting-started.html#loading-packages"><i class="fa fa-check"></i><b>2.4.2</b> Loading packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="getting-started.html"><a href="getting-started.html#understanding-data-in-r"><i class="fa fa-check"></i><b>2.5</b> Understanding Data in R</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="getting-started.html"><a href="getting-started.html#data-types"><i class="fa fa-check"></i><b>2.5.1</b> Data Types</a></li>
+<li class="chapter" data-level="2.5.2" data-path="getting-started.html"><a href="getting-started.html#vectors"><i class="fa fa-check"></i><b>2.5.2</b> Vectors</a></li>
+<li class="chapter" data-level="2.5.3" data-path="getting-started.html"><a href="getting-started.html#indexing-the-element"><i class="fa fa-check"></i><b>2.5.3</b> Indexing the element</a></li>
+<li class="chapter" data-level="2.5.4" data-path="getting-started.html"><a href="getting-started.html#adding-and-replacing-an-element-in-a-vector"><i class="fa fa-check"></i><b>2.5.4</b> Adding and Replacing an element in a vector</a></li>
+<li class="chapter" data-level="2.5.5" data-path="getting-started.html"><a href="getting-started.html#number-of-elements-in-a-vector"><i class="fa fa-check"></i><b>2.5.5</b> Number of elements in a vector</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="getting-started.html"><a href="getting-started.html#data-frame"><i class="fa fa-check"></i><b>2.6</b> Data Frame</a></li>
+<li class="chapter" data-level="2.7" data-path="getting-started.html"><a href="getting-started.html#exercise"><i class="fa fa-check"></i><b>2.7</b> Exercise</a></li>
+<li class="chapter" data-level="2.8" data-path="getting-started.html"><a href="getting-started.html#exercise-1"><i class="fa fa-check"></i><b>2.8</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="readr.html"><a href="readr.html"><i class="fa fa-check"></i><b>3</b> Importing data with <strong>readr</strong></a><ul>
+<li class="chapter" data-level="3.1" data-path="readr.html"><a href="readr.html#comma-separated-.csv"><i class="fa fa-check"></i><b>3.1</b> <em>Comma-Separated (.csv)</em></a></li>
+<li class="chapter" data-level="3.2" data-path="readr.html"><a href="readr.html#microsoft-excel.xlsx"><i class="fa fa-check"></i><b>3.2</b> Microsoft Excel(.xlsx)</a></li>
+<li class="chapter" data-level="3.3" data-path="readr.html"><a href="readr.html#writing-t-a-file"><i class="fa fa-check"></i><b>3.3</b> Writing t a File</a></li>
+<li class="chapter" data-level="3.4" data-path="readr.html"><a href="readr.html#basic-data-manipulation"><i class="fa fa-check"></i><b>3.4</b> Basic Data Manipulation</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="readr.html"><a href="readr.html#explore-the-data-frame"><i class="fa fa-check"></i><b>3.4.1</b> Explore the Data Frame</a></li>
+<li class="chapter" data-level="3.4.2" data-path="readr.html"><a href="readr.html#simmple-summary-statistics"><i class="fa fa-check"></i><b>3.4.2</b> simmple summary statistics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>4</b> Manipulating Data with <strong>dplyr</strong></a><ul>
+<li class="chapter" data-level="4.1" data-path="dplyr.html"><a href="dplyr.html#why-use-dplyr"><i class="fa fa-check"></i><b>4.1</b> Why use dplyr?</a></li>
+<li class="chapter" data-level="4.2" data-path="dplyr.html"><a href="dplyr.html#dplyr-functionality"><i class="fa fa-check"></i><b>4.2</b> dplyr functionality</a></li>
+<li class="chapter" data-level="4.3" data-path="dplyr.html"><a href="dplyr.html#filter-keep-rows-matching-criteria"><i class="fa fa-check"></i><b>4.3</b> filter: Keep rows matching criteria</a></li>
+<li class="chapter" data-level="4.4" data-path="dplyr.html"><a href="dplyr.html#select-pick-columns-by-name"><i class="fa fa-check"></i><b>4.4</b> select: Pick columns by name</a></li>
+<li class="chapter" data-level="4.5" data-path="dplyr.html"><a href="dplyr.html#chaining-or-pipelining"><i class="fa fa-check"></i><b>4.5</b> “Chaining” or “Pipelining”</a></li>
+<li class="chapter" data-level="4.6" data-path="dplyr.html"><a href="dplyr.html#pipping-with"><i class="fa fa-check"></i><b>4.6</b> Pipping with</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="dplyr.html"><a href="dplyr.html#choosing-columns-select-rename"><i class="fa fa-check"></i><b>4.6.1</b> Choosing columns: <code>select()</code>, <code>rename()</code></a></li>
+<li class="chapter" data-level="4.6.2" data-path="dplyr.html"><a href="dplyr.html#choosing-rows-filter-between-slice-sample_n-top_n-distinct"><i class="fa fa-check"></i><b>4.6.2</b> Choosing rows: filter, between, slice, sample_n, top_n, distinct</a></li>
+<li class="chapter" data-level="4.6.3" data-path="dplyr.html"><a href="dplyr.html#adding-new-variables-mutate-transmute-add_rownames"><i class="fa fa-check"></i><b>4.6.3</b> Adding new variables: mutate, transmute, add_rownames</a></li>
+<li class="chapter" data-level="4.6.4" data-path="dplyr.html"><a href="dplyr.html#grouping-and-counting-summarise-tally-count-group_size-n_groups-ungroup"><i class="fa fa-check"></i><b>4.6.4</b> Grouping and counting: summarise, tally, count, group_size, n_groups, ungroup</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tidy.html"><a href="tidy.html"><i class="fa fa-check"></i><b>5</b> Reshaping data with <strong>tidyr</strong></a><ul>
+<li class="chapter" data-level="5.1" data-path="tidy.html"><a href="tidy.html#gather-function"><i class="fa fa-check"></i><b>5.1</b> gather( ) function:</a></li>
+<li class="chapter" data-level="5.2" data-path="tidy.html"><a href="tidy.html#separate-function"><i class="fa fa-check"></i><b>5.2</b> separate( ) function:</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="visualisation-with-ggplot.html"><a href="visualisation-with-ggplot.html"><i class="fa fa-check"></i><b>6</b> Visualisation with <strong>ggplot</strong>`</a><ul>
+<li class="chapter" data-level="6.1" data-path="visualisation-with-ggplot.html"><a href="visualisation-with-ggplot.html#univariate-distributions"><i class="fa fa-check"></i><b>6.1</b> Univariate Distributions</a></li>
+<li class="chapter" data-level="6.2" data-path="visualisation-with-ggplot.html"><a href="visualisation-with-ggplot.html#continuous-variables"><i class="fa fa-check"></i><b>6.2</b> Continuous Variables</a></li>
+<li class="chapter" data-level="6.3" data-path="visualisation-with-ggplot.html"><a href="visualisation-with-ggplot.html#graphics-with-ggplot"><i class="fa fa-check"></i><b>6.3</b> Graphics with ggplot</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="visualisation-with-ggplot.html"><a href="visualisation-with-ggplot.html#categorical-data"><i class="fa fa-check"></i><b>6.3.1</b> Categorical Data</a></li>
+<li class="chapter" data-level="6.3.2" data-path="visualisation-with-ggplot.html"><a href="visualisation-with-ggplot.html#numerical-data"><i class="fa fa-check"></i><b>6.3.2</b> Numerical Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html"><i class="fa fa-check"></i><b>7</b> Adding Equations to Your Document</a><ul>
+<li class="chapter" data-level="7.1" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#subscripts-and-superscripts"><i class="fa fa-check"></i><b>7.1</b> Subscripts and Superscripts</a></li>
+<li class="chapter" data-level="7.2" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#square-roots"><i class="fa fa-check"></i><b>7.2</b> Square Roots</a></li>
+<li class="chapter" data-level="7.3" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#fractions"><i class="fa fa-check"></i><b>7.3</b> Fractions</a></li>
+<li class="chapter" data-level="7.4" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#summation-expressions"><i class="fa fa-check"></i><b>7.4</b> Summation Expressions</a></li>
+<li class="chapter" data-level="7.5" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#greek-letters"><i class="fa fa-check"></i><b>7.5</b> Greek Letters</a></li>
+<li class="chapter" data-level="7.6" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#special-symbols"><i class="fa fa-check"></i><b>7.6</b> Special Symbols</a></li>
+<li class="chapter" data-level="7.7" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#special-functions"><i class="fa fa-check"></i><b>7.7</b> Special Functions</a></li>
+<li class="chapter" data-level="7.8" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#mathematical-equations."><i class="fa fa-check"></i><b>7.8</b> Mathematical equations.</a></li>
+<li class="chapter" data-level="7.9" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#the-binomial-probability"><i class="fa fa-check"></i><b>7.9</b> The binomial probability:</a></li>
+<li class="chapter" data-level="7.10" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#aligning-equations-with-comments"><i class="fa fa-check"></i><b>7.10</b> Aligning Equations with Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="univariate-statistics.html"><a href="univariate-statistics.html"><i class="fa fa-check"></i><b>8</b> Univariate Statistics</a><ul>
+<li class="chapter" data-level="8.1" data-path="univariate-statistics.html"><a href="univariate-statistics.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="univariate-statistics.html"><a href="univariate-statistics.html#empical-distributions"><i class="fa fa-check"></i><b>8.2</b> Empical Distributions</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="univariate-statistics.html"><a href="univariate-statistics.html#measure-of-central-tendency"><i class="fa fa-check"></i><b>8.2.1</b> Measure of Central Tendency</a></li>
+<li class="chapter" data-level="8.2.2" data-path="univariate-statistics.html"><a href="univariate-statistics.html#measure-of-dispersion"><i class="fa fa-check"></i><b>8.2.2</b> Measure of Dispersion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="bivariate.html"><a href="bivariate.html"><i class="fa fa-check"></i><b>9</b> Bivariate</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A gentle Introduction of Coding with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="univariate-statistics" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Univariate Statistics</h1>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">8.1</span> Introduction</h2>
+<p>Statistical properties of a single parameter are invegated by means of univariate analysis. Such a parameter could, for example be the the size of population, the the gross domestic product (GDP) of the country in the world or life expactancy of the country. Because in most cases the data we collect depend on the sample size that are often limited because of either financial or logistic constraints. The method of univariate statistics assist us to draw from the sample conclusions that apply to the population as whole <span class="citation">(Trauth <a href="#ref-trauth">2015</a>)</span>. <strong>R</strong> contains myriad of tools for statistical analysis. We will use the base package <strong>stats</strong> with other extended packages to illustrate concept of univariate statistics <span class="citation">(R Core Team <a href="#ref-r">2018</a>)</span>.</p>
+</div>
+<div id="empical-distributions" class="section level2">
+<h2><span class="header-section-number">8.2</span> Empical Distributions</h2>
+<p>Let us assume that we have collected a number of measurement of <span class="math inline">\(x_i\)</span> from a specific area. The collection of data, or sample, as a subset of the population of interest can be writeen as a vector of <span class="math inline">\(x\)</span> containing a total of <span class="math inline">\(N\)</span> observations mathematically in equation <a href="univariate-statistics.html#eq:eq81">(8.1)</a>. The vector <span class="math inline">\(x\)</span> may contain a large number of data points and it may conseuently be difficult to understand its properties. Descriptive statists are therefore often used to summarize the characteristics of the data. THe statistical properties of the data set may be used to define an empirical distribution, which can then be compared to a theoretical one.</p>
+<p><span class="math display" id="eq:eq81">\[
+\begin{equation}
+x = (x_1, x_2, \dots, x_n) \tag{8.1}
+\end{equation}
+\]</span></p>
+<p>The most straightfoward way of investigating the sample characteristics is to plot the data graphically. Plotting all the data points along a single axis does nto reveal a great deal of information about the dat set. However, the density of the points along the scale does provide some information about the characteristics of the data. A widely used graphical display of continous univariate variable is the <em>histogram</em><a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>. Histogram provide vital information on the characteristics of the data like the <em>central tendency</em>, the <em>dispersion</em> and general <em>shape</em> of the distribution of quantitative data (Figure <a href="univariate-statistics.html#fig:fig81">8.1</a>. In general term, the central tendency parameters—the <em>mean</em> and <em>median</em> define the center of the dataset, while the <em>range</em> and <em>standard deviation</em> provide information of how the data deviate from the center.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig81"></span>
+<img src="r_basic_files/figure-html/fig81-1.png" alt="Emprical distribution of the frequency of quantitatively data" width="336" />
+<p class="caption">
+Figure 8.1: Emprical distribution of the frequency of quantitatively data
+</p>
+</div>
+<div id="measure-of-central-tendency" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> Measure of Central Tendency</h3>
+<p>The <em>median</em> and <em>mean</em> are parameters of central tendency or location represent the most important measure for describing emperical distribution of quantitative data. These parameters help locate the data on a linear scale. They represent a typical or best value that describe the data. The most most popular indicator of central tendency is the <em>arithmetic mean</em>, which is the sum of all data points divided by the total number of observations. The *arithmetic mean can be computed with equation <a href="univariate-statistics.html#eq:eq82">(8.2)</a></p>
+<p><span class="math display" id="eq:eq82">\[
+\begin{equation}
+\bar x = \frac{1}{N}\sum_{i=1}^N x_i \tag{8.2}
+\end{equation}
+\]</span></p>
+<p>The <em>arithmetic mean</em> is also called <em>mean</em> or the <em>average</em> of a unvariate variable. The sample mean is used as an estimate of the population mean <span class="math inline">\(\mu\)</span> for the underlying theoretical distribution. The arithmetric mean is, however, sensitive to outlier—extreme values that may be very dfferent from the majoriy of the data, hence <em>median</em> is often used an an alternative measured of central tendency. The <em>median</em> is the <span class="math inline">\(x\)</span>-value that is in the middle of the variable, i.e 50% of the observations are smaller than the median and 50% are larger <span class="citation">(Trauth <a href="#ref-trauth">2015</a>)</span>. The median of a quantitative data sorted in ascending order is mathematically written as equation <a href="univariate-statistics.html#eq:eq83">(8.3)</a> if <span class="math inline">\(N\)</span> is odd; and equation <a href="univariate-statistics.html#eq:eq84">(8.4)</a> if <span class="math inline">\(N\)</span> is even.</p>
+<p><span class="math display" id="eq:eq83">\[
+\begin{equation}
+X = x_{(N+1)/2} \tag{8.3}
+\end{equation}
+\]</span></p>
+<p><span class="math display" id="eq:eq84">\[
+\begin{equation}
+X =x_{N/2} + x_{(N+1)/2} \tag{8.4}
+\end{equation}
+\]</span></p>
+<p>The third important measure for central tendeny is the mode. The mode is the most frequent <span class="math inline">\(x\)</span>-value. Or for the grouped data, the the ccenter is the class with the largest number of observations. If the data values in the variable are unique that datase will have no mode. Frequency distribution with a single mode are called <em>unimodla</em>, but there variables with two modes(<em>bimodal</em>), three modes(<em>trimodal</em>) or four or more modes (<em>multimodal</em>) (Figure <a href="univariate-statistics.html#fig:fig82">8.2</a>)</p>
+<div class="figure" style="text-align: center"><span id="fig:fig82"></span>
+<img src="shape_distribution.png" alt="Dispersion and shape of distribution, a-b) unimodal distribution showing a negative or positive skew, c-d) distribution showing a high or low kurtosis, e-f) bimodal and trimodal distribution showing two or more modes. Source [@trauth]" width="256" />
+<p class="caption">
+Figure 8.2: Dispersion and shape of distribution, a-b) unimodal distribution showing a negative or positive skew, c-d) distribution showing a high or low kurtosis, e-f) bimodal and trimodal distribution showing two or more modes. Source <span class="citation">(Trauth <a href="#ref-trauth">2015</a>)</span>
+</p>
+</div>
+<p>The mean, median, and mode are used when several quantities add together to produce a total, wherea the <em>geometric mean</em> is often used if these quantities are multiplied. Let us assume that the economy of country <span class="math inline">\(x\)</span> increases by 10% the first year, 25% in the second year , and 60% in the last year. The average rate of increase is not the arithmetic mean, because the original number of individual has increase by a factor (not sum) of 1.1 after one year, 1.25 after the second year and <code>r160/100</code> after the third year. The average growth of the economy is therefore calculated by the geometric mean with equation <a href="univariate-statistics.html#eq:eq85">(8.5)</a></p>
+<p><span class="math display" id="eq:eq85">\[
+\begin{equation}
+\bar x_g = (x_1 \times x_2 \times \dots x_n)^\frac{1}{N} \tag{8.5}
+\end{equation}
+\]</span></p>
+<p>The average growth of these values is 1.3006 suggesting an approximate per annum growth in the economy of 30%. The arithmetic mean would result in an errenous value of 1.3167 of approximately 32% annual growth. The geometric mean is also a sueful mesure of central tendency for skewed or log-normal distributed data, in which the logarithms of the observation follow a Gausian or normal distribution. The geomeric mean, however, s not used for variables containing negative values.</p>
+<p>The last is the <em>harmonic mean</em> used to derive a mean value for asymetric or log-normal distributed data similar to geometric mean. Unfortunate, the harmonic mean is sensitive to outlier. The harmonic mean is a better average when values are defined in relation to a particular unt. A commonly quoted example is averging velocity. The harmonic mean is also used to compute the mean of the sample sizes. The equation <a href="univariate-statistics.html#eq:eq86">(8.6)</a> is used to compute harmonic mean.</p>
+<p><span class="math display" id="eq:eq86">\[
+\begin{equation}
+\bar x_H =\frac{N}{(\frac{1}{x_1} + \frac{1}{x_2} + \dots +\frac{1}{x_N})} \tag{8.6}
+\end{equation}
+\]</span></p>
+</div>
+<div id="measure-of-dispersion" class="section level3">
+<h3><span class="header-section-number">8.2.2</span> Measure of Dispersion</h3>
+<p>A second important component of the distribution is the <em>dispersion</em>. Some of the parameters that can be used to quantify dispersion are illustrated in figure <a href="univariate-statistics.html#fig:fig82">8.2</a>. The simplest way to describe the dispersion of a dat ase is by the <em>range</em>— a difference between the highest and the lowest value in the quantitative data. The range can be computed with equation <a href="univariate-statistics.html#eq:eq87">(8.7)</a></p>
+<p><span class="math display" id="eq:eq87">\[
+\begin{equation}
+\delta x = X_{max} - X_{min} \tag{8.7}
+\end{equation}
+\]</span></p>
+<p>Since the range is defined by the two extreme data points it is very susceptible to outliers and hence it is not a reliable measure of dispersion in most cases. Using the interquantile range of data—the middle 50% of the data attempt to overcome this problem. The widely used measure for dispersion is the standard deviation—the average deviation of each data point from the mean. The standard deviation of sample in an emprical distribution is often used as an estimate of the population standard deviation <span class="math inline">\(\sigma\)</span> equation <a href="univariate-statistics.html#eq:eq88">(8.8)</a></p>
+<p><span class="math display" id="eq:eq88">\[
+\begin{equation}
+s = \sqrt {\frac{\sum \limits_{i=1}^N (x_i - \bar x)}{N-1}} \tag{8.8}
+\end{equation} 
+\]</span> The s formula for the poulation standard deviation uses <span class="math inline">\(N\)</span> instead of <span class="math inline">\(N-1\)</span> as the denominator. The sample standard deviation <span class="math inline">\(s\)</span> is computed with <span class="math inline">\(N-1\)</span> instead of <span class="math inline">\(N\)</span> since it uses the sample mean instead of the unknown population mean. The sample mean, however, is computed from the data <span class="math inline">\(x_p\)</span> which reduce the number of degrees of freedom by one. The <em>degree of freedom</em> are number of values in a distribution that are free to be varied. Dividing the average deviation of the data from the mean by <span class="math inline">\(N\)</span> would therefore underestimate the population standard deviation <span class="math inline">\(\sigma\)</span>.</p>
+<p>The <em>variance</em> is the third important measure of dispersion. The variance is the square of the standard deviation equation <a href="univariate-statistics.html#eq:eq89">(8.9)</a>.</p>
+<p><span class="math display" id="eq:eq89">\[
+\begin{equation}
+s^{2} = \frac{\sum\limits_{i=1}^{n} \left(x_{i} - \bar{x}\right)^{2}} {n-1} \tag{8.9}
+\end{equation} 
+\]</span></p>
+<p>Although the variance has the disadvantage of mismatch dimension with original data, it is extensively used in many applications than the standard deviation.</p>
+<p>Other measure of distribution are <em>skewness</em> and <em>kurtosis</em> that are used to describe the shape of a frequency distribution (Fig). Skewness is a measure of the asymmetry of the tails of a distribution. A negative skew indicates the distribution is spread out more to the left of the mean value, assuming values increasing towards the right along the axis. Distribution with positive skewness have large tails that extend toward the right. Although Pearson’ formular for measure skewness is useful, the Fisher formular in equation <a href="univariate-statistics.html#eq:eq810">(8.10)</a> is used instead</p>
+<p><span class="math display" id="eq:eq810">\[
+\begin{equation}
+skewness = \sum\limits_{i=1}^{n} {\frac{(x_i - \bar x)^3}{s^3}}\tag{8.10}
+\end{equation} 
+\]</span></p>
+<p>The second important measure of the shape of a distribution is the <em>kurtosis</em> that can be computed with a formulae in equation <a href="univariate-statistics.html#eq:eq811">(8.11)</a>. Kurtosis measure whether the data are peaked or flat relative to a normal distribution. A high kurtosis indicates that the distribution has a distinct peak near the mean, whereas a low kurtosis shows a flat top near the mean and broad tails. Higher peakedness in a distribution results from rare extreme deviations, whereas low kurtosis is caused by frequent moderate deviations. A normal distribution has a kurtosis of three, and some definitions therefore substract three from the above term in order to set the kurtois of the normal distribution to zero.</p>
+<p><span class="math display" id="eq:eq811">\[
+\begin{equation}
+kurtosis = \sum\limits_{i=1}^{n} {\frac{(x_i - \bar x)^4}{s^4}}\tag{8.11}
+\end{equation} 
+\]</span> .</p>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-trauth">
+<p>Trauth, Martin. 2015. <em>MATLAB® Recipes for Earth Sciences</em>. Book. 4th ed. 2015. Berlin, Heidelberg: Berlin, Heidelberg : Springer Berlin Heidelberg : Imprint Springer.</p>
+</div>
+<div id="ref-r">
+<p>R Core Team. 2018. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="7">
+<li id="fn7"><p>A histogram is a barplot of a frequency distribution that is organized in intervals or classes<a href="univariate-statistics.html#fnref7">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="adding-equations-to-your-document.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bivariate.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["r_basic.pdf", "r_basic.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>A gentle Introduction of Coding with R</title>
+  <meta name="description" content="Learning to code with R is a new literacy of the fast changing world. The book will takes you through the basic of learning R while unlearning other languages.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="A gentle Introduction of Coding with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Learning to code with R is a new literacy of the fast changing world. The book will takes you through the basic of learning R while unlearning other languages." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A gentle Introduction of Coding with R" />
+  
+  <meta name="twitter:description" content="Learning to code with R is a new literacy of the fast changing world. The book will takes you through the basic of learning R while unlearning other languages." />
+  
+
+<meta name="author" content="Masumbuko Semba">
+
+
+<meta name="date" content="2018-11-19">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="readr.html">
+<link rel="next" href="tidy.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Gentle Introduction of Coding with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="prerequisities.html"><a href="prerequisities.html"><i class="fa fa-check"></i>Prerequisities</a></li>
+<li class="chapter" data-level="" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="1" data-path="why-programming.html"><a href="why-programming.html"><i class="fa fa-check"></i><b>1</b> Why Programming?</a><ul>
+<li class="chapter" data-level="1.1" data-path="why-programming.html"><a href="why-programming.html#learning-to-program"><i class="fa fa-check"></i><b>1.1</b> Learning to program</a></li>
+<li class="chapter" data-level="1.2" data-path="why-programming.html"><a href="why-programming.html#programming-in-r"><i class="fa fa-check"></i><b>1.2</b> Programming in R</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="why-programming.html"><a href="why-programming.html#what-is-r"><i class="fa fa-check"></i><b>1.2.1</b> What is R?</a></li>
+<li class="chapter" data-level="1.2.2" data-path="why-programming.html"><a href="why-programming.html#installing-r"><i class="fa fa-check"></i><b>1.2.2</b> Installing R</a></li>
+<li class="chapter" data-level="1.2.3" data-path="why-programming.html"><a href="why-programming.html#what-is-rstudio"><i class="fa fa-check"></i><b>1.2.3</b> What is RStudio?</a></li>
+<li class="chapter" data-level="1.2.4" data-path="why-programming.html"><a href="why-programming.html#basic-featurs-of-rstudio"><i class="fa fa-check"></i><b>1.2.4</b> Basic Featurs of RStudio</a></li>
+<li class="chapter" data-level="1.2.5" data-path="why-programming.html"><a href="why-programming.html#rstudio-editor"><i class="fa fa-check"></i><b>1.2.5</b> Rstudio editor</a></li>
+<li class="chapter" data-level="1.2.6" data-path="why-programming.html"><a href="why-programming.html#rmarkdown"><i class="fa fa-check"></i><b>1.2.6</b> Rmarkdown</a></li>
+<li class="chapter" data-level="1.2.7" data-path="why-programming.html"><a href="why-programming.html#use-descriptive-names"><i class="fa fa-check"></i><b>1.2.7</b> Use descriptive names</a></li>
+<li class="chapter" data-level="1.2.8" data-path="why-programming.html"><a href="why-programming.html#use-comments"><i class="fa fa-check"></i><b>1.2.8</b> Use comments</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>2</b> Getting started</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-started.html"><a href="getting-started.html#maths-in-r"><i class="fa fa-check"></i><b>2.1</b> Maths in R</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="getting-started.html"><a href="getting-started.html#arithmetric"><i class="fa fa-check"></i><b>2.1.1</b> Arithmetric</a></li>
+<li class="chapter" data-level="2.1.2" data-path="getting-started.html"><a href="getting-started.html#precedence"><i class="fa fa-check"></i><b>2.1.2</b> Precedence</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="getting-started.html"><a href="getting-started.html#assignment-operator"><i class="fa fa-check"></i><b>2.2</b> Assignment operator</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started.html"><a href="getting-started.html#variables"><i class="fa fa-check"></i><b>2.2.1</b> Variables</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-started.html"><a href="getting-started.html#functions"><i class="fa fa-check"></i><b>2.2.2</b> Functions</a></li>
+<li class="chapter" data-level="2.2.3" data-path="getting-started.html"><a href="getting-started.html#essential-functions"><i class="fa fa-check"></i><b>2.2.3</b> Essential functions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-started.html"><a href="getting-started.html#wdirectory"><i class="fa fa-check"></i><b>2.3</b> Setting Working Directory</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started.html"><a href="getting-started.html#packages-or-libraries"><i class="fa fa-check"></i><b>2.4</b> Packages or Libraries</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started.html"><a href="getting-started.html#installing-packages"><i class="fa fa-check"></i><b>2.4.1</b> Installing packages</a></li>
+<li class="chapter" data-level="2.4.2" data-path="getting-started.html"><a href="getting-started.html#loading-packages"><i class="fa fa-check"></i><b>2.4.2</b> Loading packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="getting-started.html"><a href="getting-started.html#understanding-data-in-r"><i class="fa fa-check"></i><b>2.5</b> Understanding Data in R</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="getting-started.html"><a href="getting-started.html#data-types"><i class="fa fa-check"></i><b>2.5.1</b> Data Types</a></li>
+<li class="chapter" data-level="2.5.2" data-path="getting-started.html"><a href="getting-started.html#vectors"><i class="fa fa-check"></i><b>2.5.2</b> Vectors</a></li>
+<li class="chapter" data-level="2.5.3" data-path="getting-started.html"><a href="getting-started.html#indexing-the-element"><i class="fa fa-check"></i><b>2.5.3</b> Indexing the element</a></li>
+<li class="chapter" data-level="2.5.4" data-path="getting-started.html"><a href="getting-started.html#adding-and-replacing-an-element-in-a-vector"><i class="fa fa-check"></i><b>2.5.4</b> Adding and Replacing an element in a vector</a></li>
+<li class="chapter" data-level="2.5.5" data-path="getting-started.html"><a href="getting-started.html#number-of-elements-in-a-vector"><i class="fa fa-check"></i><b>2.5.5</b> Number of elements in a vector</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="getting-started.html"><a href="getting-started.html#data-frame"><i class="fa fa-check"></i><b>2.6</b> Data Frame</a></li>
+<li class="chapter" data-level="2.7" data-path="getting-started.html"><a href="getting-started.html#exercise"><i class="fa fa-check"></i><b>2.7</b> Exercise</a></li>
+<li class="chapter" data-level="2.8" data-path="getting-started.html"><a href="getting-started.html#exercise-1"><i class="fa fa-check"></i><b>2.8</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="readr.html"><a href="readr.html"><i class="fa fa-check"></i><b>3</b> Importing data with <strong>readr</strong></a><ul>
+<li class="chapter" data-level="3.1" data-path="readr.html"><a href="readr.html#comma-separated-.csv"><i class="fa fa-check"></i><b>3.1</b> <em>Comma-Separated (.csv)</em></a></li>
+<li class="chapter" data-level="3.2" data-path="readr.html"><a href="readr.html#microsoft-excel.xlsx"><i class="fa fa-check"></i><b>3.2</b> Microsoft Excel(.xlsx)</a></li>
+<li class="chapter" data-level="3.3" data-path="readr.html"><a href="readr.html#writing-t-a-file"><i class="fa fa-check"></i><b>3.3</b> Writing t a File</a></li>
+<li class="chapter" data-level="3.4" data-path="readr.html"><a href="readr.html#basic-data-manipulation"><i class="fa fa-check"></i><b>3.4</b> Basic Data Manipulation</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="readr.html"><a href="readr.html#explore-the-data-frame"><i class="fa fa-check"></i><b>3.4.1</b> Explore the Data Frame</a></li>
+<li class="chapter" data-level="3.4.2" data-path="readr.html"><a href="readr.html#simmple-summary-statistics"><i class="fa fa-check"></i><b>3.4.2</b> simmple summary statistics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>4</b> Manipulating Data with <strong>dplyr</strong></a><ul>
+<li class="chapter" data-level="4.1" data-path="dplyr.html"><a href="dplyr.html#why-use-dplyr"><i class="fa fa-check"></i><b>4.1</b> Why use dplyr?</a></li>
+<li class="chapter" data-level="4.2" data-path="dplyr.html"><a href="dplyr.html#dplyr-functionality"><i class="fa fa-check"></i><b>4.2</b> dplyr functionality</a></li>
+<li class="chapter" data-level="4.3" data-path="dplyr.html"><a href="dplyr.html#filter-keep-rows-matching-criteria"><i class="fa fa-check"></i><b>4.3</b> filter: Keep rows matching criteria</a></li>
+<li class="chapter" data-level="4.4" data-path="dplyr.html"><a href="dplyr.html#select-pick-columns-by-name"><i class="fa fa-check"></i><b>4.4</b> select: Pick columns by name</a></li>
+<li class="chapter" data-level="4.5" data-path="dplyr.html"><a href="dplyr.html#chaining-or-pipelining"><i class="fa fa-check"></i><b>4.5</b> “Chaining” or “Pipelining”</a></li>
+<li class="chapter" data-level="4.6" data-path="dplyr.html"><a href="dplyr.html#pipping-with"><i class="fa fa-check"></i><b>4.6</b> Pipping with</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="dplyr.html"><a href="dplyr.html#choosing-columns-select-rename"><i class="fa fa-check"></i><b>4.6.1</b> Choosing columns: <code>select()</code>, <code>rename()</code></a></li>
+<li class="chapter" data-level="4.6.2" data-path="dplyr.html"><a href="dplyr.html#choosing-rows-filter-between-slice-sample_n-top_n-distinct"><i class="fa fa-check"></i><b>4.6.2</b> Choosing rows: filter, between, slice, sample_n, top_n, distinct</a></li>
+<li class="chapter" data-level="4.6.3" data-path="dplyr.html"><a href="dplyr.html#adding-new-variables-mutate-transmute-add_rownames"><i class="fa fa-check"></i><b>4.6.3</b> Adding new variables: mutate, transmute, add_rownames</a></li>
+<li class="chapter" data-level="4.6.4" data-path="dplyr.html"><a href="dplyr.html#grouping-and-counting-summarise-tally-count-group_size-n_groups-ungroup"><i class="fa fa-check"></i><b>4.6.4</b> Grouping and counting: summarise, tally, count, group_size, n_groups, ungroup</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tidy.html"><a href="tidy.html"><i class="fa fa-check"></i><b>5</b> Reshaping data with <strong>tidyr</strong></a><ul>
+<li class="chapter" data-level="5.1" data-path="tidy.html"><a href="tidy.html#gather-function"><i class="fa fa-check"></i><b>5.1</b> gather( ) function:</a></li>
+<li class="chapter" data-level="5.2" data-path="tidy.html"><a href="tidy.html#separate-function"><i class="fa fa-check"></i><b>5.2</b> separate( ) function:</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="visualisation-with-ggplot.html"><a href="visualisation-with-ggplot.html"><i class="fa fa-check"></i><b>6</b> Visualisation with <strong>ggplot</strong>`</a><ul>
+<li class="chapter" data-level="6.1" data-path="visualisation-with-ggplot.html"><a href="visualisation-with-ggplot.html#univariate-distributions"><i class="fa fa-check"></i><b>6.1</b> Univariate Distributions</a></li>
+<li class="chapter" data-level="6.2" data-path="visualisation-with-ggplot.html"><a href="visualisation-with-ggplot.html#continuous-variables"><i class="fa fa-check"></i><b>6.2</b> Continuous Variables</a></li>
+<li class="chapter" data-level="6.3" data-path="visualisation-with-ggplot.html"><a href="visualisation-with-ggplot.html#graphics-with-ggplot"><i class="fa fa-check"></i><b>6.3</b> Graphics with ggplot</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="visualisation-with-ggplot.html"><a href="visualisation-with-ggplot.html#categorical-data"><i class="fa fa-check"></i><b>6.3.1</b> Categorical Data</a></li>
+<li class="chapter" data-level="6.3.2" data-path="visualisation-with-ggplot.html"><a href="visualisation-with-ggplot.html#numerical-data"><i class="fa fa-check"></i><b>6.3.2</b> Numerical Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html"><i class="fa fa-check"></i><b>7</b> Adding Equations to Your Document</a><ul>
+<li class="chapter" data-level="7.1" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#subscripts-and-superscripts"><i class="fa fa-check"></i><b>7.1</b> Subscripts and Superscripts</a></li>
+<li class="chapter" data-level="7.2" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#square-roots"><i class="fa fa-check"></i><b>7.2</b> Square Roots</a></li>
+<li class="chapter" data-level="7.3" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#fractions"><i class="fa fa-check"></i><b>7.3</b> Fractions</a></li>
+<li class="chapter" data-level="7.4" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#summation-expressions"><i class="fa fa-check"></i><b>7.4</b> Summation Expressions</a></li>
+<li class="chapter" data-level="7.5" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#greek-letters"><i class="fa fa-check"></i><b>7.5</b> Greek Letters</a></li>
+<li class="chapter" data-level="7.6" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#special-symbols"><i class="fa fa-check"></i><b>7.6</b> Special Symbols</a></li>
+<li class="chapter" data-level="7.7" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#special-functions"><i class="fa fa-check"></i><b>7.7</b> Special Functions</a></li>
+<li class="chapter" data-level="7.8" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#mathematical-equations."><i class="fa fa-check"></i><b>7.8</b> Mathematical equations.</a></li>
+<li class="chapter" data-level="7.9" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#the-binomial-probability"><i class="fa fa-check"></i><b>7.9</b> The binomial probability:</a></li>
+<li class="chapter" data-level="7.10" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#aligning-equations-with-comments"><i class="fa fa-check"></i><b>7.10</b> Aligning Equations with Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="univariate-statistics.html"><a href="univariate-statistics.html"><i class="fa fa-check"></i><b>8</b> Univariate Statistics</a><ul>
+<li class="chapter" data-level="8.1" data-path="univariate-statistics.html"><a href="univariate-statistics.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="univariate-statistics.html"><a href="univariate-statistics.html#empical-distributions"><i class="fa fa-check"></i><b>8.2</b> Empical Distributions</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="univariate-statistics.html"><a href="univariate-statistics.html#measure-of-central-tendency"><i class="fa fa-check"></i><b>8.2.1</b> Measure of Central Tendency</a></li>
+<li class="chapter" data-level="8.2.2" data-path="univariate-statistics.html"><a href="univariate-statistics.html#measure-of-dispersion"><i class="fa fa-check"></i><b>8.2.2</b> Measure of Dispersion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="bivariate.html"><a href="bivariate.html"><i class="fa fa-check"></i><b>9</b> Bivariate</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A gentle Introduction of Coding with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dplyr" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Manipulating Data with <strong>dplyr</strong></h1>
+<p>Although many fundamental data processing functions exist in R, they have been a bit convoluted to date and have lacked consistent coding and the ability to easily flow together. This leads to difficult-to-read nested functions and/or choppy code. R Studio is driving a lot of new packages to collate data management tasks and better integrate them with other analysis activities. As a result, a lot of data processing tasks are becoming packaged in more cohesive and consistent ways, which leads to:</p>
+<ul>
+<li>More efficient code</li>
+<li>Easier to remember syntax</li>
+<li>Easier to read syntax</li>
+</ul>
+<p>The <code>dplyr</code> package provides a set of functions for efficiently manipulating datasets in R writen by <span class="citation">Wickham et al. (<a href="#ref-dplyr">2018</a>)</span>. The package make it easy to <code>transform</code> and <code>summarise</code> tabular data with rows and columns. The <code>dplyr</code> packages contains set of functions—verbs that perfom most common data manipulation tasks like</p>
+<p>When working with data you must:</p>
+<ul>
+<li>Figure out what you want to do.</li>
+<li>Describe those tasks in the form of a computer program.</li>
+<li>Execute the program.</li>
+</ul>
+<p>The dplyr package makes these steps fast and easy:</p>
+<ul>
+<li>By constraining your options, it helps you think about your data manipulation challenges.</li>
+<li>It provides simple “verbs”, functions that correspond to the most common data manipulation tasks, to help you translate your thoughts into code.</li>
+<li>It uses efficient backends, so you spend less time waiting for the computer.</li>
+</ul>
+<div id="why-use-dplyr" class="section level2">
+<h2><span class="header-section-number">4.1</span> Why use dplyr?</h2>
+<ol style="list-style-type: decimal">
+<li>Great for data exploration and manipulation</li>
+<li>Intuitive to write and easy to read, especially when using the chaining syntax</li>
+<li>Fast on data frame—tabular dataset</li>
+</ol>
+</div>
+<div id="dplyr-functionality" class="section level2">
+<h2><span class="header-section-number">4.2</span> dplyr functionality</h2>
+<ul>
+<li>Five basic verbs:</li>
+<li><code>select()</code> to select columns based on their names</li>
+<li><code>filter()</code> to rows in data frame</li>
+<li><code>arrange()</code> to re-order or arrange the rows in ascending or descending order</li>
+<li><code>mutate()</code> to create new columns—add new variable</li>
+<li><code>summarise()</code> to make a summary of variable(s)</li>
+<li><code>group_by()</code> to group observation</li>
+<li><code>sample_n()</code> and <code>rename()</code>to make random sample from the data set</li>
+</ul>
+<p>The <code>group_by()</code> function perform other common task which are related to the <em>split-apply-combine</em> concept. The <code>dplyr</code> package comes with the pipe operateor <code>%&gt;%</code> from the <code>magrittr</code> package. The pipe operator is very useful for combining several functions in a chain.</p>
+</div>
+<div id="filter-keep-rows-matching-criteria" class="section level2">
+<h2><span class="header-section-number">4.3</span> filter: Keep rows matching criteria</h2>
+<ul>
+<li>Base R approach to filtering forces you to repeat the data frame’s name</li>
+<li>dplyr approach is simpler to write and read</li>
+<li>Command structure (for all dplyr verbs):
+<ul>
+<li>first argument is a data frame</li>
+<li>return value is a data frame</li>
+<li>nothing is modified in place</li>
+</ul></li>
+<li>Note: dplyr generally does not preserve row names</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(dplyr)
+<span class="kw">require</span>(readr)
+<span class="kw">require</span>(lubridate)
+<span class="kw">require</span>(readxl)
+<span class="kw">require</span>(haven)
+<span class="kw">require</span>(ggplot2)
+<span class="kw">require</span>(kableExtra)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">flights =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;flights.csv&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>X1)</code></pre></div>
+<pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_integer(),
+##   carrier = col_character(),
+##   tailnum = col_character(),
+##   origin = col_character(),
+##   dest = col_character(),
+##   time_hour = col_character()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># base R approach to view all flights on January 1</span>
+flights[flights<span class="op">$</span>month<span class="op">==</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>flights<span class="op">$</span>day<span class="op">==</span><span class="dv">1</span>, ]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># dplyr approach</span>
+<span class="co"># note: you can use comma or ampersand to represent AND condition</span>
+<span class="kw">filter</span>(flights, month<span class="op">==</span><span class="dv">1</span>, day<span class="op">==</span><span class="dv">1</span>)</code></pre></div>
+<pre><code>## # A tibble: 842 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;int&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # ... with 832 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;int&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;int&gt;, distance &lt;int&gt;, hour &lt;int&gt;,
+## #   minute &lt;int&gt;, time_hour &lt;chr&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># use pipe for OR condition</span></code></pre></div>
+</div>
+<div id="select-pick-columns-by-name" class="section level2">
+<h2><span class="header-section-number">4.4</span> select: Pick columns by name</h2>
+<ul>
+<li>Base R approach is awkward to type and to read</li>
+<li>dplyr approach uses similar syntax to <code>filter</code></li>
+<li>Like a SELECT in SQL</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># base R approach to select DepTime, and ArrTime</span>
+flights[, <span class="kw">c</span>(<span class="st">&quot;dep_time&quot;</span>, <span class="st">&quot;arr_time&quot;</span>)]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># dplyr approach</span>
+<span class="kw">select</span>(flights, dep_time, arr_time)</code></pre></div>
+<pre><code>## # A tibble: 336,776 x 2
+##    dep_time arr_time
+##       &lt;int&gt;    &lt;int&gt;
+##  1      517      830
+##  2      533      850
+##  3      542      923
+##  4      544     1004
+##  5      554      812
+##  6      554      740
+##  7      555      913
+##  8      557      709
+##  9      557      838
+## 10      558      753
+## # ... with 336,766 more rows</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># use colon to select multiple contiguous columns, and use `contains` to match columns by name</span>
+<span class="co"># note: `starts_with`, `ends_with`, and `matches` (for regular expressions) can also be used to match columns by name</span>
+<span class="kw">select</span>(flights, year<span class="op">:</span>day, <span class="kw">contains</span>(<span class="st">&quot;taxi&quot;</span>), <span class="kw">contains</span>(<span class="st">&quot;delay&quot;</span>))</code></pre></div>
+<pre><code>## # A tibble: 336,776 x 5
+##     year month   day dep_delay arr_delay
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;     &lt;int&gt;     &lt;int&gt;
+##  1  2013     1     1         2        11
+##  2  2013     1     1         4        20
+##  3  2013     1     1         2        33
+##  4  2013     1     1        -1       -18
+##  5  2013     1     1        -6       -25
+##  6  2013     1     1        -4        12
+##  7  2013     1     1        -5        19
+##  8  2013     1     1        -3       -14
+##  9  2013     1     1        -3        -8
+## 10  2013     1     1        -2         8
+## # ... with 336,766 more rows</code></pre>
+</div>
+<div id="chaining-or-pipelining" class="section level2">
+<h2><span class="header-section-number">4.5</span> “Chaining” or “Pipelining”</h2>
+<p><span class="citation">Bache and Wickham (<a href="#ref-magrittr">2014</a>)</span> developed a <code>magrittr</code> package, which has changed the way coding is done in R. It introduce the pipe operator <code>%&gt;%</code> widely known as <code>THEN</code>. Usual way to perform multiple operations in R was through nesting. However, <code>magrittr</code> package introduced a natural order by using the <code>%&gt;%</code> chain multiple operations</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># nesting method to select UniqueCarrier and DepDelay columns and filter for delays over 60 minutes</span>
+<span class="kw">filter</span>(<span class="kw">select</span>(flights, carrier, dep_delay), dep_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">60</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># chaining method</span>
+flights <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">select</span>(carrier, dep_delay) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">filter</span>(dep_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">60</span>)</code></pre></div>
+<pre><code>## # A tibble: 26,581 x 2
+##    carrier dep_delay
+##    &lt;chr&gt;       &lt;int&gt;
+##  1 MQ            101
+##  2 AA             71
+##  3 MQ            853
+##  4 UA            144
+##  5 UA            134
+##  6 EV             96
+##  7 MQ             71
+##  8 B6             77
+##  9 EV             70
+## 10 EV            115
+## # ... with 26,571 more rows</code></pre>
+<ul>
+<li>Chaining increases readability significantly when there are many commands</li>
+<li>Operator is automatically imported from the <a href="https://github.com/smbache/magrittr">magrittr</a> package</li>
+<li>Can be used to replace nesting in R commands outside of dplyr.</li>
+</ul>
+<p>For example, we can create two vectors and calculate Euclidian distance between them using the mathematical equation <a href="dplyr.html#eq:eq1">(4.1)</a></p>
+<p><span class="math display" id="eq:eq1">\[
+\begin{equation}
+\theta\: = \: \sqrt {\sum (x_1 - x_2)^2} \tag{4.1}
+\end{equation}
+\]</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>; x2 &lt;-<span class="st"> </span><span class="dv">2</span><span class="op">:</span><span class="dv">6</span>
+<span class="kw">sqrt</span>(<span class="kw">sum</span>((x1<span class="op">-</span>x2)<span class="op">^</span><span class="dv">2</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># chaining method</span>
+(x1<span class="op">-</span>x2)<span class="op">^</span><span class="dv">2</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sqrt</span>()</code></pre></div>
+<pre><code>## [1] 2.236068</code></pre>
+</div>
+<div id="pipping-with" class="section level2">
+<h2><span class="header-section-number">4.6</span> Pipping with</h2>
+<div id="choosing-columns-select-rename" class="section level3">
+<h3><span class="header-section-number">4.6.1</span> Choosing columns: <code>select()</code>, <code>rename()</code></h3>
+<p>Often you work with large datasets with many columns but only a few are actually of interest to you. <code>select()</code> allows you to rapidly zoom in on a useful subset using operations that usually only work on numeric variable positions:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># besides just using select() to pick columns...</span>
+flights <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(carrier, flight)</code></pre></div>
+<pre><code>## # A tibble: 336,776 x 2
+##    carrier flight
+##    &lt;chr&gt;    &lt;int&gt;
+##  1 UA        1545
+##  2 UA        1714
+##  3 AA        1141
+##  4 B6         725
+##  5 DL         461
+##  6 UA        1696
+##  7 B6         507
+##  8 EV        5708
+##  9 B6          79
+## 10 AA         301
+## # ... with 336,766 more rows</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ...you can use the minus sign to hide columns</span>
+flights <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>month, <span class="op">-</span>day)</code></pre></div>
+<pre><code>## # A tibble: 336,776 x 17
+##     year dep_time sched_dep_time dep_delay arr_time sched_arr_time
+##    &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;int&gt;    &lt;int&gt;          &lt;int&gt;
+##  1  2013      517            515         2      830            819
+##  2  2013      533            529         4      850            830
+##  3  2013      542            540         2      923            850
+##  4  2013      544            545        -1     1004           1022
+##  5  2013      554            600        -6      812            837
+##  6  2013      554            558        -4      740            728
+##  7  2013      555            600        -5      913            854
+##  8  2013      557            600        -3      709            723
+##  9  2013      557            600        -3      838            846
+## 10  2013      558            600        -2      753            745
+## # ... with 336,766 more rows, and 11 more variables: arr_delay &lt;int&gt;,
+## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
+## #   air_time &lt;int&gt;, distance &lt;int&gt;, hour &lt;int&gt;, minute &lt;int&gt;,
+## #   time_hour &lt;chr&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hide a range of columns</span>
+flights <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>(dep_time<span class="op">:</span>arr_delay))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hide any column with a matching name</span>
+flights <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span><span class="kw">contains</span>(<span class="st">&quot;time&quot;</span>))</code></pre></div>
+<pre><code>## # A tibble: 336,776 x 13
+##     year month   day dep_delay arr_delay carrier flight tailnum origin
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;     &lt;int&gt;     &lt;int&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; 
+##  1  2013     1     1         2        11 UA        1545 N14228  EWR   
+##  2  2013     1     1         4        20 UA        1714 N24211  LGA   
+##  3  2013     1     1         2        33 AA        1141 N619AA  JFK   
+##  4  2013     1     1        -1       -18 B6         725 N804JB  JFK   
+##  5  2013     1     1        -6       -25 DL         461 N668DN  LGA   
+##  6  2013     1     1        -4        12 UA        1696 N39463  EWR   
+##  7  2013     1     1        -5        19 B6         507 N516JB  EWR   
+##  8  2013     1     1        -3       -14 EV        5708 N829AS  LGA   
+##  9  2013     1     1        -3        -8 B6          79 N593JB  JFK   
+## 10  2013     1     1        -2         8 AA         301 N3ALAA  LGA   
+## # ... with 336,766 more rows, and 4 more variables: dest &lt;chr&gt;,
+## #   distance &lt;int&gt;, hour &lt;int&gt;, minute &lt;int&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># pick columns using a character vector of column names</span>
+cols &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;carrier&quot;</span>, <span class="st">&quot;flight&quot;</span>, <span class="st">&quot;tailnum&quot;</span>)
+flights <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(<span class="kw">one_of</span>(cols))</code></pre></div>
+<pre><code>## # A tibble: 336,776 x 3
+##    carrier flight tailnum
+##    &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;  
+##  1 UA        1545 N14228 
+##  2 UA        1714 N24211 
+##  3 AA        1141 N619AA 
+##  4 B6         725 N804JB 
+##  5 DL         461 N668DN 
+##  6 UA        1696 N39463 
+##  7 B6         507 N516JB 
+##  8 EV        5708 N829AS 
+##  9 B6          79 N593JB 
+## 10 AA         301 N3ALAA 
+## # ... with 336,766 more rows</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># select() can be used to rename columns, though all columns not mentioned are dropped</span>
+flights <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(<span class="dt">tail =</span> tailnum)</code></pre></div>
+<pre><code>## # A tibble: 336,776 x 1
+##    tail  
+##    &lt;chr&gt; 
+##  1 N14228
+##  2 N24211
+##  3 N619AA
+##  4 N804JB
+##  5 N668DN
+##  6 N39463
+##  7 N516JB
+##  8 N829AS
+##  9 N593JB
+## 10 N3ALAA
+## # ... with 336,766 more rows</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># rename() does the same thing, except all columns not mentioned are kept</span>
+flights <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">rename</span>(<span class="dt">tail =</span> tailnum)</code></pre></div>
+<pre><code>## # A tibble: 336,776 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;int&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # ... with 336,766 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;int&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tail &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;int&gt;, distance &lt;int&gt;, hour &lt;int&gt;,
+## #   minute &lt;int&gt;, time_hour &lt;chr&gt;</code></pre>
+</div>
+<div id="choosing-rows-filter-between-slice-sample_n-top_n-distinct" class="section level3">
+<h3><span class="header-section-number">4.6.2</span> Choosing rows: filter, between, slice, sample_n, top_n, distinct</h3>
+<p><code>filter()</code> allows you to select a subset of rows in a data frame. Like all single verbs, the first argument is the tibble (or data frame). The second and subsequent arguments refer to variables within that data frame, selecting rows where the expression is TRUE. For example, we can select all flights on departed between 6:00 and 6:05 in the morning with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">flights <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(dep_time <span class="op">&gt;=</span><span class="st"> </span><span class="dv">600</span>, dep_time <span class="op">&lt;=</span><span class="st"> </span><span class="dv">605</span>)</code></pre></div>
+<pre><code>## # A tibble: 2,460 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;int&gt;    &lt;int&gt;
+##  1  2013     1     1      600            600         0      851
+##  2  2013     1     1      600            600         0      837
+##  3  2013     1     1      601            600         1      844
+##  4  2013     1     1      602            610        -8      812
+##  5  2013     1     1      602            605        -3      821
+##  6  2013     1     2      600            600         0      814
+##  7  2013     1     2      600            605        -5      751
+##  8  2013     1     2      600            600         0      819
+##  9  2013     1     2      600            600         0      846
+## 10  2013     1     2      600            600         0      737
+## # ... with 2,450 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;int&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;int&gt;, distance &lt;int&gt;, hour &lt;int&gt;,
+## #   minute &lt;int&gt;, time_hour &lt;chr&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># between() is a concise alternative for determing if numeric values fall in a range</span>
+flights <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">between</span>(dep_time, <span class="dv">600</span>, <span class="dv">605</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># side note: is.na() can also be useful when filtering</span>
+flights <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_time))</code></pre></div>
+<pre><code>## # A tibble: 328,521 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;int&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # ... with 328,511 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;int&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;int&gt;, distance &lt;int&gt;, hour &lt;int&gt;,
+## #   minute &lt;int&gt;, time_hour &lt;chr&gt;</code></pre>
+</div>
+<div id="adding-new-variables-mutate-transmute-add_rownames" class="section level3">
+<h3><span class="header-section-number">4.6.3</span> Adding new variables: mutate, transmute, add_rownames</h3>
+<p>Besides selecting sets of existing columns, it’s often useful to add new columns that are functions of existing columns. This is the job of <code>mutate()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># mutate() creates a new variable (and keeps all existing variables)</span>
+flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">speed =</span> distance<span class="op">/</span>air_time<span class="op">*</span><span class="dv">60</span>)</code></pre></div>
+<pre><code>## # A tibble: 336,776 x 20
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;int&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # ... with 336,766 more rows, and 13 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;int&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;int&gt;, distance &lt;int&gt;, hour &lt;int&gt;,
+## #   minute &lt;int&gt;, time_hour &lt;chr&gt;, speed &lt;dbl&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># transmute() only keeps the new variables</span>
+flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">transmute</span>(<span class="dt">speed =</span> distance<span class="op">/</span>air_time<span class="op">*</span><span class="dv">60</span>)</code></pre></div>
+<pre><code>## # A tibble: 336,776 x 1
+##    speed
+##    &lt;dbl&gt;
+##  1  370.
+##  2  374.
+##  3  408.
+##  4  517.
+##  5  394.
+##  6  288.
+##  7  404.
+##  8  259.
+##  9  405.
+## 10  319.
+## # ... with 336,766 more rows</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># example data frame with row names</span>
+mtcars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>()</code></pre></div>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># add_rownames() turns row names into an explicit variable</span>
+mtcars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">add_rownames</span>(<span class="st">&quot;model&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>()</code></pre></div>
+<pre><code>## Warning: Deprecated, use tibble::rownames_to_column() instead.</code></pre>
+<pre><code>## # A tibble: 6 x 12
+##   model    mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 Mazda~  21       6   160   110  3.9   2.62  16.5     0     1     4     4
+## 2 Mazda~  21       6   160   110  3.9   2.88  17.0     0     1     4     4
+## 3 Datsu~  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1
+## 4 Horne~  21.4     6   258   110  3.08  3.22  19.4     1     0     3     1
+## 5 Horne~  18.7     8   360   175  3.15  3.44  17.0     0     0     3     2
+## 6 Valia~  18.1     6   225   105  2.76  3.46  20.2     1     0     3     1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># side note: dplyr no longer prints row names (ever) for local data frames</span>
+mtcars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tbl_df</span>()</code></pre></div>
+<pre><code>## # A tibble: 32 x 11
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##  * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  21       6  160    110  3.9   2.62  16.5     0     1     4     4
+##  2  21       6  160    110  3.9   2.88  17.0     0     1     4     4
+##  3  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1
+##  4  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1
+##  5  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2
+##  6  18.1     6  225    105  2.76  3.46  20.2     1     0     3     1
+##  7  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+##  8  24.4     4  147.    62  3.69  3.19  20       1     0     4     2
+##  9  22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2
+## 10  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4
+## # ... with 22 more rows</code></pre>
+</div>
+<div id="grouping-and-counting-summarise-tally-count-group_size-n_groups-ungroup" class="section level3">
+<h3><span class="header-section-number">4.6.4</span> Grouping and counting: summarise, tally, count, group_size, n_groups, ungroup</h3>
+<p>The verb <code>summarise()</code> collapses a data frame to a single row.It’s not that useful until chained with the <code>group_by()</code> verb below.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># summarise() can be used to count the number of rows in each group</span>
+flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">cnt =</span> <span class="kw">n</span>())</code></pre></div>
+<pre><code>## # A tibble: 12 x 2
+##    month   cnt
+##    &lt;int&gt; &lt;int&gt;
+##  1     1 27004
+##  2     2 24951
+##  3     3 28834
+##  4     4 28330
+##  5     5 28796
+##  6     6 28243
+##  7     7 29425
+##  8     8 29327
+##  9     9 27574
+## 10    10 28889
+## 11    11 27268
+## 12    12 28135</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># tally() and count() can do this more concisely</span>
+flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tally</span>()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># you can sort by the count</span>
+flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">cnt =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(cnt))</code></pre></div>
+<pre><code>## # A tibble: 12 x 2
+##    month   cnt
+##    &lt;int&gt; &lt;int&gt;
+##  1     7 29425
+##  2     8 29327
+##  3    10 28889
+##  4     3 28834
+##  5     5 28796
+##  6     4 28330
+##  7     6 28243
+##  8    12 28135
+##  9     9 27574
+## 10    11 27268
+## 11     1 27004
+## 12     2 24951</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># you can sum over a specific variable instead of simply counting rows</span>
+flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">dist =</span> <span class="kw">sum</span>(distance))</code></pre></div>
+<pre><code>## # A tibble: 12 x 2
+##    month     dist
+##    &lt;int&gt;    &lt;int&gt;
+##  1     1 27188805
+##  2     2 24975509
+##  3     3 29179636
+##  4     4 29427294
+##  5     5 29974128
+##  6     6 29856388
+##  7     7 31149199
+##  8     8 31149334
+##  9     9 28711426
+## 10    10 30012086
+## 11    11 28639718
+## 12    12 29954084</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># tally() and count() have a wt parameter for this purpose</span>
+flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tally</span>(<span class="dt">wt =</span> distance)
+flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(month, <span class="dt">wt =</span> distance)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># group_size() returns the counts as a vector</span>
+flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_size</span>()</code></pre></div>
+<pre><code>##  [1] 27004 24951 28834 28330 28796 28243 29425 29327 27574 28889 27268
+## [12] 28135</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># n_groups() simply reports the number of groups</span>
+flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">n_groups</span>()</code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># group by two variables, summarise, arrange (output is possibly confusing)</span>
+flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month, day) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">cnt =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(cnt)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">print</span>(<span class="dt">n =</span> <span class="dv">40</span>)</code></pre></div>
+<pre><code># A tibble: 365 x 3
+# Groups:   month [12]
+   month   day   cnt
+   &lt;int&gt; &lt;int&gt; &lt;int&gt;
+ 1    11    27  1014
+ 2     7    11  1006
+ 3     7     8  1004
+ 4     7    10  1004
+ 5    12     2  1004
+ 6     7    18  1003
+ 7     7    25  1003
+ 8     7    12  1002
+ 9     7     9  1001
+10     7    17  1001
+11     7    31  1001
+12     8     7  1001
+13     8     8  1001
+14     8    12  1001
+15     7    22  1000
+16     7    24  1000
+17     8     1  1000
+18     8     5  1000
+19     8    15  1000
+20    11    21  1000
+21     7    15   999
+22     7    19   999
+23     7    26   999
+24     7    29   999
+25     8     2   999
+26     8     9   999
+27    11    22   999
+28     8    16   998
+29     7    23   997
+30     7    30   997
+31     8    14   997
+32     7    16   996
+33     8     6   996
+34     8    19   996
+35     9    13   996
+36     9    26   996
+37     9    27   996
+38     4    15   995
+39     6    20   995
+40     6    26   995
+# ... with 325 more rows</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ungroup() before arranging to arrange across all groups</span>
+flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month, day) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">cnt =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(cnt))</code></pre></div>
+<pre><code># A tibble: 365 x 3
+   month   day   cnt
+   &lt;int&gt; &lt;int&gt; &lt;int&gt;
+ 1    11    27  1014
+ 2     7    11  1006
+ 3     7     8  1004
+ 4     7    10  1004
+ 5    12     2  1004
+ 6     7    18  1003
+ 7     7    25  1003
+ 8     7    12  1002
+ 9     7     9  1001
+10     7    17  1001
+# ... with 355 more rows</code></pre>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-dplyr">
+<p>Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2018. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a>.</p>
+</div>
+<div id="ref-magrittr">
+<p>Bache, Stefan Milton, and Hadley Wickham. 2014. <em>Magrittr: A Forward-Pipe Operator for R</em>. <a href="https://CRAN.R-project.org/package=magrittr" class="uri">https://CRAN.R-project.org/package=magrittr</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="readr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tidy.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["r_basic.pdf", "r_basic.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
