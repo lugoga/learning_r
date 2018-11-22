@@ -1,8 +1,8 @@
 
-# Reshaping data with tidyr
-Most of the time, our data is in the form of a data frame and we are interested in exploring the relationships. However most procedures in R expect the data to show up in a 'long' format where each row is an observation and each column is a variable. In practice, the data is often not stored like that and the data comes to us with repeated observations included on a single row. This is often done as a memory saving technique or because there is some structure in the data that makes the 'wide' format attractive. As a result, we need a way to convert data from 'wide' to 'long' and vice-versa.
+# Reshaping data with **tidyr** {#tidy}
+It is often said that 80% of data analysis is spent on the cleaning and preparing data [@r4d]. And it’s not just a first step, but it must be repeated many times over the course of analysis as new problems come to light or new data is collected. Most of the time, our data is in the form of a data frame and we are interested in exploring the relationships[@r]. However most procedures in R expect the data to show up in a 'long' format where each row is an observation and each column is a variable [@tidyr; @dplyr]. In practice, the data is often not stored like that and the data comes to us with repeated observations included on a single row. This is often done as a memory saving technique or because there is some structure in the data that makes the 'wide' format attractive. As a result, we need a way to convert data from *wide*^[Data frame structured in wide format consist of each line or row represents observations and each each column represent a variable.] to *long*^[Unlike the wide format in which each column represent the variables, the long format also called indexing. In the long format, the column are values and not names] and vice-versa [@mathew].
 
-`tidyr` is a one such package which was built for the sole purpose of simplifying the process of creating tidy data [@tidyr]. This tutorial provides you with the basic understanding of the four fundamental functions of data tidying that tidyr provides:
+Data structure can become an issue when using statistical software packages, as some program prefer long format while others prefer wide format. For example, repeated-measures ANOVAs works with wide format, but between-subjects ANOVAs works well in long-format and  mixed design ANOVAs work with both. **dplyr**, **ggplot2**, and all the other packages in the **tidyverse** for example work with long format data structure [@tidyverse]. In R, many of the statistics packages require the data to be in long-format [@r]. It is important to become comfortable with either format, and with techniques for transforming data between formats. Therefore, the principles of tidy data provide a standard way to organise data values within a dataset either in long or wide format. And `tidyr` package was built for the sole purpose of simplifying the process of tranforming these two types of data structures depending on the requirement [@tidyr]. This chapeter provides you with the basic understanding of the four fundamental functions of data tidying the data and structure it to format that make data analysis easy. These function include:
 
 + `gather()` makes "wide" data longer
 + `spread()` makes "long" data wider
@@ -22,13 +22,14 @@ require(tidyr)
 ```
 
 
-## `gather( )` function:
+## gather( ) function:
 There are times when our data is considered unstacked and a common attribute of concern is spread out across columns. To reformat the data such that these common attributes are gathered together as a single variable, the gather() function will take multiple columns and collapse them into key-value pairs, duplicating all other columns as needed. in short `gather()` function  reshape wide format to long format (Figure \@ref(fig:fig11))
 
 ```{r fig11, fig.cap="Reshaped data set from wide to long format", out.width = "100%", echo=FALSE}
 knitr::include_graphics("tidy.png")
 ```
 The data in table \@ref(tab:tab14) data is considered wide since the time variable (represented as quarters) is structured such that each quarter represents a variable. To re-structure the time component as an individual variable, we can gather each quarter within one column variable and also gather the values associated with each quarter in a second column variable.
+
 ```{r tab14}
 wide = read_table2("wide_data.txt")
 wide %>%
@@ -53,7 +54,7 @@ The `spread() function is a complement function `gather()` as it convert long fo
 wide.wide = long %>% spread(key = "key", value = "Revenue")
 ```
 
-## `separate( )` function:
+## separate( ) function:
 Many times a single column variable will capture multiple variables, or even parts of a variable you just don't care about. Examples include is data in table \@ref(tab:tab16)). 
 
 ```{r}
@@ -65,7 +66,9 @@ usa %>%
   kable("html", caption = "Messy data with variable combined", align = "c")%>%
   column_spec(column = 1:5, width = "5cm", color = 1)
 ```
+
 In each of these cases, our objective may be to separate characters within the variable string. This can be accomplished using the `separate()` function which splits a single variable into multiple variables. Table \@ref(tab:tab17) show the tidy data after the variables were separated. The complement function to `separate()` is the `unite()`, which merge two variables into one.
+
 ```{r}
 usa.sep = usa %>% 
   separate(Grp_Ind, c("Group", "Individual"),  remove = TRUE, convert = TRUE) %>% 
@@ -83,3 +86,5 @@ usa.sep %>%
   kable("html", caption = "Tidy data with variable separated", align = "c")%>%
   column_spec(column = 1:10, width = "5cm", color = 1)
 ```
+
+

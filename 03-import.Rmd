@@ -1,8 +1,11 @@
 
-# Importing data
+# Importing data with **readr** {#readr}
+You can  lean R with the dataset it comes with when you install it in your machine. But sometimes you want to use the real data you or someone gathered already. One of critical steps for data processing is to import data with special format into R workspace.Data import refers to read data from the working directory into the workspace [@mathew]. In this chapter you will learn how to import common files into R. We will only focus on two common types of tabular data storage format---The comma-seprated `.csv` and excell spreadsheet (`.xlsx`). In later chapter we will explain how to read other types of data into R. 
 
-## `Comma-Separated (.csv)`
-One of critical steps for data processing is to import data with special format into R workspace.Data import refers to read data from the working directory into the workspace. The most commonly format that R like is the `comma-separated` files. Base R has functions like `read.table()`, `read.csv()`, `read.table()` and `read.csv2()` to import data from the local directories into R workspace. We'll only scratch the surface of data import by read plain-text rectangular files into R. we will use an `read_csv()` function from `readr` to import the `flight` dataset from the `working directory` into R. The `flights` dataset contains information of all flights departed from New York City in 2013 [@nyc].  The package is under active development under Hadley, Jim and Romain [-@readr] 
+
+## *Comma-Separated (.csv)*
+
+The most commonly format that R like is the `comma-separated` files. Although Base R provides various functions like `read.table()`, `read.csv()`, `read.table()` and `read.csv2()` to import data from the local directories into R workspace, for this book we  use an `read_csv()` function from `readr`. Before we import the data, we need to load the packages that we will use their functions in this chapeter
  
 ```{r packages-import, warning=FALSE, message=FALSE, comment=""}
 require(dplyr)
@@ -15,14 +18,32 @@ require(kableExtra)
 
 ```
 
+Consider a tabular data stored in my working directory in the `.csv` format in figure \@ref(fig:fig31). 
+```{r fig31, fig.align="center", out.width="100%", fig.cap="A screenshot of the sample dataset", echo=FALSE}
 
-```{r}
-flights = read_csv("flights.csv") %>%
-  select(-X1)
+knitr::include_graphics("data_screenshot.png")
 ```
-When `read_csv()` is complete to import the data into R workspace, it prints out a column specification that gives details like the name and type of each column. That's an important part of readr. 
 
-## `Microsoft Excel(.xlsx)`
+
+We can import it with the `read_csv()` functions as:
+```{r, message=TRUE, warning=TRUE, comment=""}
+demographic = read_csv("demographic.csv") 
+
+```
+
+When `read_csv()` has imported the data into R workspace, it prints out the name and type of of data for each variable.
+
+By simply glimpse the dataset, we see the format of the data is as expected. It has six variables(columns) and 177 observations (rows) similar to figure \@ref(fig:fig31). Table \@ref(tab:tab31) show sample of imported dataset. It contains six variables are `name of the country`, `continent`, `areas of the country in square kilometer`, `population of the country`, `life expectancy` and the `GDP of the country in percent`. The NA values indicates missing data in the data set. 
+
+```{r tab31, echo=FALSE}
+demographic %>% sample_n(12)%>%
+  kable(format = "html", digits = 2, caption = "World demographic information", col.names = c("Country", "Continent", "Area (Km^2)", "Population", "Life Epectancy (Years)", "GDP")) %>%
+  column_spec(column = 1:6, width = "4cm", color = "black" )
+```
+
+
+
+## Microsoft Excel(.xlsx)
 Commonly our data is stored as a MS Excel file. we can import the file with  `read_xlsx()` function of `readxl` package. The `readxl` package provides a function read_exel() that allows us to specify which sheet within the Excel file to read and what character specifies missing data (it assumes a blank cell is missing data if you don't specifying anything). The  function automatically convert the worksheet into a `.csv` file and read it.
 
 
@@ -30,7 +51,7 @@ Commonly our data is stored as a MS Excel file. we can import the file with  `re
 audit = readxl::read_xlsx("audit.xlsx")
 ```
 
-The `audit` file is from the `rattle` package developed by @rattle. The dataset which is artificially constructed that has some of the charactersitcis of a true financial audit. I just saved it into the working directory as Excel spreadsheet. I will use this file to illustrate how to import the excel file into R workspace with `readxl` package [@readxl]. We look on the internal structure of the `audit` file with the `glimpse()` function. You can interact with the table that show all variables and observations (Table \@ref(tab:tab13))
+The `audit` file is from the `rattle` package developed by @rattle. The dataset which is artificially constructed that has some of the charactersitcis of a true financial audit. I just saved it into the working directory as Excel spreadsheet. We will use this file to illustrate how to import the excel file into R workspace with `readxl` package [@readxl]. We look on the internal structure of the `audit` file with the `glimpse()` function. You can interact with the table that show all variables and observations (Table \@ref(tab:tab31))
 ```{r}
 audit%>%glimpse()
 ```
@@ -49,6 +70,8 @@ audit$Employment%>%table()
 ```{r}
 audit$Gender%>%table()%>%barplot(horiz = TRUE)
 
+as.POSIXct("1920-10-12 10:05:3") %>% class()
+
 ```
 
 ```{r}
@@ -56,12 +79,30 @@ audit$Marital%>%table()%>%barplot(horiz = TRUE)
 
 ```
 
+## Writing t a File
+Sometimes you work in the document and you want to export to a file. **readr** has 
+`write_csv()` and `write_tsv()` functions that allows to export data frames from workspace to working directory
+
+```{r eval=FALSE}
+write_csv(audit, "audit.csv")
+write_
+
+```
+
+@r4d recomment the use of `write_excel_csv()` function when you want to export a data frame to Excel. **readr** has other tools that export files to other software like SAS, SPSS and more ...
+```{r}
+write_excel_csv(audit, "audit.xls")
+```
+
+
 ## Basic Data Manipulation
 In this section, we brifely introduce some basic data handling and manipulation techniques, which are mostly associated with data frame. A data frame is a a tabular shaped contains columns and rows of equal length. In general a data frame structure with rows representing observations or measurements and with columns containing variables. 
 
 ### Explore the Data Frame
 We can visualize the table by simply run the name of the data `flights`
 ```{r}
+flights = read_csv("flights.csv")
+
 flights
 ```
 

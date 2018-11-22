@@ -1,7 +1,100 @@
-# Visualisation with `ggplot2`
-There are three major “systems” of making graphs in R. The `basic` plotting commands in R are quite effective but the commands do not have a way of being combined in easy ways. `Lattice` graphics (which the mosaic package uses) makes it possible to create some quite complicated graphs but it is very difficult to do make non-standard graphs. The last package, `ggplot2` tries to not anticipate what the user wants to do, but rather provide the mechanisms for pulling together different graphical concepts and the user gets to decide which elements to combine.
+# Visualisation with **ggplot**`
 
-The `ggplot2` package, created by Hadley Wickham [-@ggplot], offers a powerful graphics language for creating elegant and complex plots. Its popularity in the R community has exploded in recent years. Originally based on Leland Wilkinson's The Grammar of Graphics [-@wilkinson], `ggplot2` allows you to create graphs that represent both **univariate** and **multivariate** numerical and **categorical** data in a straightforward manner. 
+**R** provides numerous routines for displaying data as graphics. This chapter introduce the most important graphic functions. The graphics can be modified, printed, embedded in rmarkdown document or exported to be edited with graphic software outside R environment. 
+
+There are three major “systems” of making graphs in R. The `basic` plotting commands in R are quite effective but the commands do not have a way of being combined in easy ways [@r]. The simplest function producing a graph of a vector `y` versus another vector `x` is plot. First we create two vectors of `x` and `y`, where `y` is the sine of `x`
+
+```{r}
+x = seq(0,2*pi,pi/10)
+y = sin(x)
+length(y)
+```
+
+These two command lines resulted into two vectors with 21 elements each. Since the two vector have the same length dimension, we can use `plot()` function to produce a 2D graph of `y` against `x`. The code produce figure \@ref(fig:fig61a) with an x-axis ranging from 0 ti 7 and a $y$-axis ranging from -1 to +1 and black line overlaid on point. 
+
+```{r fig61a, fig.cap="Two dimension plot generated with base plot function", fig.width=3.5, fig.height=3.5, fig.align="center"}
+
+plot(x,y, type = "b", xlab = "Independent variable", ylab = "Dependent variable")
+
+```
+
+We can even combine different plot in one layout with the combination of `par()` and `mfrow()` function. For example the code `par(mfrow = c(1,3))` tell the computer to create container of one row that can accomodate three plots shown in figure \@ref(fig:fig62a)
+
+
+```{r fig62a, fig.height=2.5, fig.width=7.5, fig.align="center", fig.cap="Multiple plot in a single layout"}
+par(mfrow = c(1,3))
+plot(x,y, type = "p", xlab = "Independent variable", ylab = "Dependent variable")
+plot(x,y, type = "l", xlab = "Independent variable", ylab = "Dependent variable")
+plot(x,y, type = "b", pch = 8, cex = 2,col = 2 ,xlab = "Independent variable", ylab = "Dependent variable")
+
+```
+
+
+**Lattice** graphics (which the mosaic package uses) makes it possible to create some quite complicated graphs but it is very difficult to do make non-standard graphs [@lattice]. The last package, **ggplot2** tries to not anticipate what the user wants to do, but rather provide the mechanisms for pulling together different graphical concepts and the user gets to decide which elements to combine.
+
+The `ggplot2` package, created by Hadley Wickham [-@ggplot], offers a powerful graphics language for creating elegant and complex plots. Its popularity in the R community has exploded in recent years. Originally based on Leland Wilkinson's The Grammar of Graphics [-@wilkinson], **ggplot2** allows you to create graphs that represent both **univariate** and **multivariate** numerical and **categorical** data in a straightforward manner. Unfortunate **ggplot2** works only with data that are in data frame. If we want to plot the `x` and `y` variables we just created, we need to store them in the data frame first for **ggplot** to draw the graph [@tidyverse]. 
+
+We first load the package we need to work with for this chapter into the working directory. I am working a R project and defined the path of the working directory. Make sure you have also specified the path of the working directory. You can check  section \@ref(wdirectory) that illustrats how to set a working directory in **R**.
+
+```{r packages-ggplot, warning=FALSE, message=FALSE, comment="", echo=FALSE}
+#add packages
+require(dplyr)
+require(readr)
+require(lubridate)
+require(readxl)
+require(haven)
+require(ggplot2)
+require(kableExtra)
+require(tidyr)
+
+
+
+```
+
+The default **ggplot2** draw a plot with a gray background like the one shown in figure \@ref(fig:fig64a). We will discuss on how to change and customize plot made with **ggplot2**, but for now we may focus on the tools of making and draw plot with these package. Once we are familiar with its syntax, we can expand the skills by touching on issue related to creating quality publication plots with ggplot.
+
+```{r fig64a, fig.cap="Sine plot with ggplot2", fig.width=2.5, fig.height=2.5, fig.align="center"}
+y2 = cos(x)
+
+x.ys = data.frame(x,y,y2)
+
+ggplot(data = x.ys, aes(x = x, y = y)) + geom_point() + geom_line()
+```
+
+Sometimes We may wish to plot two different in one plot. That happen when you have two or more dependent variables and one independent variable. We need to create a second `y` variable and a cosine of `x`can suits well for illustration.
+
+```{r}
+x = seq(0,2*pi,pi/10)
+y = sin(x)
+y2 = cos(x)
+
+x.ys = data.frame(x,y,y2)
+```
+
+Figure \@ref(fig:fig65a) show the cosine and sine curves, unfortunately you can not distinguish them because the legend is missing. Here comes the problem inherited with untidy data discussed in chapter \@ref(tidy). Alghout the data is the data frame and ggplot2 can plot them, the data frame is untidy and therefore can not draw the lines with their respective legend. we therefore need to tidy the data and first and replot.
+
+```{r fig65a, fig.cap="Two dependent variables plotted in one independent variable", fig.height=2.5, fig.width=2.5, fig.align="center"}
+ggplot(data = x.ys) +
+  geom_line(aes(x = x, y = y), col = "red", show.legend = TRUE)+
+  geom_point(aes(x = x, y = y), col = "red") +
+  geom_line(aes(x = x, y = y2), col = "blue", show.legend = TRUE)+
+  geom_point(aes(x = x, y = y2), col = "blue")
+```
+
+We first need to transform the data frame from wide to long format with `gather()` function of **tidyr** package. Because the `x` variable is the same for the two `ys`, we transform the variable `y` and `y2`
+
+```{r}
+x.ys.long = x.ys %>% tidyr::gather(key = "ys", value = "values", 2:3)
+
+```
+Once the data is tidy, plotting and define the color makes easy for ggplot to distinguish and label the variables with a legend as shown in figure \@ref(fig:fig66a)
+
+```{r fig66a, fig.align="center", fig.height=3, fig.width=2.5, fig.cap="Two dependent variables plotted in one independent variable with legend"}
+ggplot(data = x.ys.long, aes(x = x, y = values, col = ys))+geom_line() + geom_point()+
+  theme(legend.position = "top") +
+  scale_colour_manual(values = c("red", "blue"), name = NULL)
+```
+
 
 ## Univariate Distributions
 Before moving on to more sophisticated visualizations that enable multidimensional investigation, it is important to be able to understand how an individual variable is distributed. Visually understanding the distribution allows us to describe many features of a variable.
@@ -23,23 +116,13 @@ Hadley Wickham in his book **Elegant Graphics for Data Analysis with ggplot** cl
 
 We will use the audit dataset in table \@ref(tab:tab61) to illustrate how to use `ggplot2` package to make elegant graphics in R. We chopped this dataset from the `rattle` package.  The audit dataset is an artificially constructed dataset that has some of the characteristics of a true financial audit datase [@rattle]
 
-```{r packages-ggplot, warning=FALSE, message=FALSE, comment="", echo=FALSE}
-#add packages
-require(dplyr)
-require(readr)
-require(lubridate)
-require(readxl)
-require(haven)
-require(ggplot2)
-require(kableExtra)
-require(tidyr)
+
+```{r tab61, echo=FALSE}
 
 # read the audit file
 audit = readxl::read_excel("audit.xlsx")
 
-```
 
-```{r tab61, echo=FALSE}
 audit%>%select(-c(9:13)) %>% sample_n(10) %>%
   kable("html", caption = "Individual Auditing Infomration", align = "c") %>%
   column_spec(column = 1:8, width = "3cm", color = 1)

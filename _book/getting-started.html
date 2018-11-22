@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>A gentle Introduction of Coding with R</title>
+  <meta name="description" content="Learning to code with R is a new literacy of the fast changing world. The book will takes you through the basic of learning R while unlearning other languages.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="A gentle Introduction of Coding with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Learning to code with R is a new literacy of the fast changing world. The book will takes you through the basic of learning R while unlearning other languages." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A gentle Introduction of Coding with R" />
+  
+  <meta name="twitter:description" content="Learning to code with R is a new literacy of the fast changing world. The book will takes you through the basic of learning R while unlearning other languages." />
+  
+
+<meta name="author" content="Masumbuko Semba">
+
+
+<meta name="date" content="2018-11-19">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="why-programming.html">
+<link rel="next" href="readr.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Gentle Introduction of Coding with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="prerequisities.html"><a href="prerequisities.html"><i class="fa fa-check"></i>Prerequisities</a></li>
+<li class="chapter" data-level="" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="1" data-path="why-programming.html"><a href="why-programming.html"><i class="fa fa-check"></i><b>1</b> Why Programming?</a><ul>
+<li class="chapter" data-level="1.1" data-path="why-programming.html"><a href="why-programming.html#learning-to-program"><i class="fa fa-check"></i><b>1.1</b> Learning to program</a></li>
+<li class="chapter" data-level="1.2" data-path="why-programming.html"><a href="why-programming.html#programming-in-r"><i class="fa fa-check"></i><b>1.2</b> Programming in R</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="why-programming.html"><a href="why-programming.html#what-is-r"><i class="fa fa-check"></i><b>1.2.1</b> What is R?</a></li>
+<li class="chapter" data-level="1.2.2" data-path="why-programming.html"><a href="why-programming.html#installing-r"><i class="fa fa-check"></i><b>1.2.2</b> Installing R</a></li>
+<li class="chapter" data-level="1.2.3" data-path="why-programming.html"><a href="why-programming.html#what-is-rstudio"><i class="fa fa-check"></i><b>1.2.3</b> What is RStudio?</a></li>
+<li class="chapter" data-level="1.2.4" data-path="why-programming.html"><a href="why-programming.html#basic-featurs-of-rstudio"><i class="fa fa-check"></i><b>1.2.4</b> Basic Featurs of RStudio</a></li>
+<li class="chapter" data-level="1.2.5" data-path="why-programming.html"><a href="why-programming.html#rstudio-editor"><i class="fa fa-check"></i><b>1.2.5</b> Rstudio editor</a></li>
+<li class="chapter" data-level="1.2.6" data-path="why-programming.html"><a href="why-programming.html#rmarkdown"><i class="fa fa-check"></i><b>1.2.6</b> Rmarkdown</a></li>
+<li class="chapter" data-level="1.2.7" data-path="why-programming.html"><a href="why-programming.html#use-descriptive-names"><i class="fa fa-check"></i><b>1.2.7</b> Use descriptive names</a></li>
+<li class="chapter" data-level="1.2.8" data-path="why-programming.html"><a href="why-programming.html#use-comments"><i class="fa fa-check"></i><b>1.2.8</b> Use comments</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>2</b> Getting started</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-started.html"><a href="getting-started.html#maths-in-r"><i class="fa fa-check"></i><b>2.1</b> Maths in R</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="getting-started.html"><a href="getting-started.html#arithmetric"><i class="fa fa-check"></i><b>2.1.1</b> Arithmetric</a></li>
+<li class="chapter" data-level="2.1.2" data-path="getting-started.html"><a href="getting-started.html#precedence"><i class="fa fa-check"></i><b>2.1.2</b> Precedence</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="getting-started.html"><a href="getting-started.html#assignment-operator"><i class="fa fa-check"></i><b>2.2</b> Assignment operator</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started.html"><a href="getting-started.html#variables"><i class="fa fa-check"></i><b>2.2.1</b> Variables</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-started.html"><a href="getting-started.html#functions"><i class="fa fa-check"></i><b>2.2.2</b> Functions</a></li>
+<li class="chapter" data-level="2.2.3" data-path="getting-started.html"><a href="getting-started.html#essential-functions"><i class="fa fa-check"></i><b>2.2.3</b> Essential functions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-started.html"><a href="getting-started.html#wdirectory"><i class="fa fa-check"></i><b>2.3</b> Setting Working Directory</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started.html"><a href="getting-started.html#packages-or-libraries"><i class="fa fa-check"></i><b>2.4</b> Packages or Libraries</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started.html"><a href="getting-started.html#installing-packages"><i class="fa fa-check"></i><b>2.4.1</b> Installing packages</a></li>
+<li class="chapter" data-level="2.4.2" data-path="getting-started.html"><a href="getting-started.html#loading-packages"><i class="fa fa-check"></i><b>2.4.2</b> Loading packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="getting-started.html"><a href="getting-started.html#understanding-data-in-r"><i class="fa fa-check"></i><b>2.5</b> Understanding Data in R</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="getting-started.html"><a href="getting-started.html#data-types"><i class="fa fa-check"></i><b>2.5.1</b> Data Types</a></li>
+<li class="chapter" data-level="2.5.2" data-path="getting-started.html"><a href="getting-started.html#vectors"><i class="fa fa-check"></i><b>2.5.2</b> Vectors</a></li>
+<li class="chapter" data-level="2.5.3" data-path="getting-started.html"><a href="getting-started.html#indexing-the-element"><i class="fa fa-check"></i><b>2.5.3</b> Indexing the element</a></li>
+<li class="chapter" data-level="2.5.4" data-path="getting-started.html"><a href="getting-started.html#adding-and-replacing-an-element-in-a-vector"><i class="fa fa-check"></i><b>2.5.4</b> Adding and Replacing an element in a vector</a></li>
+<li class="chapter" data-level="2.5.5" data-path="getting-started.html"><a href="getting-started.html#number-of-elements-in-a-vector"><i class="fa fa-check"></i><b>2.5.5</b> Number of elements in a vector</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="getting-started.html"><a href="getting-started.html#data-frame"><i class="fa fa-check"></i><b>2.6</b> Data Frame</a></li>
+<li class="chapter" data-level="2.7" data-path="getting-started.html"><a href="getting-started.html#exercise"><i class="fa fa-check"></i><b>2.7</b> Exercise</a></li>
+<li class="chapter" data-level="2.8" data-path="getting-started.html"><a href="getting-started.html#exercise-1"><i class="fa fa-check"></i><b>2.8</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="readr.html"><a href="readr.html"><i class="fa fa-check"></i><b>3</b> Importing data with <strong>readr</strong></a><ul>
+<li class="chapter" data-level="3.1" data-path="readr.html"><a href="readr.html#comma-separated-.csv"><i class="fa fa-check"></i><b>3.1</b> <em>Comma-Separated (.csv)</em></a></li>
+<li class="chapter" data-level="3.2" data-path="readr.html"><a href="readr.html#microsoft-excel.xlsx"><i class="fa fa-check"></i><b>3.2</b> Microsoft Excel(.xlsx)</a></li>
+<li class="chapter" data-level="3.3" data-path="readr.html"><a href="readr.html#writing-t-a-file"><i class="fa fa-check"></i><b>3.3</b> Writing t a File</a></li>
+<li class="chapter" data-level="3.4" data-path="readr.html"><a href="readr.html#basic-data-manipulation"><i class="fa fa-check"></i><b>3.4</b> Basic Data Manipulation</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="readr.html"><a href="readr.html#explore-the-data-frame"><i class="fa fa-check"></i><b>3.4.1</b> Explore the Data Frame</a></li>
+<li class="chapter" data-level="3.4.2" data-path="readr.html"><a href="readr.html#simmple-summary-statistics"><i class="fa fa-check"></i><b>3.4.2</b> simmple summary statistics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>4</b> Manipulating Data with <strong>dplyr</strong></a><ul>
+<li class="chapter" data-level="4.1" data-path="dplyr.html"><a href="dplyr.html#why-use-dplyr"><i class="fa fa-check"></i><b>4.1</b> Why use dplyr?</a></li>
+<li class="chapter" data-level="4.2" data-path="dplyr.html"><a href="dplyr.html#dplyr-functionality"><i class="fa fa-check"></i><b>4.2</b> dplyr functionality</a></li>
+<li class="chapter" data-level="4.3" data-path="dplyr.html"><a href="dplyr.html#filter-keep-rows-matching-criteria"><i class="fa fa-check"></i><b>4.3</b> filter: Keep rows matching criteria</a></li>
+<li class="chapter" data-level="4.4" data-path="dplyr.html"><a href="dplyr.html#select-pick-columns-by-name"><i class="fa fa-check"></i><b>4.4</b> select: Pick columns by name</a></li>
+<li class="chapter" data-level="4.5" data-path="dplyr.html"><a href="dplyr.html#chaining-or-pipelining"><i class="fa fa-check"></i><b>4.5</b> “Chaining” or “Pipelining”</a></li>
+<li class="chapter" data-level="4.6" data-path="dplyr.html"><a href="dplyr.html#pipping-with"><i class="fa fa-check"></i><b>4.6</b> Pipping with</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="dplyr.html"><a href="dplyr.html#choosing-columns-select-rename"><i class="fa fa-check"></i><b>4.6.1</b> Choosing columns: <code>select()</code>, <code>rename()</code></a></li>
+<li class="chapter" data-level="4.6.2" data-path="dplyr.html"><a href="dplyr.html#choosing-rows-filter-between-slice-sample_n-top_n-distinct"><i class="fa fa-check"></i><b>4.6.2</b> Choosing rows: filter, between, slice, sample_n, top_n, distinct</a></li>
+<li class="chapter" data-level="4.6.3" data-path="dplyr.html"><a href="dplyr.html#adding-new-variables-mutate-transmute-add_rownames"><i class="fa fa-check"></i><b>4.6.3</b> Adding new variables: mutate, transmute, add_rownames</a></li>
+<li class="chapter" data-level="4.6.4" data-path="dplyr.html"><a href="dplyr.html#grouping-and-counting-summarise-tally-count-group_size-n_groups-ungroup"><i class="fa fa-check"></i><b>4.6.4</b> Grouping and counting: summarise, tally, count, group_size, n_groups, ungroup</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tidy.html"><a href="tidy.html"><i class="fa fa-check"></i><b>5</b> Reshaping data with <strong>tidyr</strong></a><ul>
+<li class="chapter" data-level="5.1" data-path="tidy.html"><a href="tidy.html#gather-function"><i class="fa fa-check"></i><b>5.1</b> gather( ) function:</a></li>
+<li class="chapter" data-level="5.2" data-path="tidy.html"><a href="tidy.html#separate-function"><i class="fa fa-check"></i><b>5.2</b> separate( ) function:</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="visualisation-with-ggplot.html"><a href="visualisation-with-ggplot.html"><i class="fa fa-check"></i><b>6</b> Visualisation with <strong>ggplot</strong>`</a><ul>
+<li class="chapter" data-level="6.1" data-path="visualisation-with-ggplot.html"><a href="visualisation-with-ggplot.html#univariate-distributions"><i class="fa fa-check"></i><b>6.1</b> Univariate Distributions</a></li>
+<li class="chapter" data-level="6.2" data-path="visualisation-with-ggplot.html"><a href="visualisation-with-ggplot.html#continuous-variables"><i class="fa fa-check"></i><b>6.2</b> Continuous Variables</a></li>
+<li class="chapter" data-level="6.3" data-path="visualisation-with-ggplot.html"><a href="visualisation-with-ggplot.html#graphics-with-ggplot"><i class="fa fa-check"></i><b>6.3</b> Graphics with ggplot</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="visualisation-with-ggplot.html"><a href="visualisation-with-ggplot.html#categorical-data"><i class="fa fa-check"></i><b>6.3.1</b> Categorical Data</a></li>
+<li class="chapter" data-level="6.3.2" data-path="visualisation-with-ggplot.html"><a href="visualisation-with-ggplot.html#numerical-data"><i class="fa fa-check"></i><b>6.3.2</b> Numerical Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html"><i class="fa fa-check"></i><b>7</b> Adding Equations to Your Document</a><ul>
+<li class="chapter" data-level="7.1" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#subscripts-and-superscripts"><i class="fa fa-check"></i><b>7.1</b> Subscripts and Superscripts</a></li>
+<li class="chapter" data-level="7.2" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#square-roots"><i class="fa fa-check"></i><b>7.2</b> Square Roots</a></li>
+<li class="chapter" data-level="7.3" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#fractions"><i class="fa fa-check"></i><b>7.3</b> Fractions</a></li>
+<li class="chapter" data-level="7.4" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#summation-expressions"><i class="fa fa-check"></i><b>7.4</b> Summation Expressions</a></li>
+<li class="chapter" data-level="7.5" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#greek-letters"><i class="fa fa-check"></i><b>7.5</b> Greek Letters</a></li>
+<li class="chapter" data-level="7.6" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#special-symbols"><i class="fa fa-check"></i><b>7.6</b> Special Symbols</a></li>
+<li class="chapter" data-level="7.7" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#special-functions"><i class="fa fa-check"></i><b>7.7</b> Special Functions</a></li>
+<li class="chapter" data-level="7.8" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#mathematical-equations."><i class="fa fa-check"></i><b>7.8</b> Mathematical equations.</a></li>
+<li class="chapter" data-level="7.9" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#the-binomial-probability"><i class="fa fa-check"></i><b>7.9</b> The binomial probability:</a></li>
+<li class="chapter" data-level="7.10" data-path="adding-equations-to-your-document.html"><a href="adding-equations-to-your-document.html#aligning-equations-with-comments"><i class="fa fa-check"></i><b>7.10</b> Aligning Equations with Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="univariate-statistics.html"><a href="univariate-statistics.html"><i class="fa fa-check"></i><b>8</b> Univariate Statistics</a><ul>
+<li class="chapter" data-level="8.1" data-path="univariate-statistics.html"><a href="univariate-statistics.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="univariate-statistics.html"><a href="univariate-statistics.html#empical-distributions"><i class="fa fa-check"></i><b>8.2</b> Empical Distributions</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="univariate-statistics.html"><a href="univariate-statistics.html#measure-of-central-tendency"><i class="fa fa-check"></i><b>8.2.1</b> Measure of Central Tendency</a></li>
+<li class="chapter" data-level="8.2.2" data-path="univariate-statistics.html"><a href="univariate-statistics.html#measure-of-dispersion"><i class="fa fa-check"></i><b>8.2.2</b> Measure of Dispersion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="bivariate.html"><a href="bivariate.html"><i class="fa fa-check"></i><b>9</b> Bivariate</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A gentle Introduction of Coding with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="getting-started" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Getting started</h1>
+<p>This chapter provides example of foundational programming concepts in R. These include the basic tasks like importing data in R, manipulating data, visualizing the data and conduct explatory and inferencial statistics. These basics will provide building blocks for handling data, analysing data and make plots with R. In the examples, R codes are presented in the light gray chunk blocks. Inside these chunk blocks, lines that begin with two number signs (##) are the outputs of the preceding lines of codes that have been executed and lines without the number signs are are the code that generated the output.</p>
+<div id="maths-in-r" class="section level2">
+<h2><span class="header-section-number">2.1</span> Maths in R</h2>
+<div id="arithmetric" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Arithmetric</h3>
+<p><strong>R</strong> provides standard arithmetic operators for <code>addition (+)</code> , <code>substraction (-)</code>, <code>multiplication (*)</code>, <code>division (/)</code>, and <code>exponential (^)</code>. Because of the convinient, we will use <strong>Rstudio</strong>. In console just write an expression <code>2 + 3</code> and click enter.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">+</span><span class="dv">3</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>As we expected, R returns the answer as 5. Unlike other programming languages, coding in R does not need to terminate the expression or lines with a semicolon.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">10</span><span class="op">-</span><span class="dv">4</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">23</span><span class="op">*</span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 46</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">8</span><span class="op">/</span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span><span class="op">^</span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 25</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span><span class="op">%%</span><span class="dv">3</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span><span class="op">%%</span><span class="dv">5</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+</div>
+<div id="precedence" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Precedence</h3>
+<p>R can be used to express complicated mathematical formulars. For anyone unfamiliar with writing formulas on computers, it is important to recognize that R will make assumptions abot which part of the formular to compute first. This is called <strong>predecence</strong><a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>. This i similar to a traditional and common mathematical term <em>BODMAS</em>. What is the answer for the mathematical expression in the chunk below. The answer should be 14. Accordings to BODMAS, the first operation in the expression is divide <code>8/2 = 4</code>, then multiply <code>4*3 = 12</code>, then addition <code>12+5 = 17</code> and last operation is substract <code>17-3 = 14</code> to obtain 14.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span><span class="op">-</span><span class="dv">3</span><span class="op">+</span><span class="dv">8</span><span class="op">/</span><span class="dv">2</span><span class="op">*</span><span class="dv">3</span></code></pre></div>
+<pre><code>## [1] 14</code></pre>
+</div>
+</div>
+<div id="assignment-operator" class="section level2">
+<h2><span class="header-section-number">2.2</span> Assignment operator</h2>
+<p>We often use an assignment operator to assing the value of an expression to a variable. R has two assignment operators—the conventional assignment operator <code>=</code>, which is present in most programming languages, and the arrows <code>&lt;-</code> and <code>-&gt;</code> which are specific to R. The expression <code>x = 5</code> assign the value 5 to x, likewise the expression <code>x &lt;- 5</code> and <code>5 -&gt; x</code> have the same effect. Throughout this book, we stick on the conventional assignment operator <code>(=)</code></p>
+<div id="variables" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Variables</h3>
+<p>We can create expression using variables. for instance, we assign the value 5 to the variable x and evaluate the square of x using the exponential <code>^</code> operator.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="dv">5</span>
+x<span class="op">^</span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 25</code></pre>
+<p>R has many types of variables that store different kinds of data in different ways. Example you can store a list of numbers or text</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">days=<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Monday&quot;</span>, <span class="st">&quot;Tuesday&quot;</span>, <span class="st">&quot;Wednesday&quot;</span>)
+speed  =<span class="st"> </span><span class="kw">c</span>(<span class="dv">128</span>, <span class="dv">158</span>, <span class="dv">89</span>)</code></pre></div>
+<p>R has peculiar syntax when it comes to variable names. The dot character <code>.</code> has a completely different meaning as compared to other programming languages. In R, we can use <code>.</code> in the variable names, so x.1 and x_1 are perfectly valid. In practice, the dot operator is used as a visual separator in variable names, similar to underscore in most other programming languages.</p>
+</div>
+<div id="functions" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Functions</h3>
+<p>Functions in R are <code>first class objects</code>, which means that they can be treated much like any other R object. Importantly,</p>
+<ul>
+<li>Functions can be passed as arguments to other functions</li>
+<li>Functions can be nested, so that you can define a function inside of another function</li>
+</ul>
+<p>The return value of a function is the last expression in the function body to be evaluated.</p>
+<p>R functions arguments can be matched positionally or by name. So the following calls to <code>sd</code> are all equivalent</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">25</span>)
+<span class="kw">sum</span>(data)</code></pre></div>
+<pre><code>## [1] 1.597168</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(data)</code></pre></div>
+<pre><code>## [1] 1.318578</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(data)</code></pre></div>
+<pre><code>## [1] 0.06388672</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(data)</code></pre></div>
+<pre><code>## [1] 0.2373929</code></pre>
+</div>
+<div id="essential-functions" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> Essential functions</h3>
+<p>R has many built-in functions that can be used fo a great variety of tasks. These can be suplemented with packages, which contains more functions bundled in one document. Here is a list of common and widely used functions + <code>rep()</code> — repeates a value some number of times to make a list + <code>seq()</code> — creates a sequence of values between a start and end number and spaced at certain interval + <code>aggregate()</code> — used to bin data by condition + <code>table()</code> — used to summarise categorical data + <code>plot()</code> — graphical plots of data + <code>hist()</code> — a function for plotting a histogram + <code>boxplot()</code> — a function for plotting boxplot + <code>mean()</code> — compute arithmetric mean + <code>sd()</code> — compute arithmetric standard deviation + <code>sum()</code> — compute the total of the set of elements + <code>length()</code> — function to count the number of elements in a vector</p>
+</div>
+</div>
+<div id="wdirectory" class="section level2">
+<h2><span class="header-section-number">2.3</span> Setting Working Directory</h2>
+<p><span class="citation">Xia, Sun, and Chen (<a href="#ref-xia">2018</a>)</span> defined a working directory as a folder in your computer or server where you stores the raw data, codes and output for that specific project. This folder is important in programming because it allows to read the data and write outputs to this working directory. In R you can set working directory with <code>setwd()</code> function and check whether you are in the right working directory with the <code>getwd()</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()
+
+<span class="kw">setwd</span>(<span class="st">&quot;./Data Manipulation/R_dege/&quot;</span>)</code></pre></div>
+</div>
+<div id="packages-or-libraries" class="section level2">
+<h2><span class="header-section-number">2.4</span> Packages or Libraries</h2>
+<p>R is made up of many user-written package. The base version of R allows user to get started in R, but the capabilities of base R are limited and additional packages are required for smooth performance of working with data. packages are collections of R functions, data, and compiled code in a well-defined format. A package bundles together code, data, documentation and tests and provide ana easy method to share with others. Until November 2018, there were 1300+ packages available for download on CRAN and countless more avaialble trought GitHub. The huge number of package has made R so successful and the chance is that some one has already created a package that can solve the problem you about to tackle and you can benefit from their work by downloading their package.</p>
+<div id="installing-packages" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Installing packages</h3>
+<p>R comes with a standard set of packages. Others are available for download and installation. The primary of stable package is the CRAN. In R you can install a package from CRAN with an <code>install.packages(&quot;packagename&quot;)</code> function that allows you to install the package you want to use into R. In have already installed the <strong>ggplot2</strong> packages in my machine, so if you want to install in your machine you can simply uncomment the chunk below by removing the hash tag (#)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## install.packages(&quot;ggplot2&quot;)
+## install.packages(&quot;dplyr&quot;)
+## install.packages(&quot;lubridate&quot;)
+## install.packages(&quot;factoextra&quot;)
+## install.packages(&quot;readxl&quot;)
+## install.packages(&quot;kableextra&quot;)
+## install.packages(&quot;haven&quot;)
+## install.packages(&quot;readr&quot;)</code></pre></div>
+</div>
+<div id="loading-packages" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> Loading packages</h3>
+<p>Once package is downloaded and installed in your computer, you have to them into the session to access its functions and resources of the package. Yu can load the packages you want ot use with ether <code>library()</code> or <code>required()</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(dplyr)
+<span class="kw">library</span>(readr)
+<span class="kw">require</span>(lubridate)
+<span class="kw">library</span>(readxl)
+<span class="kw">require</span>(haven)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">require</span>(kableExtra)</code></pre></div>
+</div>
+</div>
+<div id="understanding-data-in-r" class="section level2">
+<h2><span class="header-section-number">2.5</span> Understanding Data in R</h2>
+<p>Clearing the workspace is always recommended before working on a new R project to avoid name conflicts with provious projects. We can also clear all figures using <code>graphics.off()' function and clear the console with a combinantion of</code>CTRL+L`. It is a good code practise that a new R project start with the code in the chunk below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())
+<span class="kw">graphics.off</span>()</code></pre></div>
+<div id="data-types" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> Data Types</h3>
+<p>R is a flexible language that allows to work with different kind of data format <span class="citation">(Boehmke <a href="#ref-bradley">2016</a>)</span>. This inluced integer, numeric, character, complex, dates and logical. The default data type or class in <strong>R</strong> is double precision—numeric. In a nutshell, R treats all kind of data into five categories but we deal with only four in this book. Before proceeding, we need to clear the workspace by typing <code>rm(list = ls())</code> after the prompt in the in a console.</p>
+<ol style="list-style-type: decimal">
+<li><code>Integers</code>:Integer values do not have decimal places. They are commonly used for counting or indexing.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">aa =<span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">68</span>,<span class="dv">78</span>,<span class="dv">50</span>)</code></pre></div>
+<p>You can check if the data is integer with <code>is.integer()</code> and can convert numeric value to an integer with <code>as.integer()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.integer</span>(aa)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>You can query the class of the object with the <code>class()</code> to know the class of the object</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(aa)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>Although the object bb is integer as confirmed with <code>as.integer()</code> function, the <code>class()</code> ouput the answer as numeric. This is because the defaul type of number in r is numeric. However, you can use the function <code>as.integer()</code> to convert numeric value to integer</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">as.integer</span>(aa))</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><code>Numeric</code>: The numeric class holds the set of real numbers — decimal place numbers. The numeric class is more general than the integer class, and inclused the integer numbers.</li>
+</ol>
+<p>These could be any number (whole or decimal number). You can check if the data is integer with <code>is.integer()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bb =<span class="st"> </span><span class="kw">c</span>(<span class="fl">12.5</span>, <span class="fl">45.68</span>, <span class="fl">2.65</span>)
+<span class="kw">class</span>(bb)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.numeric</span>(bb)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><code>Strings</code>: These collection of characters. This often are <code>text</code> data like names. You can check if the data is integer with <code>is.character()</code></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">kata =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Dege&quot;</span>, <span class="st">&quot;Mchikichini&quot;</span>, <span class="st">&quot;Mwembe Mdogo&quot;</span>, <span class="st">&quot;Cheka&quot;</span>)
+<span class="kw">class</span>(kata)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li><code>Factor</code>: These are strings from finite set of values. For example, we might wish to store a variable that records gender of people. You can check if the data is factor with <code>is.factor()</code> and use <code>as.factor()</code> to convert <code>string</code> to <code>factor</code></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sex =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>)
+sex =<span class="st"> </span><span class="kw">as.factor</span>(sex)
+<span class="kw">class</span>(sex)</code></pre></div>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(sex)</code></pre></div>
+<pre><code>## [1] &quot;Female&quot; &quot;Male&quot;</code></pre>
+<p>Often times we need to know the possible groups that are in the factor data. This can be achieved with the <code>levels()</code> function</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(sex)</code></pre></div>
+<pre><code>## [1] &quot;Female&quot; &quot;Male&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(kata)</code></pre></div>
+<pre><code>## NULL</code></pre>
+<p>Often we wish to take a continuous numerical vector and transform it into a factor. The function <code>cut()</code> takes a vector of numerical data and creates a factor based on your give cut-points. Let us make a fictional income of 508 people with <code>rnorm()</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">income =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">508</span>, <span class="dt">mean =</span> <span class="dv">500</span>, <span class="dt">sd =</span> <span class="dv">80</span>)
+<span class="kw">hist</span>(income, <span class="dt">col =</span> <span class="st">&quot;green&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;&quot;</span>, <span class="dt">las =</span> <span class="dv">1</span>, <span class="dt">xlab =</span> <span class="st">&quot;Individual Income&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:hist"></span>
+<img src="r_basic_files/figure-html/hist-1.png" alt="Income distribution" width="672" />
+<p class="caption">
+Figure 2.1: Income distribution
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#mosaic::plotDist(dist = &quot;norm&quot;, mean = 500, sd = 80)</span></code></pre></div>
+<p>We can now breaks the distribution into groups and make a simple plot as shown in figure <a href="getting-started.html#fig:bar">2.2</a>, where those with income less than 400 were about 50, followed with a group with income range between 400 and 500 of about 200 and 250 people receive income above 500</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">group =<span class="st"> </span><span class="kw">cut</span>(income, <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">300</span>,<span class="dv">400</span>,<span class="dv">500</span>,<span class="dv">800</span>),
+            <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Below 400&quot;</span>, <span class="st">&quot;400-500&quot;</span>, <span class="st">&quot;Above 500&quot;</span>))
+<span class="kw">is.factor</span>(group)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(group)</code></pre></div>
+<pre><code>## [1] &quot;Below 400&quot; &quot;400-500&quot;   &quot;Above 500&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(<span class="kw">table</span>(group), <span class="dt">las =</span> <span class="dv">1</span>, <span class="dt">horiz =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="dt">ylab =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;Group of Income&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:bar"></span>
+<img src="r_basic_files/figure-html/bar-1.png" alt="Barplot of grouped income" width="672" />
+<p class="caption">
+Figure 2.2: Barplot of grouped income
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data =<span class="st"> </span><span class="kw">data.frame</span>(group, income)</code></pre></div>
+<ol start="5" style="list-style-type: decimal">
+<li><p><code>Logicals</code>: This is a special case of a factor that can only take on the values <code>TRUE</code> and <code>FALSE</code>. R is case-sensitive, therefore you must always capitalize <code>TRUE</code> and <code>FALSE</code> in function in R.</p></li>
+<li><p><code>Date and time</code></p></li>
+</ol>
+</div>
+<div id="vectors" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> Vectors</h3>
+<p>Ofen times we want to store a set of numbers in once place. One way to do this is using the vectors in R. Vectors store severl numbers– a set of numbers in one container. let us look on the example below</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">id =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)
+people =<span class="st"> </span><span class="kw">c</span>(<span class="dv">158</span>,<span class="dv">659</span>,<span class="dv">782</span>,<span class="dv">659</span>,<span class="dv">759</span>)
+street =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Dege&quot;</span>, <span class="st">&quot;Mchikichini&quot;</span>, <span class="st">&quot;Mwembe Mdogo&quot;</span>, <span class="st">&quot;Mwongozo&quot;</span>,  <span class="st">&quot;Cheka&quot;</span>)</code></pre></div>
+<p>Notice that the <code>c()</code> function, which is short for concatenate wraps the list of numbers. The <code>c()</code> function combines all numbers together into one container. Notice also that all the individual numbers are separated with a comma. The comma is reffered to an an item-delimiter. It allows R to hold each of the numbers separately. This is vital as without the item-delimiter, R will treat a vector as one big, unsperated number.</p>
+</div>
+<div id="indexing-the-element" class="section level3">
+<h3><span class="header-section-number">2.5.3</span> Indexing the element</h3>
+<p>One advantage of vector is that you can extract individual element in the vector object by indexing, which is accomplished using the square bracket as illustrated below.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">id[<span class="dv">5</span>]</code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">people[<span class="dv">5</span>]</code></pre></div>
+<pre><code>## [1] 759</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">street[<span class="dv">5</span>]</code></pre></div>
+<pre><code>## [1] &quot;Cheka&quot;</code></pre>
+<p>Apart from extracting single element, indexing allows to extract a range of element in a vector. This is extremely important because it allows to subset a portion of data in a vector. A colon operator is used to extract a range of data</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">street[<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>]</code></pre></div>
+<pre><code>## [1] &quot;Mchikichini&quot;  &quot;Mwembe Mdogo&quot; &quot;Mwongozo&quot;</code></pre>
+</div>
+<div id="adding-and-replacing-an-element-in-a-vector" class="section level3">
+<h3><span class="header-section-number">2.5.4</span> Adding and Replacing an element in a vector</h3>
+<p>It is possible to add element of an axisting vecor. Here ia an example</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">id[<span class="dv">6</span>] =<span class="st"> </span><span class="dv">6</span>
+people[<span class="dv">6</span>] =<span class="st"> </span><span class="dv">578</span>
+street[<span class="dv">6</span>] =<span class="st"> &quot;Mwongozo&quot;</span></code></pre></div>
+<p>Sometimes you may need to replace an element from a vector, this can be achieved with indexing</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">people[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">750</span></code></pre></div>
+</div>
+<div id="number-of-elements-in-a-vector" class="section level3">
+<h3><span class="header-section-number">2.5.5</span> Number of elements in a vector</h3>
+<p>Sometimes you may have a long vector and want to know the numbers of elements in the object. R has <code>length()</code> function that allows you to query the vector and print the answer</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(people)</code></pre></div>
+<pre><code>## [1] 6</code></pre>
+</div>
+</div>
+<div id="data-frame" class="section level2">
+<h2><span class="header-section-number">2.6</span> Data Frame</h2>
+<p><code>data.frame</code> is very much like a simple Excel spreadsheet where each column represents a variable type and each row represent observations. Perhaps the easiest way to create a data frame is to parse vectors in <code>data.frame()</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create vectors</span>
+Name  =<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Bob&#39;</span>,<span class="st">&#39;Jeff&#39;</span>,<span class="st">&#39;Mary&#39;</span>)
+Score =<span class="st"> </span><span class="kw">c</span>(<span class="dv">90</span>, <span class="dv">75</span>, <span class="dv">92</span>)
+
+dt =<span class="st"> </span><span class="kw">data.frame</span>(Name, Score)</code></pre></div>
+<p>Table <a href="getting-started.html#tab:tab21">2.1</a> show the the data frame created by fusing the two vectors together.</p>
+<table>
+<caption>
+<span id="tab:tab21">Table 2.1: </span>Variables in the data frame
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Name
+</th>
+<th style="text-align:center;">
+Score
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;width: 4cm; ">
+Bob
+</td>
+<td style="text-align:center;width: 4cm; ">
+90
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4cm; ">
+Jeff
+</td>
+<td style="text-align:center;width: 4cm; ">
+75
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4cm; ">
+Mary
+</td>
+<td style="text-align:center;width: 4cm; ">
+92
+</td>
+</tr>
+</tbody>
+</table>
+<p>Because the columns have meaning and we have given them column names, it is desirable to want to access an element by the name of the column as opposed to the column number.In large Excel spreadsheets I often get annoyed trying to remember which column something was. The <code>$</code>sign and <code>[]</code>are used in R to select variable from the data frame.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dt<span class="op">$</span>Name</code></pre></div>
+<pre><code>## [1] Bob  Jeff Mary
+## Levels: Bob Jeff Mary</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dt[,<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] Bob  Jeff Mary
+## Levels: Bob Jeff Mary</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dt<span class="op">$</span>Score</code></pre></div>
+<pre><code>## [1] 90 75 92</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dt[,<span class="dv">2</span>]</code></pre></div>
+<pre><code>## [1] 90 75 92</code></pre>
+<p>R has build in dataset that we can use for illustration. For example, <span class="citation">Longley (<a href="#ref-longley">1967</a>)</span> created a <code>longley</code> dataset, which is data frame with 7 economic variables observed every year from 1947 ti 1962 (Table <a href="getting-started.html#tab:tab12">2.2</a>). We can add the data in the workspace with <code>data()</code> function</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(longley)
+
+longley <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&quot;Longleys&#39; Economic dataset&quot;</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>, <span class="dt">row.names =</span> F) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">column_spec</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>, <span class="dt">width =</span> <span class="st">&quot;3cm&quot;</span>)</code></pre></div>
+<table>
+<caption>
+<span id="tab:tab12">Table 2.2: </span>Longleys’ Economic dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+GNP.deflator
+</th>
+<th style="text-align:center;">
+GNP
+</th>
+<th style="text-align:center;">
+Unemployed
+</th>
+<th style="text-align:center;">
+Armed.Forces
+</th>
+<th style="text-align:center;">
+Population
+</th>
+<th style="text-align:center;">
+Year
+</th>
+<th style="text-align:center;">
+Employed
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;width: 3cm; ">
+83.0
+</td>
+<td style="text-align:center;width: 3cm; ">
+234.289
+</td>
+<td style="text-align:center;width: 3cm; ">
+235.6
+</td>
+<td style="text-align:center;width: 3cm; ">
+159.0
+</td>
+<td style="text-align:center;width: 3cm; ">
+107.608
+</td>
+<td style="text-align:center;width: 3cm; ">
+1947
+</td>
+<td style="text-align:center;width: 3cm; ">
+60.323
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; ">
+88.5
+</td>
+<td style="text-align:center;width: 3cm; ">
+259.426
+</td>
+<td style="text-align:center;width: 3cm; ">
+232.5
+</td>
+<td style="text-align:center;width: 3cm; ">
+145.6
+</td>
+<td style="text-align:center;width: 3cm; ">
+108.632
+</td>
+<td style="text-align:center;width: 3cm; ">
+1948
+</td>
+<td style="text-align:center;width: 3cm; ">
+61.122
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; ">
+88.2
+</td>
+<td style="text-align:center;width: 3cm; ">
+258.054
+</td>
+<td style="text-align:center;width: 3cm; ">
+368.2
+</td>
+<td style="text-align:center;width: 3cm; ">
+161.6
+</td>
+<td style="text-align:center;width: 3cm; ">
+109.773
+</td>
+<td style="text-align:center;width: 3cm; ">
+1949
+</td>
+<td style="text-align:center;width: 3cm; ">
+60.171
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; ">
+89.5
+</td>
+<td style="text-align:center;width: 3cm; ">
+284.599
+</td>
+<td style="text-align:center;width: 3cm; ">
+335.1
+</td>
+<td style="text-align:center;width: 3cm; ">
+165.0
+</td>
+<td style="text-align:center;width: 3cm; ">
+110.929
+</td>
+<td style="text-align:center;width: 3cm; ">
+1950
+</td>
+<td style="text-align:center;width: 3cm; ">
+61.187
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; ">
+96.2
+</td>
+<td style="text-align:center;width: 3cm; ">
+328.975
+</td>
+<td style="text-align:center;width: 3cm; ">
+209.9
+</td>
+<td style="text-align:center;width: 3cm; ">
+309.9
+</td>
+<td style="text-align:center;width: 3cm; ">
+112.075
+</td>
+<td style="text-align:center;width: 3cm; ">
+1951
+</td>
+<td style="text-align:center;width: 3cm; ">
+63.221
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; ">
+98.1
+</td>
+<td style="text-align:center;width: 3cm; ">
+346.999
+</td>
+<td style="text-align:center;width: 3cm; ">
+193.2
+</td>
+<td style="text-align:center;width: 3cm; ">
+359.4
+</td>
+<td style="text-align:center;width: 3cm; ">
+113.270
+</td>
+<td style="text-align:center;width: 3cm; ">
+1952
+</td>
+<td style="text-align:center;width: 3cm; ">
+63.639
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; ">
+99.0
+</td>
+<td style="text-align:center;width: 3cm; ">
+365.385
+</td>
+<td style="text-align:center;width: 3cm; ">
+187.0
+</td>
+<td style="text-align:center;width: 3cm; ">
+354.7
+</td>
+<td style="text-align:center;width: 3cm; ">
+115.094
+</td>
+<td style="text-align:center;width: 3cm; ">
+1953
+</td>
+<td style="text-align:center;width: 3cm; ">
+64.989
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; ">
+100.0
+</td>
+<td style="text-align:center;width: 3cm; ">
+363.112
+</td>
+<td style="text-align:center;width: 3cm; ">
+357.8
+</td>
+<td style="text-align:center;width: 3cm; ">
+335.0
+</td>
+<td style="text-align:center;width: 3cm; ">
+116.219
+</td>
+<td style="text-align:center;width: 3cm; ">
+1954
+</td>
+<td style="text-align:center;width: 3cm; ">
+63.761
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; ">
+101.2
+</td>
+<td style="text-align:center;width: 3cm; ">
+397.469
+</td>
+<td style="text-align:center;width: 3cm; ">
+290.4
+</td>
+<td style="text-align:center;width: 3cm; ">
+304.8
+</td>
+<td style="text-align:center;width: 3cm; ">
+117.388
+</td>
+<td style="text-align:center;width: 3cm; ">
+1955
+</td>
+<td style="text-align:center;width: 3cm; ">
+66.019
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; ">
+104.6
+</td>
+<td style="text-align:center;width: 3cm; ">
+419.180
+</td>
+<td style="text-align:center;width: 3cm; ">
+282.2
+</td>
+<td style="text-align:center;width: 3cm; ">
+285.7
+</td>
+<td style="text-align:center;width: 3cm; ">
+118.734
+</td>
+<td style="text-align:center;width: 3cm; ">
+1956
+</td>
+<td style="text-align:center;width: 3cm; ">
+67.857
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; ">
+108.4
+</td>
+<td style="text-align:center;width: 3cm; ">
+442.769
+</td>
+<td style="text-align:center;width: 3cm; ">
+293.6
+</td>
+<td style="text-align:center;width: 3cm; ">
+279.8
+</td>
+<td style="text-align:center;width: 3cm; ">
+120.445
+</td>
+<td style="text-align:center;width: 3cm; ">
+1957
+</td>
+<td style="text-align:center;width: 3cm; ">
+68.169
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; ">
+110.8
+</td>
+<td style="text-align:center;width: 3cm; ">
+444.546
+</td>
+<td style="text-align:center;width: 3cm; ">
+468.1
+</td>
+<td style="text-align:center;width: 3cm; ">
+263.7
+</td>
+<td style="text-align:center;width: 3cm; ">
+121.950
+</td>
+<td style="text-align:center;width: 3cm; ">
+1958
+</td>
+<td style="text-align:center;width: 3cm; ">
+66.513
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; ">
+112.6
+</td>
+<td style="text-align:center;width: 3cm; ">
+482.704
+</td>
+<td style="text-align:center;width: 3cm; ">
+381.3
+</td>
+<td style="text-align:center;width: 3cm; ">
+255.2
+</td>
+<td style="text-align:center;width: 3cm; ">
+123.366
+</td>
+<td style="text-align:center;width: 3cm; ">
+1959
+</td>
+<td style="text-align:center;width: 3cm; ">
+68.655
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; ">
+114.2
+</td>
+<td style="text-align:center;width: 3cm; ">
+502.601
+</td>
+<td style="text-align:center;width: 3cm; ">
+393.1
+</td>
+<td style="text-align:center;width: 3cm; ">
+251.4
+</td>
+<td style="text-align:center;width: 3cm; ">
+125.368
+</td>
+<td style="text-align:center;width: 3cm; ">
+1960
+</td>
+<td style="text-align:center;width: 3cm; ">
+69.564
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; ">
+115.7
+</td>
+<td style="text-align:center;width: 3cm; ">
+518.173
+</td>
+<td style="text-align:center;width: 3cm; ">
+480.6
+</td>
+<td style="text-align:center;width: 3cm; ">
+257.2
+</td>
+<td style="text-align:center;width: 3cm; ">
+127.852
+</td>
+<td style="text-align:center;width: 3cm; ">
+1961
+</td>
+<td style="text-align:center;width: 3cm; ">
+69.331
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 3cm; ">
+116.9
+</td>
+<td style="text-align:center;width: 3cm; ">
+554.894
+</td>
+<td style="text-align:center;width: 3cm; ">
+400.7
+</td>
+<td style="text-align:center;width: 3cm; ">
+282.7
+</td>
+<td style="text-align:center;width: 3cm; ">
+130.081
+</td>
+<td style="text-align:center;width: 3cm; ">
+1962
+</td>
+<td style="text-align:center;width: 3cm; ">
+70.551
+</td>
+</tr>
+</tbody>
+</table>
+<p>Sometimes you may need to create set of values and store them in vectors, then combine the vectors into a data frame. Let us see how this can be done. First create three vectors. One contains id for ten individuals, the second vector hold the time each individual signed in the attendane book and the third vector is the distance of each individual from office. We can concatenate the set of values to make vectors.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">id  =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)
+
+time =<span class="st"> </span><span class="kw">ymd_hms</span>(<span class="kw">c</span>(<span class="st">&quot;2018-11-20 06:35:25 EAT&quot;</span>, <span class="st">&quot;2018-11-20 06:52:05 EAT&quot;</span>, 
+                 <span class="st">&quot;2018-11-20 07:08:45 EAT&quot;</span>, <span class="st">&quot;2018-11-20 07:25:25 EAT&quot;</span>, 
+                 <span class="st">&quot;2018-11-20 07:42:05 EAT&quot;</span>, <span class="st">&quot;2018-11-20 07:58:45 EAT&quot;</span>, 
+                 <span class="st">&quot;2018-11-20 08:15:25 EAT&quot;</span>, <span class="st">&quot;2018-11-20 08:32:05 EAT&quot;</span>, 
+                 <span class="st">&quot;2018-11-20 08:48:45 EAT&quot;</span>, <span class="st">&quot;2018-11-20 09:05:25 EAT&quot;</span>), <span class="dt">tz =</span> <span class="st">&quot;&quot;</span>)
+
+distance =<span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">85</span>, <span class="dv">45</span>, <span class="dv">69</span>, <span class="dv">42</span>,  <span class="dv">52</span>, <span class="dv">6</span>, <span class="dv">45</span>, <span class="dv">36</span>, <span class="dv">7</span>)</code></pre></div>
+<p>Once we have the vectors that have the same length dimension, we can use the function <code>data.frame()</code> to combine the the three vectors into one data frame shown in table <a href="getting-started.html#tab:tab22">2.3</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arrival =<span class="st"> </span><span class="kw">data.frame</span>(id, time, distance)</code></pre></div>
+<table>
+<caption>
+<span id="tab:tab22">Table 2.3: </span>The time employees enter into the office with the distance from their residential areas to the office
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+IDs
+</th>
+<th style="text-align:left;">
+Time
+</th>
+<th style="text-align:right;">
+Distance
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;width: 4cm; ">
+1
+</td>
+<td style="text-align:left;width: 4cm; ">
+2018-11-20 06:35:25
+</td>
+<td style="text-align:right;width: 4cm; ">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 4cm; ">
+2
+</td>
+<td style="text-align:left;width: 4cm; ">
+2018-11-20 06:52:05
+</td>
+<td style="text-align:right;width: 4cm; ">
+85
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 4cm; ">
+3
+</td>
+<td style="text-align:left;width: 4cm; ">
+2018-11-20 07:08:45
+</td>
+<td style="text-align:right;width: 4cm; ">
+45
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 4cm; ">
+4
+</td>
+<td style="text-align:left;width: 4cm; ">
+2018-11-20 07:25:25
+</td>
+<td style="text-align:right;width: 4cm; ">
+69
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 4cm; ">
+5
+</td>
+<td style="text-align:left;width: 4cm; ">
+2018-11-20 07:42:05
+</td>
+<td style="text-align:right;width: 4cm; ">
+42
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 4cm; ">
+6
+</td>
+<td style="text-align:left;width: 4cm; ">
+2018-11-20 07:58:45
+</td>
+<td style="text-align:right;width: 4cm; ">
+52
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 4cm; ">
+7
+</td>
+<td style="text-align:left;width: 4cm; ">
+2018-11-20 08:15:25
+</td>
+<td style="text-align:right;width: 4cm; ">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 4cm; ">
+8
+</td>
+<td style="text-align:left;width: 4cm; ">
+2018-11-20 08:32:05
+</td>
+<td style="text-align:right;width: 4cm; ">
+45
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 4cm; ">
+9
+</td>
+<td style="text-align:left;width: 4cm; ">
+2018-11-20 08:48:45
+</td>
+<td style="text-align:right;width: 4cm; ">
+36
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 4cm; ">
+10
+</td>
+<td style="text-align:left;width: 4cm; ">
+2018-11-20 09:05:25
+</td>
+<td style="text-align:right;width: 4cm; ">
+7
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="exercise" class="section level2">
+<h2><span class="header-section-number">2.7</span> Exercise</h2>
+<ol style="list-style-type: decimal">
+<li>Create a vector of character strings with six elements</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">test &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;red&#39;</span>,<span class="st">&#39;red&#39;</span>,<span class="st">&#39;blue&#39;</span>,<span class="st">&#39;yellow&#39;</span>,<span class="st">&#39;blue&#39;</span>,<span class="st">&#39;green&#39;</span>)</code></pre></div>
+<p>and then</p>
+<ul>
+<li>Transform the test vector just you created into a factor.</li>
+<li>Use the <code>levels()</code> command to determine the levels (and order) of the factor you just created.</li>
+<li>Transform the factor you just created into integers. Comment on the relationship between the integers and the order of the levels you found in part (b).</li>
+<li>Use some sort of comparison to create a vector that identifies which factor elements are the red group.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Suppose we vectors that give a students name, their GPA, and their major. We want to come up with a list of forestry students with a GPA of greater than 3.0.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Adam&#39;</span>,<span class="st">&#39;Benjamin&#39;</span>,<span class="st">&#39;Caleb&#39;</span>,<span class="st">&#39;Daniel&#39;</span>,<span class="st">&#39;Ephriam&#39;</span>, <span class="st">&#39;Frank&#39;</span>,<span class="st">&#39;Gideon&#39;</span>)
+GPA &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.2</span>, <span class="fl">3.8</span>, <span class="fl">2.6</span>, <span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">3.7</span>, <span class="fl">4.0</span>)
+Major &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Math&#39;</span>,<span class="st">&#39;Forestry&#39;</span>,<span class="st">&#39;Biology&#39;</span>,<span class="st">&#39;Forestry&#39;</span>,<span class="st">&#39;Forestry&#39;</span>,<span class="st">&#39;Math&#39;</span>,<span class="st">&#39;Forestry&#39;</span>)</code></pre></div>
+<ul>
+<li>Create a vector of TRUE/FALSE values that indicate whether the students GPA is greater than 3.0.</li>
+<li>Create a vector of TRUE/FALSE values that indicate whether the students’ major is forestry.</li>
+<li>Create a vector of TRUE/FALSE values that indicates if a student has a GPA greater than 3.0 and is a forestry major.</li>
+<li>Convert the vector of TRUE/FALSE values in part (c) to integer values using the as.numeric() function. Which numeric value corresponds to TRUE?</li>
+<li>Sum (using the sum() function) the vector you created to count the number of students with GPA &gt; 3.0 and are a forestry major.</li>
+</ul>
+</div>
+<div id="exercise-1" class="section level2">
+<h2><span class="header-section-number">2.8</span> Exercise</h2>
+<ol style="list-style-type: decimal">
+<li>Create a data.frame named my.trees that has the following columns:</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Girth =<span class="st"> </span><span class="kw">c</span>(<span class="fl">8.3</span>, <span class="fl">8.6</span>, <span class="fl">8.8</span>, <span class="fl">10.5</span>, <span class="fl">10.7</span>, <span class="fl">10.8</span>, <span class="fl">11.0</span>)
+Height=<span class="st"> </span><span class="kw">c</span>(<span class="dv">70</span>, <span class="dv">65</span>, <span class="dv">63</span>, <span class="dv">72</span>, <span class="dv">81</span>, <span class="dv">83</span>, <span class="dv">66</span>)
+Volume=<span class="st"> </span><span class="kw">c</span>(<span class="fl">10.3</span>, <span class="fl">10.3</span>, <span class="fl">10.2</span>, <span class="fl">16.4</span>, <span class="fl">18.8</span>, <span class="fl">19.7</span>, <span class="fl">15.6</span>)</code></pre></div>
+<ol style="list-style-type: lower-alpha">
+<li>Extract the third observation (i.e. the third row)</li>
+<li>Extract the Girth column referring to it by name (don’t use whatever order you placed the columns in).</li>
+<li>Print out a data frame of all the observations except for the fourth observation. (i.e. Remove the fourth observation/row.)</li>
+</ol>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-xia">
+<p>Xia, Yinglin, Jun Sun, and Ding-Geng Chen. 2018. “Introduction to R, Rstudio and Ggplot2.” In <em>Statistical Analysis of Microbiome Data with R</em>, 77–127. Springer.</p>
+</div>
+<div id="ref-bradley">
+<p>Boehmke, Bradley C. 2016. <em>Data Wrangling with R</em>. Book. Springer.</p>
+</div>
+<div id="ref-longley">
+<p>Longley, James W. 1967. “An Appraisal of Least Squares Programs for the Electronic Computer from the Point of View of the User.” <em>Journal of the American Statistical Association</em> 62 (319). Taylor &amp; Francis: 819–41.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>The state of preceding priority<a href="getting-started.html#fnref4">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="why-programming.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="readr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["r_basic.pdf", "r_basic.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

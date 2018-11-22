@@ -1,23 +1,68 @@
 
-# R Rrogramming Language with Rstudio
-In this section, I switfly introduce the syntax of R language. R is an interpreted language---the expression specified in this languages executes line by line similar to other languages like python or ruby rather than compiling the source code an executable chunk as in C++. One of the power of R language is its dynamic---infers the data types of the variables based on the context. We do not need to declare variables separately. R is considered as *esoteric* because its syntax are easily understood by people from different fields. 
+# Getting started
 
-## Operators
-R provides arithmetric operators for `addition (+)` , `substraction (-)`, `multiplication (*)`, `division (/)`, and `exponential (^)`.
+This chapter provides example of foundational programming concepts in R. These include the basic tasks like importing data in R, manipulating data, visualizing the data and conduct explatory and inferencial statistics. These basics will provide building blocks for handling data, analysing data and make plots with R. In the examples, R codes are presented in the light gray chunk blocks. Inside these chunk blocks, lines that begin with two number signs (##) are the outputs of the preceding lines of codes that have been executed and lines without the number signs are are the code that generated the output.
 
+## Maths in R
 ### Arithmetric
-Because of the convinient, we will use **Rstudio**. In console just write an expression `2 + 3` and click enter. Unlike other programming languages, coding in R does not need to terminate the expression or lines with a semicolon. As we expected, R returns the answer as 5
+**R** provides standard arithmetic operators for `addition (+)` , `substraction (-)`, `multiplication (*)`, `division (/)`, and `exponential (^)`.
+Because of the convinient, we will use **Rstudio**. In console just write an expression `2 + 3` and click enter.
+
 ```{r}
 2+3
 ```
 
+As we expected, R returns the answer as 5. Unlike other programming languages, coding in R does not need to terminate the expression or lines with a semicolon. 
+ 
+```{r}
+10-4
+```
+
+```{r}
+23*2
+```
+
+```{r}
+8/2
+```
+
+```{r}
+5^2
+```
+
+```{r}
+5%%3
+```
+
+```{r}
+5%%5
+
+
+```
+
+### Precedence
+R can be used to express complicated mathematical formulars. For anyone unfamiliar with writing formulas on computers, it is important to recognize that R will make assumptions abot which part of the formular to compute first. This is called **predecence**^[The state of preceding priority]. This i similar to a traditional and common mathematical term *BODMAS*. What is the answer for the mathematical expression in the chunk below. The answer should be 14. Accordings to BODMAS, the first operation in the expression is divide `8/2 = 4`, then multiply ` 4*3 = 12`, then addition `12+5 = 17` and last operation is substract `17-3 = 14` to obtain 14.
+```{r}
+5-3+8/2*3
+```
+
+## Assignment operator
 We often use an assignment operator to assing the value of an expression to a variable. R has two assignment operators---the conventional assignment operator `=`, which is present in most programming languages, and the arrows `<-` and `->` which are specific to R. The expression `x = 5` assign the value 5 to x, likewise the expression `x <- 5` and `5 -> x` have the same effect. Throughout this book, we stick on the conventional assignment operator `(=)`
 
+### Variables
 We can create expression using variables. for instance, we assign the value 5 to the variable x and evaluate the square of x using the exponential `^` operator. 
 ```{r}
 x = 5
 x^2
 ```
+
+R has many types of variables that store different kinds of data in different ways. Example you can store a list of numbers or text
+```{r}
+days= c("Monday", "Tuesday", "Wednesday")
+speed  = c(128, 158, 89)
+```
+
+
 R has peculiar syntax when it comes to variable names. The dot character `.`
 has a completely different meaning as compared to other programming languages.
 In R, we can use `.` in the variable names, so x.1 and x_1 are perfectly valid. In
@@ -33,6 +78,7 @@ The return value of a function is the last expression in the function
 body to be evaluated.
 
 R functions arguments can be matched positionally or by name.  So the following calls to `sd` are all equivalent
+
 ```{r}
 data = rnorm(25)
 sum(data)
@@ -41,43 +87,112 @@ mean(data)
 median(data)
 ```
 
+### Essential functions
 
-## Setting Working Directory
+R has many built-in functions that can be used fo a great variety of tasks. These can be suplemented with packages, which contains more functions bundled in one document. Here is a list of common and widely used functions
++ `rep()` --- repeates a value some number of times to make a list
++ `seq()` --- creates a sequence of values between a start and end number and spaced at certain interval
++ `aggregate()` --- used to bin data by condition
++ `table()` --- used to summarise categorical data
++ `plot()` --- graphical plots of data
++ `hist()` --- a function for plotting a histogram
++ `boxplot()` --- a function for plotting boxplot
++ `mean()` --- compute arithmetric mean
++ `sd()` --- compute arithmetric standard deviation
++ `sum()` --- compute the total of the set of elements
++ `length()` --- function to count the number of elements in a vector
+
+## Setting Working Directory {#wdirectory}
 
 @xia defined a working directory as a folder in your computer or server where you stores the raw data, codes and output for that specific project. This  folder is important in programming because it allows to read the data and write outputs to this working directory. In R you can set working directory with `setwd()` function and check whether you are in the right working directory with the `getwd()` function. 
 
-```{r}
-# getwd()
-setwd("E:/Data Manipulation/R_dege/")
+```{r eval=FALSE}
+
+getwd()
+
+setwd("./Data Manipulation/R_dege/")
 ```
 
-## Loading packages
-R is made up of many user-written package. The base version of R allows user to get started in R, but the capabilities of base R are limited and additional packages are required for smooth performance of working with data. Packages are collections of R functions, data, and compiled code in a well-defined format. The directory where packages are stored is called the library. R comes with a standard set of packages. Others are available for download and installation. Once installed, they have to be loaded into the session to be used. 
+## Packages or Libraries
+R is made up of many user-written package. The base version of R allows user to get started in R, but the capabilities of base R are limited and additional packages are required for smooth performance of working with data. packages are collections of R functions, data, and compiled code in a well-defined format. A package bundles together code, data, documentation and tests and provide ana easy method to share with others. Until November 2018, there were 1300+ packages available for download on CRAN and countless more avaialble trought GitHub. The huge number of package has made R so successful and the chance is that some one has already created a package that can solve the problem you about to tackle and you can benefit from their work by downloading their package.
+
+
+### Installing packages
+R comes with a standard set of packages. Others are available for download and installation. The primary of stable package is the CRAN. In R you can install a package from CRAN with an `install.packages("packagename")` function that allows you to install the package you want to use into R. In have already installed the **ggplot2** packages in my machine, so if you want to install in your machine you can simply uncomment the chunk below by removing the hash tag (#)
+
+```{r}
+## install.packages("ggplot2")
+## install.packages("dplyr")
+## install.packages("lubridate")
+## install.packages("factoextra")
+## install.packages("readxl")
+## install.packages("kableextra")
+## install.packages("haven")
+## install.packages("readr")
+```
+
+### Loading packages
+Once package is downloaded and installed in your computer, you have to them into the session to access its functions and resources of the package. Yu can load the packages you want ot use with ether `library()` or `required()` function. 
+
 ```{r packages-data, warning=FALSE, message=FALSE, comment=""}
 require(dplyr)
-require(readr)
+library(readr)
 require(lubridate)
-require(readxl)
+library(readxl)
 require(haven)
-require(ggplot2)
+library(ggplot2)
 require(kableExtra)
 
 ```
 
-## Understanding Data in R
-### Data Types
-There are some basic data types that are commonly used
 
-1. `Integers`: These are integer numbers
+## Understanding Data in R
+
+Clearing the workspace is always recommended before working on a new R project to avoid name conflicts with provious projects. We can also clear all figures using `graphics.off()' function and clear the console with a combinantion of `CTRL+L`. It is a good code practise that a new R project start with the code in the chunk below:
+
+
 ```{r}
-int.1 = 1:9
-int.2 = seq(23, 1500, 68)
+rm(list = ls())
+graphics.off()
 ```
- You can check if the data is integer with `is.integer()` and can convert numeric value to an integer with `as.integer()` function.
- 
- 2. `Numeric`: These could be any number (whole or decimal number). You can check if the data is integer with `is.integer()`
+
+
+### Data Types
+
+R is a flexible language that allows to work with different kind of data format [@bradley]. This inluced integer, numeric, character, complex, dates and logical. The default data type or class in **R** is double precision---numeric. In a nutshell, R treats all kind of data into five categories but we deal with only four in this book. Before proceeding, we need to clear the workspace by typing `rm(list = ls())` after the prompt in the in a console. 
+
+1. `Integers`:Integer values do not have decimal places. They are commonly used for counting or indexing. 
+
 ```{r}
-num = seq(2.5, 45, 3.8)
+aa = c(20,68,78,50)
+```
+
+You can check if the data is integer with `is.integer()` and can convert numeric value to an integer with `as.integer()` 
+
+```{r}
+is.integer(aa)
+
+```
+
+You can query the class of the object with the `class()` to know the class of the object
+```{r}
+class(aa)
+
+```
+
+Although the object bb is integer as confirmed with `as.integer()` function, the `class()` ouput the answer as numeric. This is because the defaul type of number in r is numeric. However, you can use the function `as.integer()` to convert numeric value to integer
+```{r}
+class(as.integer(aa))
+```
+
+ 
+ 2. `Numeric`: The numeric class holds the set of real numbers --- decimal place numbers. The numeric class is more general than the integer class, and inclused the integer numbers. 
+ 
+ These could be any number (whole or decimal number). You can check if the data is integer with `is.integer()`
+```{r}
+bb = c(12.5, 45.68, 2.65)
+class(bb)
+is.numeric(bb)
 ```
  
 3. `Strings`: These collection of characters. This often are `text` data like names. You can check if the data is integer with `is.character()`
@@ -95,7 +210,9 @@ class(sex)
 levels(sex)
 
 ```
+
 Often times we need to know the possible groups that are in the factor data. This can be achieved with the `levels()` function
+
 ```{r}
 
 levels(sex)
@@ -133,6 +250,120 @@ data = data.frame(group, income)
 
 5. `Logicals`: This is a special case of a factor that can only take on the values `TRUE` and `FALSE`. R is case-sensitive, therefore you must always capitalize `TRUE` and `FALSE` in function in R.
 
+6. `Date and time`
+
+### Vectors
+Ofen times we want to store a set of numbers in once place. One way to do this is using the vectors in R. Vectors store severl numbers-- a set of numbers in one container. let us look on the example below
+```{r}
+id = c(1,2,3,4,5)
+people = c(158,659,782,659,759)
+street = c("Dege", "Mchikichini", "Mwembe Mdogo", "Mwongozo",  "Cheka")
+```
+Notice that the `c()` function, which is short for concatenate wraps the list of numbers. The `c()` function combines all numbers together into one container. Notice also that all the individual numbers are separated with a comma. The comma is reffered to an an item-delimiter. It allows R to hold each of the numbers separately. This is vital as without the item-delimiter, R will treat a vector as one big, unsperated number. 
+
+
+### Indexing the element
+One advantage of vector is that you can extract individual element in the vector object by indexing, which is accomplished using the square bracket as illustrated below.
+
+```{r}
+id[5]
+people[5]
+street[5]
+```
+Apart from extracting single element, indexing allows to extract a range of element in a vector. This is extremely important because it allows to subset a portion of data in a vector. A colon operator is used to extract a range of data
+```{r}
+street[2:4]
+```
+
+### Adding and Replacing an element in a vector
+It is possible to add element of an axisting vecor. Here ia an example
+```{r}
+id[6] = 6
+people[6] = 578
+street[6] = "Mwongozo"
+```
+
+Sometimes you may need to replace an element from a vector, this can be achieved with indexing
+```{r}
+people[1] = 750
+```
+
+### Number of elements in a vector
+Sometimes you may have a long vector and want to know the numbers of elements in the object. R has `length()` function that allows you to query the vector and print the answer
+```{r}
+length(people)
+```
+
+## Data Frame
+`data.frame` is very much like a simple Excel spreadsheet where each column represents a variable type and each row represent observations. Perhaps the easiest way to create a data frame is to parse vectors in `data.frame()` function.
+```{r}
+# create vectors
+Name  = c('Bob','Jeff','Mary')
+Score = c(90, 75, 92)
+
+dt = data.frame(Name, Score)
+```
+
+Table \@ref(tab:tab21) show the the data frame created by fusing the two vectors together.
+
+```{r tab21, echo=FALSE}
+dt %>% 
+  kable("html",caption = "Variables in the data frame", align = "c") %>%
+  column_spec(column = 1:2, width = "4cm")
+```
+
+Because the columns have meaning and we have given them column names, it is desirable to want to access an element by the name of the column as opposed to the column number.In large Excel spreadsheets I often get annoyed trying to remember which column something was. The `$`sign and `[]`are used in R to select variable from the data frame. 
+
+```{r}
+dt$Name
+dt[,1]
+```
+
+```{r}
+dt$Score
+dt[,2]
+```
+
+R has build in dataset that we can use for illustration. For example, @longley created a `longley` dataset, which is data frame with 7 economic variables observed every year from 1947 ti 1962 (Table \@ref(tab:tab12)). We can add the data in the workspace with `data()` function
+```{r tab12 }
+data(longley)
+
+longley %>% 
+  kable(caption = "Longleys' Economic dataset", align = "c", row.names = F) %>%
+  column_spec(1:7, width = "3cm")
+  
+```
+
+Sometimes you may need to create set of values and store them in vectors, then combine the vectors into a data frame. Let us see how this can be done. First create three vectors. One contains id for ten individuals, the second vector hold the time each individual signed in the attendane book and the third vector is the distance of each individual from office. We can concatenate the set of values to make vectors.
+
+```{r}
+id  = c(1,2,3,4,5,6,7,8,9,10)
+
+time = ymd_hms(c("2018-11-20 06:35:25 EAT", "2018-11-20 06:52:05 EAT", 
+                 "2018-11-20 07:08:45 EAT", "2018-11-20 07:25:25 EAT", 
+                 "2018-11-20 07:42:05 EAT", "2018-11-20 07:58:45 EAT", 
+                 "2018-11-20 08:15:25 EAT", "2018-11-20 08:32:05 EAT", 
+                 "2018-11-20 08:48:45 EAT", "2018-11-20 09:05:25 EAT"), tz = "")
+
+distance = c(20, 85, 45, 69, 42,  52, 6, 45, 36, 7)
+```
+
+Once we have the vectors that have the same length dimension, we can use the function `data.frame()` to combine the the three vectors into one data frame shown in table \@ref(tab:tab22)
+
+```{r}
+arrival = data.frame(id, time, distance)
+```
+
+```{r tab22, echo=FALSE}
+
+arrival %>% 
+  kable("html", col.names = c("IDs", "Time", "Distance"),
+        caption = "The time employees enter into the office with the distance from their residential areas to the office") %>%
+  column_spec(column = 1:3, width = "4cm")
+```
+
+
+
 ## Exercise
 1. Create a vector of character strings with six elements
 ```{r}
@@ -160,45 +391,6 @@ Major <- c('Math','Forestry','Biology','Forestry','Forestry','Math','Forestry')
   + Convert the vector of TRUE/FALSE values in part (c) to integer values using the as.numeric() function. Which numeric value corresponds to TRUE?
   + Sum (using the sum() function) the vector you created to count the number of students with GPA > 3.0 and are a forestry major.
   
-## Data Frame
-`data.frame` is very much like a simple Excel spreadsheet where each column represents a variable type and each row represent observations. Perhaps the easiest way to create a data frame is to parse vectors in `data.frame()` function.
-```{r}
-# create vectors
-Name  = c('Bob','Jeff','Mary')
-Score = c(90, 75, 92)
-
-dt = data.frame(Name, Score)
-```
-
-Table \@ref(tab:tab11) show the the data frame created by fusing the two vector together
-```{r}
-dt %>% 
-  kable("html",caption = "Variables in the data frame", align = "c") %>%
-  column_spec(column = 1:2, width = "4cm")
-```
-
-
-Because the columns have meaning and we have given them column names, it is desirable to want to access an element by the name of the column as opposed to the column number.In large Excel spreadsheets I often get annoyed trying to remember which column something was. The `$`sign and `[]`are used in R to select variable from the data frame. 
-
-```{r}
-dt$Name
-dt[,1]
-```
-
-```{r}
-dt$Score
-dt[,2]
-```
-
-R has build in dataset that we can use for illustration. For example, @longley created a `longley` dataset, which is data frame with 7 economic variables observed every year from 1947 ti 1962 (Table \@ref(tab:tab12)). We can add the data in the workspace with `data()` function
-```{r tab12 }
-data(longley)
-
-longley %>% 
-  kable(caption = "Longleys' Economic dataset", align = "c", row.names = F) %>%
-  column_spec(1:7, width = "3cm")
-  
-```
 
 
 ## Exercise
